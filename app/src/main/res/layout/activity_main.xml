@@ -29,4 +29,12 @@
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="131dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="549dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </android.support.constraint.ConstraintLayout>
