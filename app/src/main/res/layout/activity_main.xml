@@ -29,12 +29,4 @@
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="131dp"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="59dp" />
 </android.support.constraint.ConstraintLayout>
