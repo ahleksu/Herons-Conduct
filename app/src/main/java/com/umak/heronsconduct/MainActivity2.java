@@ -18,8 +18,7 @@ public class MainActivity2 extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main2);
 
-        Button signUp;
-        signUp = (Button)findViewById(R.id.btn_SignUp);
+        Button signUp = (Button)findViewById(R.id.btn_SignUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
