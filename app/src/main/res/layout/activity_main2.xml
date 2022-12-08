@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="337dp"
@@ -38,7 +39,7 @@
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="423dp"
         app:srcCompat="@drawable/onboard"
-        android:contentDescription="@string/image1" />
+        android:contentDescription="@string/image" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,7 +94,7 @@
         android:src="@drawable/ellipse" />
 
     <Button
-        android:id="@+id/btn_getStarted"
+        android:id="@+id/btn_SignUp"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
@@ -104,10 +105,29 @@
         android:layout_marginTop="695dp"
         android:layout_marginEnd="51dp"
         android:background="@drawable/get_started_button"
-        android:text="@string/get_started"
+        android:text="@string/sign_up"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textSize="12sp"
         app:iconTint="#BCFFFFFF" />
+
+    <Button
+        android:id="@+id/btn_signIn"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="760dp"
+        android:layout_marginEnd="51dp"
+        android:background="@drawable/get_started_button"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        app:iconTint="#BCFFFFFF" />
+
 
 </RelativeLayout>

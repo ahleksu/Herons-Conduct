@@ -5,12 +5,12 @@ import android.os.Bundle;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_register);
     }
 }
