@@ -20,7 +20,7 @@
         android:gravity="center"
         android:text="@string/welcome_to_n_disciplinary_management"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
 
@@ -56,7 +56,7 @@
         android:gravity="center"
         android:text="@string/start_monitor_your_violations_and_explore_n_the_university_s_rules_and_policy"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -93,7 +93,7 @@
         android:src="@drawable/ellipse" />
 
     <Button
-        android:id="@+id/btn_getStarted"
+        android:id="@+id/get_started"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
