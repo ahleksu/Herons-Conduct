@@ -17,15 +17,21 @@ public class Forgot_Password extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_forgot_password);
 
-
        Toolbar back = (Toolbar) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Forgot_Password.this, Login.class));
+               startActivity(new Intent(getApplicationContext(), Login.class));
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }

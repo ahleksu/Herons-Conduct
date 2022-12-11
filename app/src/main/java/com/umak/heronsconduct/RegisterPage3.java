@@ -7,23 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Objects;
-
-public class Register extends AppCompatActivity {
+public class RegisterPage3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_register_page3);
 
-        Button Next = (Button) findViewById(R.id.Next);
-        Next.setOnClickListener(new View.OnClickListener() {
+        Button Back = (Button) findViewById(R.id.BackRegisterPage3);
+        Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Register.this, RegisterPage2.class));
+                startActivity(new Intent(RegisterPage3.this, RegisterPage2.class));
             }
         });
-
     }
 }

@@ -26,7 +26,7 @@
 
     <ImageView
         android:id="@+id/onBoard_View"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -37,8 +37,8 @@
         android:layout_marginTop="110dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="423dp"
-        app:srcCompat="@drawable/onboard"
-        android:contentDescription="@string/image1" />
+        android:contentDescription="@string/image1"
+        app:srcCompat="@drawable/onboard" />
 
     <TextView
         android:layout_width="wrap_content"

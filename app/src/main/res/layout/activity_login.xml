@@ -9,12 +9,20 @@
     android:fitsSystemWindows="true"
     tools:context=".Login">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:scrollbarThumbHorizontal="@null"
         android:scrollbarThumbVertical="@null">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/go_back_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:theme="@style/TransparentToolbar"
+            app:navigationIcon="@drawable/x"/>
 
         <LinearLayout
             android:layout_centerVertical="true"
@@ -71,6 +79,7 @@
                         android:imeOptions="actionNext"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
+                        android:maxLength="15"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -99,13 +108,14 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
                         android:background="@android:color/transparent"
-                        android:drawableStart="@drawable/lock"
+                        android:drawableStart="@drawable/ic_lock"
                         android:drawablePadding="12dp"
                         android:hint="@string/password"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
+                        android:maxLength="15"
                         android:autofillHints="" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
