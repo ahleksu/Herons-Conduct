@@ -38,6 +38,7 @@ public class On_Boarding extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
