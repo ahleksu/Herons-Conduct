@@ -32,6 +32,7 @@ public class Forgot_Password extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), Login.class));
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }

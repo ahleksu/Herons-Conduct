@@ -24,11 +24,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
-<<<<<<< HEAD
         android:drawableEnd="@drawable/ic_lock"
-=======
-        android:drawableEnd="@drawable/e8"
->>>>>>> origin/test
         android:drawablePadding="12dp"
         android:inputType=""
         android:text=" Password"
@@ -47,11 +43,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_input"
-<<<<<<< HEAD
         android:drawableEnd="@drawable/ic_lock"
-=======
-        android:drawableEnd="@drawable/e9"
->>>>>>> origin/test
         android:drawablePadding="12dp"
         android:inputType=""
         android:text=" Confirm Password"

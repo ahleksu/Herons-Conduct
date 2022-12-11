@@ -55,6 +55,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), On_Boarding.class));
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }
