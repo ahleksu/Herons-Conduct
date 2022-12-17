@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/android_sma"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F8F8">
+
+    <TextView
+        android:id="@+id/select_user"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/select_user_type"
+        android:textColor="#243A69"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        android:onClick="student"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/student"
+            android:layout_width="200dp"
+            android:layout_height="190dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/svg_student_reg"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/student"
+            android:textColor="#243A69"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        android:onClick="parent"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/parent"
+            android:layout_width="200dp"
+            android:layout_height="190dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/svg_parent_reg"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/parent"
+            android:textColor="#243A69"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- parent end -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="510dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        android:onClick="reporter"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/reporter"
+            android:layout_width="200dp"
+            android:layout_height="190dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/svg_reporter_reg"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/reporter"
+            android:textColor="#243A69"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+
+

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F8F8"
+    tools:context=".Student_Register">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/x_register"
+        android:onClick="x_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:theme="@style/TransparentToolbar"
+        app:navigationIcon="@drawable/x"
+        tools:ignore="UsingOnClickInXml" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="784dp"
+        android:orientation="vertical"
+        android:scrollbarThumbHorizontal="@null"
+        android:scrollbarThumbVertical="@null">
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="32dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/svg_student_reg"
+                android:contentDescription="@string/blue_login" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:text="Creating account as a student"
+                android:textColor="#696969"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/user"
+                        android:drawablePadding="12dp"
+                        android:hint="Name"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_UEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/mail"
+                        android:drawablePadding="12dp"
+                        android:hint="UMak Email"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_stuID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/id"
+                        android:drawablePadding="12dp"
+                        android:hint="Student ID"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/e7"
+                        android:drawablePadding="12dp"
+                        android:hint="Phone number"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+            <Button
+                android:id="@+id/NextRegisterPage"
+                style="@style/Button1"
+                android:layout_width="342dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:text="Next" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                style="@style/TextyButton"
+                android:gravity="center"
+                android:id="@+id/login_haveAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:textColor="#243A69"
+                android:onClick="login_reg1"
+                android:text="@string/already_have_an_account_n_login" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

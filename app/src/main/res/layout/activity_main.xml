@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F0F8F8"
     tools:context=".MainActivity">
 
     <TextView
@@ -16,7 +17,7 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="37dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/metrophobic"
         android:gravity="center"
         android:text="@string/welcome_to_n_disciplinary_management"
         android:textColor="@color/black"
@@ -48,11 +49,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="335dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="330dp"
+        android:fontFamily="@font/metrophobic"
         android:gravity="center"
         android:text="@string/start_monitor_your_violations_and_explore_n_the_university_s_rules_and_policy"
         android:textColor="@color/black"
@@ -65,8 +66,8 @@
         android:layout_height="16dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="605dp"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="530dp"
         android:contentDescription="@string/circle"
         android:src="@drawable/ellipse" />
 
@@ -76,8 +77,8 @@
         android:layout_height="16dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="197dp"
-        android:layout_marginTop="605dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="530dp"
         android:contentDescription="@string/circle2"
         android:src="@drawable/ellipse" />
 
@@ -87,8 +88,9 @@
         android:layout_height="16dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="605dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="530dp"
+        android:layout_marginEnd="141dp"
         android:contentDescription="@string/circle3"
         android:src="@drawable/ellipse" />
 
@@ -101,12 +103,12 @@
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="695dp"
+        android:layout_marginTop="625dp"
         android:layout_marginEnd="51dp"
         android:background="@drawable/get_started_button"
         android:text="@string/get_started"
         android:textAllCaps="false"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="12sp"
         app:iconTint="#BCFFFFFF" />
 

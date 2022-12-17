@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         button_no_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Register.class));
+                startActivity(new Intent(getApplicationContext(), User_Type.class));
             }
         });
 
