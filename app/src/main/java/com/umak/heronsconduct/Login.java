@@ -26,6 +26,14 @@ public class Login extends AppCompatActivity {
         Button button_forgot_password = (Button) findViewById(id.button_forgot_password);
         Button button_no_account = (Button) findViewById(R.id.button_no_account);
         Toolbar go_back_x = (Toolbar) findViewById(id.go_back_x);
+        Button buttonSign_in = (Button) findViewById(R.id.buttonSign_in);
+
+        buttonSign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CreateIncidentReferal.class));
+            }
+        });
 
         button_forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override

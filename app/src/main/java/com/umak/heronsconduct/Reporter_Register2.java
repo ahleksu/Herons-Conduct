@@ -75,6 +75,7 @@ public class Reporter_Register2 extends AppCompatActivity {
             }
         });
     }
+
     public void corner_up_left_RE(View view) {
         startActivity(new Intent(getApplicationContext(), Reporter_Register.class));
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);

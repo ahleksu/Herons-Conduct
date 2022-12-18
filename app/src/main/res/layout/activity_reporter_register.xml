@@ -8,8 +8,8 @@
     tools:context=".Student_Register">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/x_register"
-        android:onClick="x_back"
+        android:id="@+id/x_back_re"
+        android:onClick="x_back_re"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:theme="@style/TransparentToolbar"
