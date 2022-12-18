@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
+    android:background="#F0F8F8"
     tools:context=".Login">
 
 
@@ -55,9 +56,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="#DED9E4"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp">
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -80,6 +81,7 @@
                         android:minWidth="320dp"
                         android:minHeight="50dp"
                         android:maxLength="15"
+                        android:textColorHint="#243A69"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -89,9 +91,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
-                app:cardBackgroundColor="#DED9E4"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp">
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -115,20 +117,29 @@
                         android:inputType="textPassword"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
+                        android:textColorHint="#243A69"
                         android:maxLength="15"
                         android:autofillHints="" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <Button
-                android:id="@+id/buttonSign_in"
-                style="@style/Button1"
-                android:layout_width="342dp"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:text="@string/sign_in_login" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/buttonSign_in"
+                    style="@style/Button1"
+                    android:layout_width="342dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/sign_in_login" />
+            </androidx.cardview.widget.CardView>
 
             <Button
                 style="@style/TextyButton"
@@ -136,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#243A69"
                 android:padding="10dp"
                 android:text="@string/forgot_password" />
 
@@ -147,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
+                android:textColor="#243A69"
                 android:padding="20dp"
                 android:text="@string/don_t_have_an_account_sign_up" />
 
