@@ -81,27 +81,41 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1500dp">
+                android:layout_height="1350dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="382dp"
-                    android:layout_height="1300dp"
+                    android:layout_height="1330dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
 
                     android:background="@drawable/roundcorners"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.571"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.14">
+                    app:layout_constraintVertical_bias="0.15">
 
                     <EditText
                         android:id="@+id/incidentReferralIdNumber2"
                         android:layout_width="360dp"
                         android:layout_height="40dp"
                         android:layout_marginTop="716dp"
+                        android:background="@drawable/round_corners"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="ID Number"
+                        android:inputType="textPassword"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.727"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/incidentReferralTypeOfUser" />
+
+                    <EditText
+                        android:id="@+id/incidentReferralIdNumber3"
+                        android:layout_width="360dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="1008dp"
                         android:background="@drawable/round_corners"
                         android:ems="10"
                         android:gravity="center"
@@ -152,6 +166,26 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <EditText
+                        android:id="@+id/incidentReferralLastName3"
+                        android:layout_width="176dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1100dp"
+                        android:background="@drawable/round_corners"
+                        android:drawablePadding="12dp"
+                        android:gravity="center"
+                        android:hint="Last Name "
+                        android:imeOptions="actionNext"
+                        android:maxLength="15"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.966"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/textView19"
                         android:layout_width="202dp"
@@ -168,15 +202,17 @@
 
                     <TextView
                         android:id="@+id/textView18"
-                        android:layout_width="202dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="752dp"
+                        android:layout_width="355dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="764dp"
+                        android:background="@drawable/line"
                         android:text="Parties Involved"
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         android:textStyle="bold"
+
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.088"
+                        app:layout_constraintHorizontal_bias="0.555"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -215,6 +251,26 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="800dp"
+                        android:background="@drawable/round_corners"
+                        android:drawablePadding="12dp"
+                        android:gravity="center"
+                        android:hint="First Name "
+                        android:imeOptions="actionNext"
+                        android:maxLength="15"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.077"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/incidentReferralFirstName3"
+                        android:layout_width="176dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1100dp"
                         android:background="@drawable/round_corners"
                         android:drawablePadding="12dp"
                         android:gravity="center"
@@ -462,7 +518,7 @@
                         android:layout_width="360dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="952dp"
+                        android:layout_marginTop="944dp"
                         android:background="@drawable/round_corners"
                         android:drawablePadding="12dp"
                         android:gravity="center"
@@ -476,6 +532,66 @@
                         app:layout_constraintHorizontal_bias="0.727"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/partiesInvolved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="52dp"
+                        android:background="@drawable/button_color"
+                        android:text="Add More"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textgravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+
+                    <Button
+                        android:id="@+id/witnessesAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="256dp"
+                        android:background="@drawable/button_color"
+                        android:text="Add More"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textgravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+
+                    <Button
+                        android:id="@+id/incidentReferralSubmit"
+                        android:layout_width="178dp"
+                        android:layout_height="37dp"
+                        android:layout_marginTop="312dp"
+                        android:background="@drawable/button1"
+                        android:text="SUBMIT FORM"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textgravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="357dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="80dp"
+                        android:background="@drawable/line"
+                        android:text="Witnesses"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/incidentReferralRole" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
