@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,43 +13,50 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:scrollbarThumbHorizontal="@null"
         android:scrollbarThumbVertical="@null">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/go_back_x"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:theme="@style/TransparentToolbar"
-            app:navigationIcon="@drawable/x"/>
-
         <LinearLayout
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="733dp"
+            android:layout_centerVertical="true"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="51dp"
                 android:layout_marginBottom="32dp"
+                android:contentDescription="@string/blue_login"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/login_img"
-                android:contentDescription="@string/blue_login" />
+                app:srcCompat="@drawable/herons" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="225dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:lineSpacingExtra="-3sp"
+                android:text=" Herons \n Conduct"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#243A69"
+                android:textSize="38sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="271dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="6dp"
-                android:text="@string/hi_sign_in_to_your_account"
-                android:textColor="#696969"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="20dp"
+                android:lineSpacingExtra="-3sp"
+                android:text="UMak Disciplinary Management System"
+                android:textAlignment="center"
+                android:textColor="#243A69"
+                android:textSize="14sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -68,21 +75,22 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_username"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
-                        android:drawableStart="@drawable/user"
+                        android:drawableStart="@drawable/id"
                         android:drawablePadding="12dp"
                         android:hint="@string/username"
                         android:imeOptions="actionNext"
+                        android:lines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="15"
-                        android:textColorHint="#243A69"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
@@ -109,24 +117,24 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_lock"
                         android:drawablePadding="12dp"
                         android:hint="@string/password"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
+                        android:maxLength="15"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:textColorHint="#243A69"
-                        android:maxLength="15"
-                        android:autofillHints="" />
+                        android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="10dp"
@@ -135,37 +143,37 @@
                 <Button
                     android:id="@+id/buttonSign_in"
                     style="@style/Button1"
-                    android:layout_width="342dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="240dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
+                    android:textSize="16sp"
                     android:text="@string/sign_in_login" />
             </androidx.cardview.widget.CardView>
 
             <Button
-                style="@style/TextyButton"
                 android:id="@+id/button_forgot_password"
+                style="@style/TextyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="#243A69"
                 android:padding="10dp"
-                android:text="@string/forgot_password" />
+                android:text="@string/forgot_password"
+                android:textColor="#2F66F6" />
 
             <Button
-                style="@style/TextyButton"
-                android:gravity="center"
                 android:id="@+id/button_no_account"
-                android:layout_width="wrap_content"
+                style="@style/TextyButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
-                android:textColor="#243A69"
-                android:padding="20dp"
+                android:textColor="#2F66F6"
+                android:layout_marginTop="95dp"
                 android:text="@string/don_t_have_an_account_sign_up" />
 
         </LinearLayout>
-
     </RelativeLayout>
 
 
-</ScrollView>
+</RelativeLayout>
+
+    <!-- android:layout_marginTop="755dp" -->

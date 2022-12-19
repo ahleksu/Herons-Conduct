@@ -15,6 +15,15 @@ public class User_Type extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_user_type);
+
+
+    }
+
+
+    public void x_circle(View view) {
+        Intent intent = new Intent(getApplicationContext(), On_Boarding.class);
+        startActivity(intent);
+        finish();
     }
 
     public void student (View view) {

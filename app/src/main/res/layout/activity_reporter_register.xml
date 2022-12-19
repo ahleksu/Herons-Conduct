@@ -7,14 +7,10 @@
     android:background="#F0F8F8"
     tools:context=".Student_Register">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/x_back_re"
-        android:onClick="x_back_re"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:theme="@style/TransparentToolbar"
-        app:navigationIcon="@drawable/x"
-        tools:ignore="UsingOnClickInXml" />
+        tools:ignore="UselessParent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,13 +26,25 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/x_reporter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:minWidth="28dp"
+                android:minHeight="28dp"
+                android:onClick="x_reporter"
+                app:srcCompat="@drawable/x_circle">
+            </ImageView>
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="32dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/svg_reporter_reg"
+                app:srcCompat="@drawable/reporter"
                 android:contentDescription="@string/blue_login" />
 
             <TextView
@@ -45,7 +53,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="6dp"
                 android:text="Creating account as a reporter"
-                android:textColor="#696969"
+                android:textColor="#243A69"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -66,7 +74,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_NameRE"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
@@ -77,9 +85,9 @@
                         android:hint="Name"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="20"
+                        android:width="0dp"
                         android:maxLines="1"
-                        android:inputType="text"
+                        android:inputType="textPersonName"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -101,7 +109,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_REEmail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
@@ -112,9 +120,9 @@
                         android:hint="UMak Email"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="20"
                         android:maxLines="1"
-                        android:inputType="text"
+                        android:width="0dp"
+                        android:inputType="textEmailAddress"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -136,7 +144,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_stuRE"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
@@ -147,7 +155,7 @@
                         android:hint="ID Number"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="20"
+                        android:width="0dp"
                         android:maxLines="1"
                         android:inputType="text"
                         android:textColorHint="#243A69" />
@@ -184,29 +192,184 @@
                         android:minHeight="50dp"
                         android:maxLength="11"
                         android:maxLines="1"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_addressRE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/e4"
+                        android:drawablePadding="12dp"
+                        android:hint="Address"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:width="0dp"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_bdateRE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/bdate"
+                        android:drawablePadding="12dp"
+                        android:hint="Birthdate"
+                        android:inputType="date"
+                        android:width="0dp"
+                        android:maxLines="1"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_passRE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/eye_off"
+                        android:drawablePadding="12dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:longClickable="false"
+                        android:maxLines="1"
+                        android:width="0dp"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:textColorHint="#243A69" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/et_confirmPassRE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:autofillHints=""
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/eye_off"
+                        android:drawablePadding="12dp"
+                        android:hint="Confirm password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:longClickable="false"
+                        android:maxLines="1"
+                        android:width="0dp"
+                        android:minWidth="320dp"
+                        android:minHeight="50dp"
+                        android:textColorHint="#243A69"
+                        tools:ignore="TextFields" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="316dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="12dp"
+                android:text="Agree with Terms &amp; Conditions" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
                 <Button
-                    android:id="@+id/NextRegisterPage3"
+                    android:id="@+id/reporter_register"
                     style="@style/Button1"
                     android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textStyle="normal"
+                    android:text="Register"
                     android:textColor="@color/white"
-                    android:onClick="NextRegisterPage3"
-                    android:text="Next" />
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
             <Button
@@ -223,5 +386,5 @@
                 android:text="@string/already_have_an_account_n_login" />
         </LinearLayout>
     </RelativeLayout>
-
+    </ScrollView>
 </RelativeLayout>
