@@ -537,46 +537,48 @@
                         android:id="@+id/partiesInvolved"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="52dp"
+                        android:layout_marginTop="20dp"
                         android:background="@drawable/button_color"
                         android:text="Add More"
                         android:textColor="@color/white"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        android:textgravity="center"
+
+                        app:layout_constraintBottom_toTopOf="@+id/textView2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+                        app:layout_constraintTop_toBottomOf="@+id/incidentReferralRole"
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <Button
                         android:id="@+id/witnessesAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="256dp"
+                        android:layout_marginTop="1196dp"
                         android:background="@drawable/button_color"
                         android:text="Add More"
                         android:textColor="@color/white"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        android:textgravity="center"
+
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/incidentReferralSubmit"
                         android:layout_width="178dp"
                         android:layout_height="37dp"
-                        android:layout_marginTop="312dp"
+                        android:layout_marginTop="1248dp"
                         android:background="@drawable/button1"
                         android:text="SUBMIT FORM"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        android:textgravity="center"
+
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/incidentReferralRole" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView2"
