@@ -1,17 +1,23 @@
 package com.umak.heronsconduct;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +37,9 @@ public class Parent_Register extends AppCompatActivity {
     EditText edtNamePA, edtEmailPA, edtBirthdatePA, edtPhonePA, edtAddressPA, edtPasswordPA, edtConfirmPassPA, passwordPA, confirmPassPA;
     boolean passwordVisiblePA1, passwordVisiblePA2;
     Button reg_parent;
+
+    ImageButton cancelButtonPA, cancelButtonErrorPA;
+    Button ok_btnPA, ok_btnErrorPA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,34 +78,44 @@ public class Parent_Register extends AppCompatActivity {
                 String PasswordPA = edtPasswordPA.getText().toString();
                 String ConfirmPassPA = edtConfirmPassPA.getText().toString();
 
+                if (TextUtils.isEmpty(NamePA) || TextUtils.isEmpty(EmailPA) || TextUtils.isEmpty(PasswordPA) || TextUtils.isEmpty(ConfirmPassPA) || TextUtils.isEmpty(AddressPA) || TextUtils.isEmpty(BirthdatePA) || TextUtils.isEmpty(PhonePA))
+                {
+                    openDialogError();
+                }
 
                 if(NamePA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Name", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(EmailPA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(BirthdatePA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Student Id", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(PhonePA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Address", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(AddressPA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Birthdate", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(PasswordPA.isEmpty()) {
                     Toast.makeText(Parent_Register.this, "Invalid Password", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
@@ -117,10 +136,7 @@ public class Parent_Register extends AppCompatActivity {
                                 Users1 user1 = new Users1(uid, edtNamePA.getText().toString(), edtEmailPA.getText().toString(), edtAddressPA.getText().toString(), edtBirthdatePA.getText().toString(), edtPhonePA.getText().toString(), edtPasswordPA.getText().toString(), 1);
 
                                 firebaseDatabase.getReference().child("Users").child(uid).setValue(user1);
-
-                                Intent in = new Intent(getApplicationContext(), RegisterSuccess.class);
-                                startActivity(in);
-
+                                parentDialog();
                             }
 
                             else {
@@ -130,6 +146,68 @@ public class Parent_Register extends AppCompatActivity {
                     });
                 }
 
+            }
+        });
+    }
+
+    private void parentDialog() {
+        View alertCustomDialog = LayoutInflater.from(Parent_Register.this).inflate(R.layout.custom_dialog, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Parent_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButtonPA = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID);
+        ok_btnPA = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButtonPA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btnPA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+                Intent intent = new Intent (getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void openDialogError() {
+        View alertCustomDialog = LayoutInflater.from(Parent_Register.this).inflate(R.layout.custom_dialog_error, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Parent_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButtonErrorPA = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID_error);
+        ok_btnErrorPA = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id_error);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButtonErrorPA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btnErrorPA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
     }

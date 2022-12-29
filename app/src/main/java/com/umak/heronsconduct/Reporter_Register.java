@@ -1,17 +1,23 @@
 package com.umak.heronsconduct;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +36,9 @@ public class Reporter_Register extends AppCompatActivity {
     EditText edtNameRE, edtEmailRE,edtNumberIdRE, edtPhoneRE, edtAddressRE, edtBirthdateRE , edtPasswordRE, edtConfirmPassRE, passwordRE, confirmPassRE;
     boolean passwordVisibleRE1, passwordVisibleRE2;
     Button reporter_register;
+
+    ImageButton cancelButtonRE, cancelButtonErrorRE;
+    Button ok_btnRE, ok_btnErrorRE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,39 +78,50 @@ public class Reporter_Register extends AppCompatActivity {
                 String PasswordRE = edtPasswordRE.getText().toString();
                 String ConfirmPassRE = edtConfirmPassRE.getText().toString();
 
+                if (TextUtils.isEmpty(NameRE) || TextUtils.isEmpty(EmailRE) || TextUtils.isEmpty(PasswordRE) || TextUtils.isEmpty(ConfirmPassRE) || TextUtils.isEmpty(AddressRE) || TextUtils.isEmpty(BirthdateRE) || TextUtils.isEmpty(PhoneRE))
+                {
+                    reporterDialogError();
+                }
 
                 if(NameRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Name", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(EmailRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(NumberIdRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Student Id", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(PhoneRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Address", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(AddressRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Birthdate", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(BirthdateRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Invalid Password", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
                 if(PasswordRE.isEmpty()) {
                     Toast.makeText(Reporter_Register.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
+                    reporterDialogError();
                     return;
                 }
 
@@ -122,9 +142,7 @@ public class Reporter_Register extends AppCompatActivity {
                                 Users2 user2 = new Users2(uid, edtNameRE.getText().toString(), edtEmailRE.getText().toString(), edtNumberIdRE.getText().toString(), edtAddressRE.getText().toString(), edtBirthdateRE.getText().toString(), edtPhoneRE.getText().toString(), edtPasswordRE.getText().toString(), 2);
 
                                 firebaseDatabase.getReference().child("Users").child(uid).setValue(user2);
-
-                                Intent in = new Intent(getApplicationContext(), RegisterSuccess.class);
-                                startActivity(in);
+                                reporterDialog();
 
                             }
 
@@ -135,6 +153,68 @@ public class Reporter_Register extends AppCompatActivity {
                     });
                 }
 
+            }
+        });
+    }
+
+    private void reporterDialog() {
+        View alertCustomDialog = LayoutInflater.from(Reporter_Register.this).inflate(R.layout.custom_dialog, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Reporter_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButtonRE = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID);
+        ok_btnRE = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButtonRE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btnRE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+                Intent intent = new Intent (getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void reporterDialogError() {
+        View alertCustomDialog = LayoutInflater.from(Reporter_Register.this).inflate(R.layout.custom_dialog_error, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Reporter_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButtonErrorRE = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID_error);
+        ok_btnErrorRE = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id_error);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButtonErrorRE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btnErrorRE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
             }
         });
     }

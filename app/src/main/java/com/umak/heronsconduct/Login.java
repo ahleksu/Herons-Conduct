@@ -2,7 +2,6 @@ package com.umak.heronsconduct;
 
 import static com.umak.heronsconduct.R.*;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,19 +11,21 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Objects;
 
@@ -35,6 +36,8 @@ public class Login extends AppCompatActivity {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
+    DatabaseReference reference;
+
     EditText login_edtEmail,login_edtPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,10 @@ public class Login extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(layout.activity_login);
 
-
         Button button_forgot_password = (Button) findViewById(id.button_forgot_password);
         Button button_no_account = (Button) findViewById(R.id.button_no_account);
         Button buttonSign_in = (Button) findViewById(R.id.buttonSign_in);
+
 
 
         login_edtEmail = findViewById(R.id.et_username);
@@ -72,7 +75,6 @@ public class Login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
 
-
                                 String uid = task.getResult().getUser().getUid();
 
                                 firebaseDatabase.getReference().child("Users").child(uid).child("usertype").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -82,6 +84,8 @@ public class Login extends AppCompatActivity {
 
                                         if(usertype==0) {
                                             // STUDENT ACCOUNT
+
+
                                             Intent intent = new Intent(getApplicationContext(), Account1.class);
                                             startActivity(intent);
                                         }
@@ -117,6 +121,7 @@ public class Login extends AppCompatActivity {
         });
 
 
+
         button_forgot_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +138,7 @@ public class Login extends AppCompatActivity {
         });
 
     }
+
 
 
     @Override

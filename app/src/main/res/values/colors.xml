@@ -16,6 +16,9 @@
     <color name="inactive">#C4C4C4</color>
     <color name="active">#243A69</color>
 
+    <color name="notifications">#13B2C3</color>
+    <color name="private_account">#E6A326</color>
+
 
 
 </resources>

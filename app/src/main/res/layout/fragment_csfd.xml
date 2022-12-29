@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F0F8F8"
+    tools:context=".HomeFragment_stu">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/req_goodMoral_stu"
+            android:layout_width="340dp"
+            android:layout_height="178dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="119dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:text="Request Good Moral Certificate"
+                android:textAlignment="center"
+                android:textColor="#243A69"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="68dp"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:id="@+id/dis_stu"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/csfd_img1"
+                    tools:ignore="RtlHardcoded" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <!-- END OF GOOD MORAL RECORD-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/viewAnn_stu"
+            android:layout_width="340dp"
+            android:layout_height="178dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="319dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="209dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textStyle="bold"
+                android:text="View Announcements"
+                android:textAlignment="center"
+                android:textColor="#243A69"
+                android:textSize="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="68dp"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:id="@+id/stu_handbookImg"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/csfd_img2"
+                    tools:ignore="RtlHardcoded" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="341dp"
+            android:layout_height="40.12dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/herons_header"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stu_handbook"
+            android:layout_width="340dp"
+            android:layout_height="178dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="519dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="209dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textStyle="bold"
+                android:text="Student Handbook"
+                android:textAlignment="center"
+                android:textColor="#243A69"
+                android:textSize="20sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="68dp"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:id="@+id/accou_stu"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/csfd_img3"
+                    tools:ignore="RtlHardcoded" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

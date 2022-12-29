@@ -21,7 +21,6 @@
         android:scrollbarThumbVertical="@null">
 
         <LinearLayout
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -36,6 +35,7 @@
                 android:minHeight="28dp"
                 android:onClick="x_back"
                 app:srcCompat="@drawable/x_circle">
+
             </ImageView>
 
             <ImageView
@@ -43,9 +43,9 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="32dp"
+                android:contentDescription="@string/blue_login"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/student"
-                android:contentDescription="@string/blue_login" />
+                app:srcCompat="@drawable/student" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,15 +80,15 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/user"
                         android:drawablePadding="12dp"
                         android:hint="Name"
-                        android:width="0dp"
+                        android:inputType="textPersonName"
+                        android:lines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:lines="1"
-                        android:inputType="textPersonName"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -116,15 +116,15 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/mail"
                         android:drawablePadding="12dp"
                         android:hint="UMak Email"
-                        android:width="0dp"
+                        android:inputType="textEmailAddress"
+                        android:lines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:lines="1"
-                        android:inputType="textEmailAddress"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -152,16 +152,16 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/id"
                         android:drawablePadding="12dp"
                         android:hint="Student ID"
-                        android:width="0dp"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLength="20"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="20"
-                        android:lines="1"
-                        android:inputType="text"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -189,11 +189,11 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/e4"
                         android:drawablePadding="12dp"
                         android:hint="Address"
-                        android:width="0dp"
                         android:inputType="text"
                         android:lines="1"
                         android:minWidth="320dp"
@@ -225,11 +225,11 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/bdate"
                         android:drawablePadding="12dp"
                         android:hint="Birthdate"
-                        android:width="0dp"
                         android:inputType="text"
                         android:lines="1"
                         android:minWidth="320dp"
@@ -261,16 +261,16 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/e7"
                         android:drawablePadding="12dp"
                         android:hint="Phone number"
-                        android:width="0dp"
+                        android:inputType="textPhonetic"
+                        android:lines="1"
+                        android:maxLength="11"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
-                        android:maxLength="11"
-                        android:lines="1"
-                        android:inputType="textPhonetic"
                         android:textColorHint="#243A69" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -297,6 +297,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/eye_off"
                         android:drawablePadding="12dp"
@@ -304,7 +305,6 @@
                         android:inputType="textPassword"
                         android:longClickable="false"
                         android:maxLength="20"
-                        android:width="0dp"
                         android:maxLines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
@@ -334,6 +334,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:width="0dp"
                         android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableEnd="@drawable/eye_off"
@@ -343,7 +344,6 @@
                         android:inputType="textPassword"
                         android:longClickable="false"
                         android:maxLength="20"
-                        android:width="0dp"
                         android:maxLines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"
@@ -363,36 +363,37 @@
                 android:text="Agree with Terms &amp; Conditions" />
 
             <androidx.cardview.widget.CardView
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="8dp"
                 app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
-            <Button
-                android:id="@+id/Register_STU"
-                style="@style/Button1"
-                android:layout_width="342dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textStyle="normal"
-                android:textColor="@color/white"
-                android:text="Register" />
+
+                <Button
+                    android:id="@+id/Register_STU"
+                    style="@style/Button1"
+                    android:layout_width="342dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Register"
+                    android:textColor="@color/white"
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
             <Button
-                style="@style/TextyButton"
-                android:gravity="center"
                 android:id="@+id/login_haveAcc"
+                style="@style/TextyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:padding="20dp"
-                android:textColor="#243A69"
+                android:gravity="center"
                 android:onClick="login_reg1"
-                android:text="@string/already_have_an_account_n_login" />
+                android:padding="20dp"
+                android:text="@string/already_have_an_account_n_login"
+                android:textColor="#243A69" />
         </LinearLayout>
     </RelativeLayout>
     </ScrollView>

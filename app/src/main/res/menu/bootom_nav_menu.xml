@@ -2,22 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
-        android:icon="@drawable/a1_home"
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
         android:title="Home"/>
 
     <item
-        android:id="@+id/csfd"
-        android:icon="@drawable/a1_file"
-        android:title="Csfd Files"/>
+        android:id="@+id/nav_csfd"
+        android:icon="@drawable/csfd_portal"
+        android:title="CSFD Portal"/>
 
     <item
-        android:id="@+id/bell"
-        android:icon="@drawable/a1_bell"
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/notif"
         android:title="Notifications"/>
+
     <item
-        android:id="@+id/settings"
-        android:icon="@drawable/a1_settings"
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/settings_stu"
         android:title="Settings"/>
 
 

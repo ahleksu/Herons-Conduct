@@ -1,19 +1,26 @@
 package com.umak.heronsconduct;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +29,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.Objects;
 
@@ -39,12 +48,17 @@ public class Student_Register extends AppCompatActivity{
     boolean passwordVisible, passwordVisible1;
     Button regSTU;
 
+
+    ImageButton cancelButton, cancelButtonError;
+    Button ok_btn, ok_btnError;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_student_register);
+
 
         password();
         reg_stu();
@@ -64,7 +78,10 @@ public class Student_Register extends AppCompatActivity{
          chTermSTU = findViewById(R.id.terms_Stu);
 
 
-         regSTU.setOnClickListener(new View.OnClickListener() {
+
+        //dialog = new Dialog(this);
+
+        regSTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
@@ -78,44 +95,43 @@ public class Student_Register extends AppCompatActivity{
                String PasswordSTU = edtPasswordSTU.getText().toString();
                String ConfirmPassSTU = edtConfirmPassSTU.getText().toString();
 
-               // if (TextUtils.isEmpty(NameSTU) || TextUtils.isEmpty(EmailSTU) || TextUtils.isEmpty(StudentID) || TextUtils.isEmpty(PasswordSTU) || TextUtils.isEmpty(ConfirmPassSTU) || TextUtils.isEmpty(AddressSTU) || TextUtils.isEmpty(BirthdateSTU) || TextUtils.isEmpty(PhoneSTU))
-              //  {
-                   // Intent intent = new Intent(getApplicationContext(), RegisterError.class);
-                  //  startActivity(intent);
-              //  }
+               if (TextUtils.isEmpty(NameSTU) || TextUtils.isEmpty(EmailSTU) || TextUtils.isEmpty(StudentID) || TextUtils.isEmpty(PasswordSTU) || TextUtils.isEmpty(ConfirmPassSTU) || TextUtils.isEmpty(AddressSTU) || TextUtils.isEmpty(BirthdateSTU) || TextUtils.isEmpty(PhoneSTU))
+               {
+                    openDialogError();
+               }
 
-                if(NameSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Name", Toast.LENGTH_SHORT).show();
+               if(NameSTU.isEmpty()) {
+                   openDialogError();
                     return;
                 }
 
                 if(EmailSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(StudentID.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Student Id", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(AddressSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Address", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(BirthdateSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Birthdate", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(PhoneSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Phone", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
                 if(PasswordSTU.isEmpty()) {
-                    Toast.makeText(Student_Register.this, "Invalid Password", Toast.LENGTH_SHORT).show();
+                    openDialogError();
                     return;
                 }
 
@@ -143,21 +159,88 @@ public class Student_Register extends AppCompatActivity{
 
                                 firebaseDatabase.getReference().child("Users").child(uid).setValue(user);
 
-                                Intent in = new Intent(getApplicationContext(), RegisterSuccess.class);
-                                startActivity(in);
+                                openDialog();
 
                             }
 
                             else {
+                                openDialogError();
                                 Toast.makeText(Student_Register.this,task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
+
                     });
                 }
 
             }
         });
     }
+
+    private void openDialog() {
+        View alertCustomDialog = LayoutInflater.from(Student_Register.this).inflate(R.layout.custom_dialog, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Student_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButton = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID);
+        ok_btn = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+                Intent intent = new Intent (getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void openDialogError() {
+        View alertCustomDialog = LayoutInflater.from(Student_Register.this).inflate(R.layout.custom_dialog_error, null);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Student_Register.this);
+
+        alertDialog.setView(alertCustomDialog);
+        cancelButtonError = (ImageButton) alertCustomDialog.findViewById(R.id.cancelID_error);
+        ok_btnError = (Button) alertCustomDialog.findViewById(R.id.ok_btn_id_error);
+
+        final AlertDialog dialog = alertDialog.create();
+
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+
+        cancelButtonError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+
+            }
+        });
+        ok_btnError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+            }
+        });
+    }
+
+
+
+
 
     @SuppressLint("ClickableViewAccessibility")
     public void password() {
