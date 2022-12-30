@@ -84,21 +84,20 @@ public class Login extends AppCompatActivity {
 
                                         if(usertype==0) {
                                             // STUDENT ACCOUNT
-
-
                                             Intent intent = new Intent(getApplicationContext(), Account1.class);
                                             startActivity(intent);
                                         }
 
                                        else if(usertype==1) {
-                                           //PARENT ACCOUNT
-
+                                            //PARENT ACCOUNT
+                                            Intent intent = new Intent(getApplicationContext(), Account2.class);
+                                            startActivity(intent);
                                         }
 
                                        else if(usertype==2) {
                                            //REPORTER ACCOUNT
-
-
+                                            Intent intent = new Intent(getApplicationContext(), Account3.class);
+                                            startActivity(intent);
                                         }
                                     }
 
@@ -138,7 +137,6 @@ public class Login extends AppCompatActivity {
         });
 
     }
-
 
 
     @Override

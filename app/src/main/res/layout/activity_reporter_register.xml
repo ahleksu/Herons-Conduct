@@ -44,7 +44,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="32dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/reporter"
+                app:srcCompat="@drawable/reporter_nav"
                 android:contentDescription="@string/blue_login" />
 
             <TextView

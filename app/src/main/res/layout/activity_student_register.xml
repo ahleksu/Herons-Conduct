@@ -45,7 +45,7 @@
                 android:layout_marginBottom="32dp"
                 android:contentDescription="@string/blue_login"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/student" />
+                app:srcCompat="@drawable/student_nav" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -230,7 +230,7 @@
                         android:drawableEnd="@drawable/bdate"
                         android:drawablePadding="12dp"
                         android:hint="Birthdate"
-                        android:inputType="text"
+                        android:inputType="date"
                         android:lines="1"
                         android:minWidth="320dp"
                         android:minHeight="50dp"

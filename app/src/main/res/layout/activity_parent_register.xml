@@ -44,7 +44,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="32dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/parent"
+                app:srcCompat="@drawable/parent_nav"
                 android:contentDescription="@string/blue_login" />
 
             <TextView

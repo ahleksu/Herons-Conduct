@@ -20,7 +20,7 @@ import com.umak.heronsconduct.databinding.ActivityMainBinding;
 
 import java.util.Objects;
 
-public class Account1 extends AppCompatActivity {
+public class Account3 extends AppCompatActivity {
 
     BottomNavigationView navigationView;
     TextView name;
@@ -30,13 +30,13 @@ public class Account1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Objects.requireNonNull(getSupportActionBar()).hide();
-        setContentView(R.layout.activity_account1);
+        setContentView(R.layout.activity_account3);
 
         //getSupportActionBar().hide();
         //getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        navigationView = findViewById(R.id.bottom_navigation);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new HomeFragment_stu()).commit();
+        navigationView = findViewById(R.id.bottom_navigation3);
+        getSupportFragmentManager().beginTransaction().replace(R.id.body_container3, new HomeFragment_stu()).commit();
         navigationView.setSelectedItemId(R.id.nav_home);
 
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -59,10 +59,10 @@ public class Account1 extends AppCompatActivity {
                         break;
 
                     case R.id.nav_settings:
-                        fragment = new SettingsFragment();
+                        fragment = new SettingsReporterFragment();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.body_container3, fragment).commit();
 
 
                 return true;

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#F0F8F8">
 
-
     <TextView
         android:id="@+id/select_user"
         android:layout_width="wrap_content"
@@ -25,7 +24,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
@@ -41,10 +40,10 @@
         <ImageView
             android:id="@+id/student"
             android:layout_width="200dp"
-            android:layout_height="190dp"
+            android:layout_height="110dp"
             android:layout_gravity="left"
-            android:layout_marginStart="0dp"
-            android:src="@drawable/student"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/student_nav"
             tools:ignore="RtlHardcoded" />
 
         <TextView
@@ -61,9 +60,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:cardBackgroundColor="@color/white"
@@ -77,10 +76,10 @@
         <ImageView
             android:id="@+id/parent"
             android:layout_width="200dp"
-            android:layout_height="190dp"
+            android:layout_height="110dp"
             android:layout_gravity="left"
-            android:layout_marginStart="0dp"
-            android:src="@drawable/parent"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/parent_nav"
             tools:ignore="RtlHardcoded" />
 
         <TextView
@@ -99,9 +98,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:cardBackgroundColor="@color/white"
@@ -115,10 +114,10 @@
         <ImageView
             android:id="@+id/reporter"
             android:layout_width="200dp"
-            android:layout_height="190dp"
+            android:layout_height="110dp"
             android:layout_gravity="left"
-            android:layout_marginStart="0dp"
-            android:src="@drawable/reporter"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/reporter_nav"
             tools:ignore="RtlHardcoded" />
 
         <TextView

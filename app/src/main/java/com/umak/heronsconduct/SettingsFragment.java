@@ -21,9 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 
 public class SettingsFragment<name> extends Fragment {
-
 
 
     private FirebaseDatabase database;
@@ -33,13 +34,11 @@ public class SettingsFragment<name> extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
     private String mParam1;
     private String mParam2;
 
     public SettingsFragment() {
         // Required empty public constructor
-
     }
 
 
@@ -55,7 +54,6 @@ public class SettingsFragment<name> extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -71,12 +69,14 @@ public class SettingsFragment<name> extends Fragment {
     }
 
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String login_edtEmail = getActivity().getIntent().getExtras().getString("login_edtEmail");
+
+
+/*
+        String login_edtEmail = requireActivity().getIntent().getExtras().getString("login_edtEmail");
 
         TextView name = view.findViewById(R.id.name_stu_frag);
 
@@ -87,7 +87,7 @@ public class SettingsFragment<name> extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds: snapshot.getChildren()){
-                    if(ds.child("username").getValue().equals(login_edtEmail)){
+                    if(ds.child("Users").getValue().equals(login_edtEmail)){
                         name.setText(ds.child("name").getValue(String.class));
 
                     }
@@ -99,6 +99,8 @@ public class SettingsFragment<name> extends Fragment {
 
             }
         });
+
+ */
 
 
 
