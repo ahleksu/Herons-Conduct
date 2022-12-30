@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
                                             startActivity(intent);
                                         }
 
-                                       else if(usertype==1) {
+                                      else if(usertype==1) {
                                             //PARENT ACCOUNT
                                             Intent intent = new Intent(getApplicationContext(), Account2.class);
                                             startActivity(intent);
@@ -98,6 +98,10 @@ public class Login extends AppCompatActivity {
                                            //REPORTER ACCOUNT
                                             Intent intent = new Intent(getApplicationContext(), Account3.class);
                                             startActivity(intent);
+                                        }
+                                       else if(usertype==3) {
+                                           Intent intent = new Intent(getApplicationContext(), AdminAccount.class);
+                                           startActivity(intent);
                                         }
                                     }
 
@@ -114,6 +118,7 @@ public class Login extends AppCompatActivity {
                             }
                         }
                     });
+
                 }
 
             }

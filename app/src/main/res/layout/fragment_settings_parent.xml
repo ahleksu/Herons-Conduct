@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsParentFragment">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,20 +23,20 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
                     android:src="@drawable/parent_nav"/>
 
                 <TextView
                     android:id="@+id/name_stu_frag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
                     android:layout_marginTop="47dp"
                     android:text="Mario Dela Cruz"
+                    android:layout_marginStart="120dp"
                     android:textColor="@color/white"
                     android:textSize="25sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,9 +68,11 @@
 
         <LinearLayout
             android:background="@drawable/round_back_notif"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -155,6 +154,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -214,7 +215,65 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Logout"
+                    android:text="Account Profile"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/right_arrow_icon"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/round_back_notif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="Visit us on facebook"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/right_arrow_icon"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Sign out"
                     android:textColor="#CD0000"
                     android:textSize="18sp"
                     android:textStyle="normal" />
@@ -227,7 +286,10 @@
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
 
+
         </LinearLayout>
+
+
 
     </LinearLayout>
 </FrameLayout>

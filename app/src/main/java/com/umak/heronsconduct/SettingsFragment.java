@@ -73,8 +73,6 @@ public class SettingsFragment<name> extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
 /*
         String login_edtEmail = requireActivity().getIntent().getExtras().getString("login_edtEmail");
 
@@ -101,10 +99,6 @@ public class SettingsFragment<name> extends Fragment {
         });
 
  */
-
-
-
     }
-
 
 }
