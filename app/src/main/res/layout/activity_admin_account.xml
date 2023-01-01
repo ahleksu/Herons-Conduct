@@ -18,7 +18,7 @@
         android:background="@drawable/transparent_background"
         app:itemTextColor="@drawable/acc1_selector"
         app:itemIconTint="@drawable/acc1_selector"
-        app:menu="@menu/nav_home1"/>
+        app:menu="@menu/nav_admin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

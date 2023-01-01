@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_admin"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_csfd_admin"
+        android:icon="@drawable/search_admin"
+        android:title="Search"/>
+
+    <item
+        android:id="@+id/plus_admin"
+        android:icon="@drawable/plus_icon"
+        android:title="Create"/>
+
+    <item
+        android:id="@+id/nav_notification_admin"
+        android:icon="@drawable/stats_admin"
+        android:title="Statistics"/>
+
+    <item
+        android:id="@+id/nav_settings_admin"
+        android:icon="@drawable/settings_stu"
+        android:title="Settings"/>
+
+
+
+</menu>
