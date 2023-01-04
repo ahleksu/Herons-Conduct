@@ -11,10 +11,6 @@
         android:title="Search"/>
 
     <item
-        android:id="@+id/placeholder"
-        android:title=""/>
-
-    <item
         android:id="@+id/stats"
         android:icon="@drawable/stats"
         android:title="Statistics"/>
