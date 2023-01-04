@@ -571,7 +571,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:fontFamily="@font/metropolis_semi_bold"
-                android:text="@string/already_have_an_account_t_sign_in"
+                android:text="Already have an account? Sign in"
                 android:textColor="@color/Text" />
 
 

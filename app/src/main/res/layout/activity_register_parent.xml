@@ -376,7 +376,7 @@
                 android:fontFamily="@font/metropolis_semi_bold"
                 android:padding="20dp"
                 android:textSize="12sp"
-                android:text="@string/parent"
+                android:text="Already Login"
                 android:textColor="#243A69" />
 
 
