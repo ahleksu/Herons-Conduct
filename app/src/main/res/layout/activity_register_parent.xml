@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_Parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="784dp"
+        android:orientation="vertical"
+        android:scrollbarThumbHorizontal="@null"
+        android:scrollbarThumbVertical="@null"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="168dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/x_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:minWidth="28dp"
+                android:minHeight="28dp"
+                android:onClick="x_back"
+                app:srcCompat="@drawable/x_circle">
+
+            </ImageView>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="32dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/parent_reg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="6dp"
+                android:text="Creating account as a parent"
+                android:textColor="@color/Text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="First Name"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Middle Name"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lName"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Last Name"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressParent"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Address"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contactParent"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Contact"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/studentId_Parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Student ID"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/parent_ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Parent ID"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/parent_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Email"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/parent_Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Password"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/parent_ConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Confirm Password"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/Register_STU"
+                    style="@style/Button1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="50dp"
+                    android:text="Register"
+                    android:textColor="@color/white"
+                    android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/login_haveAcc"
+                style="@style/TextyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:fontFamily="@font/metropolis_semi_bold"
+                android:padding="20dp"
+                android:textSize="12sp"
+                android:text="Already Login"
+                android:textColor="#243A69" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>
