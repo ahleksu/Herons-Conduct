@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsParentFragment">
+    tools:context=".AdminSettingsFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,40 +24,21 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="30dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/parent_nav"/>
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/herons"/>
 
                 <TextView
                     android:id="@+id/name_stu_frag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="47dp"
-                    android:text="Mario Dela Cruz"
                     android:layout_marginStart="120dp"
+                    android:layout_marginTop="60dp"
+                    android:text="Admin"
                     android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold"/>
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:text="(Parent)"
-                    android:layout_marginStart="120dp"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="italic"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
-                    android:text="Herons Conduct: Student Disciplinary Management System"
-                    android:layout_marginStart="120dp"
-                    android:textColor="@color/white"
-                    android:textSize="9sp"
-                    android:textStyle="italic"/>
             </RelativeLayout>
 
 
@@ -247,28 +229,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_margin="10dp"
-                    android:text="Visit us on facebook"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/right_arrow_icon"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
@@ -277,7 +237,6 @@
                     android:textColor="#CD0000"
                     android:textSize="18sp"
                     android:textStyle="normal" />
-
 
             </RelativeLayout>
 

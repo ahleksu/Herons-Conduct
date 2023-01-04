@@ -45,6 +45,16 @@ public class AdminAccount extends AppCompatActivity {
                         break;
 
                     case R.id.plus_admin:
+                        fragment = new PlusAdminFragment();
+                        break;
+
+                    case R.id.nav_stats_admin:
+                        fragment = new AdminStatsFragment();
+                        break;
+
+                    case R.id.nav_settings_admin:
+                        fragment = new AdminSettingsFragment();
+                        break;
 
 
                 }

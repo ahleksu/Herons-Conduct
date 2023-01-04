@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/adminHome"
+    android:background="#F0F8F8"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AdminHomeFragment">
 
@@ -11,6 +13,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/student_one_admin"
             android:layout_width="340dp"
             android:layout_height="178dp"
             android:layout_alignParentTop="true"
@@ -57,6 +60,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/admin_incident"
             android:layout_width="340dp"
             android:layout_height="178dp"
             android:layout_alignParentTop="true"
@@ -102,6 +106,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/goodMoralAdmin"
             android:layout_width="340dp"
             android:layout_height="178dp"
             android:layout_alignParentTop="true"

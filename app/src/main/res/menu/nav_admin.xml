@@ -17,7 +17,7 @@
         android:title="Create"/>
 
     <item
-        android:id="@+id/nav_notification_admin"
+        android:id="@+id/nav_stats_admin"
         android:icon="@drawable/stats_admin"
         android:title="Statistics"/>
 
