@@ -12,8 +12,7 @@
     <string name="desc_2">View disciplinary record \nand history easily</string>
     <string name="desc_3">Update and notify student \naccountabilities and records</string>
     <string name="desc_4">Track trends\nand analyze data</string>
-    <string name="already_have_an_account_t_sign_in">Already have an account? \n <b> Sign in </b></string>
-    <string name="parent">Already have an account? \n <b> Sign in</b></string>
-    <string name="reporter">Already have an account? \n <b> Sign in</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
