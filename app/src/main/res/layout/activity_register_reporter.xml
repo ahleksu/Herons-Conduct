@@ -57,7 +57,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -77,6 +77,8 @@
                     android:hint="First Name"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -85,7 +87,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -105,6 +107,8 @@
                     android:hint="Middle Name"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -113,7 +117,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -133,6 +137,8 @@
                     android:hint="Last Name"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -141,7 +147,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -161,6 +167,8 @@
                     android:hint="UMak Email"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -169,7 +177,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -189,6 +197,8 @@
                     android:hint="Personal Email"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -197,7 +207,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -217,6 +227,8 @@
                     android:hint="ID Number"
                     android:inputType="textPersonName"
                     android:lines="1"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
@@ -227,7 +239,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -249,13 +261,15 @@
                     android:lines="1"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:textColorHint="@color/Text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -277,13 +291,15 @@
                     android:lines="1"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:textColorHint="@color/Text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:gravity="center"
@@ -305,28 +321,21 @@
                     android:lines="1"
                     android:minWidth="320dp"
                     android:minHeight="50dp"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
                     android:textColorHint="@color/Text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/Register_PARENT"
+                style="@style/Button1"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
-
-                <Button
-                    android:id="@+id/Register_STU"
-                    style="@style/Button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Register"
-                    android:textColor="@color/white"
-                    android:textStyle="normal" />
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="50dp"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textStyle="normal" />
 
             <Button
                 android:id="@+id/login_haveAcc"
@@ -337,7 +346,8 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="Already have an accout? \t Sign in"
+                android:textSize="12sp"
+                android:text="@string/reporter"
                 android:textColor="#243A69" />
 
 
