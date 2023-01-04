@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Herons\' Conduct</string>
+
+    //Headings
+    <string name="heading_1">Accountability\nand\nViolation Manager</string>
+    <string name="heading_2">Seamless Access</string>
+    <string name="heading_3">Accountabilities\nand\nRecords</string>
+    <string name="heading_4">Statistics\nand\nReports</string>
+
+    //Descriptions
+    <string name="desc_1">Easily document violations \nand accountabilities</string>
+    <string name="desc_2">View disciplinary record \nand history easily</string>
+    <string name="desc_3">Update and notify student \naccountabilities and records</string>
+    <string name="desc_4">Track trends\nand analyze data</string>
+
 </resources>

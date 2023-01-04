@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,17 +7,14 @@
     tools:context=".MainActivity">
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemTextColor="@drawable/navbar_selector"
+        app:itemIconTint="@drawable/navbar_selector"
+        android:background="@drawable/navbar_border"
+        app:menu="@menu/bottom_nav_menu"/>
 
-</android.support.constraint.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-
+</RelativeLayout>
