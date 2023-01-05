@@ -14,9 +14,13 @@
     <string name="desc_4">Track trends\nand analyze data</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text1">The Center for Student\nFormation and Discipline\n(CSFD) will be having its 1st\nDiscipline Awareness Week on\nSeptember with theme...</string>
+    <string name="text2">Please be informed that the issuance of Good Moral Certificate has been transferred to this office (Center for Student Formation and Discipline).</string>
+    <string name="text3">FINAL CALL TO ALL CURRENTLY ENROLLED GRADE 11, FRESHMEN AND TRANSFEREES (Academic Year 2021–2022).</string>
+    <string name="text4">RESCHEDULED: Make sure to accomplish the Faculty Evaluation until July 18, 11:59 PM via https://umak.edu.ph/olfe.</string>
 
 
-
+    <!--ARRAY LIST FOR DROPDOWN -->
     <string-array name="genders">
         <item>Genders</item>
         <item>Male</item>
