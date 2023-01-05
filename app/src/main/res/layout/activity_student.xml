@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin"
+    tools:context=".Student"
     android:background="@color/Background">
 
     <FrameLayout
@@ -26,8 +26,6 @@
         android:layout_above="@id/nav"
         android:src="@drawable/add" />
 
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav"
         android:layout_width="match_parent"
@@ -36,6 +34,6 @@
         app:itemTextColor="@drawable/navbar_selector"
         app:itemIconTint="@drawable/navbar_selector"
         android:background="@drawable/navbar_border"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/student_parent_nav_menu"/>
 
 </RelativeLayout>
