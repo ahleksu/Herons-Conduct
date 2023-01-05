@@ -28,7 +28,7 @@
                 android:layout_marginTop="8dp"
                 android:minWidth="28dp"
                 android:minHeight="28dp"
-                android:onClick="x_back"
+                android:onClick="x_back1"
                 app:srcCompat="@drawable/x_circle">
 
             </ImageView>
@@ -64,7 +64,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fName"
+                    android:id="@+id/fNamePAR"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -94,7 +94,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mName"
+                    android:id="@+id/mNamePAR"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -124,7 +124,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lName"
+                    android:id="@+id/lNamePAR"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -355,7 +355,7 @@
 
 
                 <Button
-                    android:id="@+id/Register_STU"
+                    android:id="@+id/Register_PAR_btn"
                     style="@style/Button1"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
