@@ -1,10 +1,11 @@
 package com.umak.heronsconduct;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ForgotPass extends AppCompatActivity {
     Button submitForgotPassword;
@@ -18,7 +19,7 @@ public class ForgotPass extends AppCompatActivity {
         submitForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ForgotPass.this, "Email not found. Try again.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ForgotPass.this, "Email not found. Try again.", Toast.LENGTH_SHORT).show();
             }
         });
 
