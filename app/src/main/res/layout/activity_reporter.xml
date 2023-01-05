@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reporter"
+    android:background="@color/Background">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav"
+        android:layout_marginBottom="50dp"
+        />
+
+    <ImageView
+        android:id="@+id/add_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@id/nav"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/nav"
+        android:src="@drawable/add" />
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemTextColor="@drawable/navbar_selector"
+        app:itemIconTint="@drawable/navbar_selector"
+        android:background="@drawable/navbar_border"
+        app:menu="@menu/student_parent_nav_menu"/>
+
+</RelativeLayout>
