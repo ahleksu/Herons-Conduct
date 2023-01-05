@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    tools:context=".GoodMoralRequest_Student">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@drawable/rectangle_goodmoral"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/leave_goodmoral_icon">
+
+        </Button>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:text="Good Moral Request"
+            android:textColor="#F0F8F8"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="333dp"
+            android:layout_height="462dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="2dp"
+            app:cardMaxElevation="1dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="99dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="50dp"
+                android:background="#D7D9E4" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="50dp"
+                android:background="#D7D9E4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Request Details:"
+                android:textColor="@color/black"
+                android:fontFamily="@font/metropolis_semi_bold"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="65dp"
+                android:text="Requestor"
+                android:fontFamily="@font/metropolis_light"
+                android:textColor="#399CFF"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false"
+                android:layout_marginTop="95dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/req_name_goodMoral"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Name"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="165dp"
+                android:text="UMak Email"
+                android:fontFamily="@font/metropolis_light"
+                android:textColor="#399CFF"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false"
+                android:layout_marginTop="195dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/req_umakEmail_goodmoral"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="Email"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="265dp"
+                android:text="College"
+                android:fontFamily="@font/metropolis_light"
+                android:textColor="#399CFF"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false"
+                android:layout_marginTop="295dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/req_college_goodmoral"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="College"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="365dp"
+                android:text="ID Number"
+                android:fontFamily="@font/metropolis_light"
+                android:textColor="#399CFF"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:background="@drawable/reg_outline"
+                android:gravity="center"
+                android:maxLines="1"
+                app:hintEnabled="false"
+                android:layout_marginTop="395dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/req_idnumber_goodMoral"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:width="0dp"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:hint="ID Number"
+                    android:fontFamily="@font/metropolis_light"
+                    android:textSize="12sp"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:minWidth="320dp"
+                    android:minHeight="50dp"
+                    android:textColorHint="@color/Text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/Request_GoodMoral"
+        style="@style/Button1"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="572dp"
+        android:layout_marginEnd="50dp"
+        android:text="Request"
+        android:fontFamily="@font/metropolis_semi_bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Cancel_GoodMoral"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Cancel_GoodMoral"
+        style="@style/Button2"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="572dp"
+        android:text="Cancel"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="@font/metropolis_semi_bold"
+        app:layout_constraintEnd_toStartOf="@+id/Request_GoodMoral"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

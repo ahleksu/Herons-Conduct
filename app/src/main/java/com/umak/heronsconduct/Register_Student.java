@@ -103,6 +103,7 @@ public class Register_Student extends AppCompatActivity {
 
                 else {
                     openDialog();
+
                 }
 
             }
