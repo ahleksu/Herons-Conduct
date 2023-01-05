@@ -30,7 +30,7 @@
                 android:layout_marginTop="8dp"
                 android:minWidth="28dp"
                 android:minHeight="28dp"
-                android:onClick="x_back"
+                android:onClick="x_back2"
                 app:srcCompat="@drawable/x_circle">
 
             </ImageView>
@@ -65,7 +65,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fName"
+                    android:id="@+id/fNameRep"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -95,7 +95,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mName"
+                    android:id="@+id/mNameRep"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -125,7 +125,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lName"
+                    android:id="@+id/lNameRep"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -247,7 +247,7 @@
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/parent_Email"
+                    android:id="@+id/reporter_Email"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -327,7 +327,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/Register_PARENT"
+                android:id="@+id/Register_REPORTER"
                 style="@style/Button1"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
