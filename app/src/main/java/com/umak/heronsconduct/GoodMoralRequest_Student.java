@@ -62,9 +62,9 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                String req_nameGoodMoral = edtReq_name_goodMoral.getText().toString();
-               String req_EmailGoodMoral = edtReq_name_goodMoral.getText().toString();
-               String req_collegeGoodMoral = edtReq_name_goodMoral.getText().toString();
-               String req_idNumberGoodMoral = edtReq_name_goodMoral.getText().toString();
+               String req_EmailGoodMoral = edtReq_umakEmail_goodmoral.getText().toString();
+               String req_collegeGoodMoral = edtReq_college_goodmoral.getText().toString();
+               String req_idNumberGoodMoral = edtReq_idnumber_goodMoral.getText().toString();
 
 
                 if(TextUtils.isEmpty(req_nameGoodMoral) || TextUtils.isEmpty(req_EmailGoodMoral) || TextUtils.isEmpty(req_collegeGoodMoral) || TextUtils.isEmpty(req_idNumberGoodMoral)) {
