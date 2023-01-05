@@ -13,20 +13,21 @@ import android.widget.Toast;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Student extends AppCompatActivity {
+public class Parent extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    ImageView btn;
     FrameLayout frameContainer;
 
     StudentHomeFragment studentHomeFragment = new StudentHomeFragment();
     StudentCSFDPortalFragment studentCSFDPortalFragment = new StudentCSFDPortalFragment();
-    StudentNotifFragment studentNotifFragment = new StudentNotifFragment();
-    StudentSettingsFragment studentSettingsFragment = new StudentSettingsFragment();
+    ParentNotifFragment parentNotifFragment = new ParentNotifFragment();
+    ParentSettingsFragment parentSettingsFragment = new ParentSettingsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student);
+        setContentView(R.layout.activity_parent);
 
         bottomNavigationView = findViewById(R.id.nav);
         frameContainer = findViewById(R.id.container);
@@ -44,19 +45,19 @@ public class Student extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentHomeFragment).commit();
-                        Toast.makeText(Student.this, "Home Page", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Parent.this, "Home Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentCSFDPortalFragment).commit();
-                        Toast.makeText(Student.this, "CSFD Portal Page", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Parent.this, "CSFD Portal Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.notifications:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, studentNotifFragment).commit();
-                        Toast.makeText(Student.this, "Notifications Page", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, parentNotifFragment).commit();
+                        Toast.makeText(Parent.this, "Notifications Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, studentSettingsFragment).commit();
-                        Toast.makeText(Student.this, "Settings Page", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, parentSettingsFragment).commit();
+                        Toast.makeText(Parent.this, "Settings Page", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:
