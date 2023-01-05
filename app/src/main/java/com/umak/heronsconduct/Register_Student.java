@@ -3,6 +3,7 @@ package com.umak.heronsconduct;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -10,15 +11,26 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class Register_Student extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+import java.util.AbstractList;
+import java.util.Calendar;
+
+public class Register_Student extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
-
+    private DatePickerDialog datePickerDialog;
+    private Button dateButton;
 
     ImageButton cancelButton, cancelButtonError;
     Button ok_btn, ok_btnError;
@@ -29,6 +41,40 @@ public class Register_Student extends AppCompatActivity {
         setContentView(R.layout.activity_register_student);
 
         reg_stu();
+
+
+        dateButton = findViewById(R.id.birthdateStudent);
+        //dateButton.setText(getTodaysDate());
+
+
+        Spinner spinner = findViewById(R.id.genderStudent);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genders, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+        Spinner spinner1 = findViewById(R.id.collegeStudent);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.colleges, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
+        spinner1.setOnItemSelectedListener(this);
+
+        Spinner spinner2 = findViewById(R.id.yearLevelStudent);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.year, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+        spinner2.setOnItemSelectedListener(this);
+
+        Spinner spinner3 = findViewById(R.id.courseStudent);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.courses, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
+        spinner3.setOnItemSelectedListener(this);
+
+
+        initDatePicker();
+
+
 
 
         Button have_acc = findViewById(R.id.login_haveAccSTU);
@@ -44,22 +90,32 @@ public class Register_Student extends AppCompatActivity {
 
     }
 
+    private String getTodaysDate() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(day, month, year);
+    }
+
     public void reg_stu() {
         EditText edtFNameSTU = findViewById(R.id.fNameStudent);
         EditText edtMNameSTU = findViewById(R.id.mNameStudent);
         EditText edtLNameSTU = findViewById(R.id.lNameStudent);
-        EditText edtGenderSTU = findViewById(R.id.genderStudent);
-        EditText edtBirthSTU = findViewById(R.id.birthdateStudent);
+        Spinner edtGenderSTU = findViewById(R.id.genderStudent);
+        Button edtBirthSTU = findViewById(R.id.birthdateStudent);
         EditText edtAddressSTU = findViewById(R.id.addressStudent);
         EditText edtContactNumSTU = findViewById(R.id.contactNumberStudent);
         EditText edtUmakEmailSTU = findViewById(R.id.umakEmailStudent);
         EditText edtStudentID = findViewById(R.id.studentID);
         EditText edtPersonalEmailSTU = findViewById(R.id.personalEmail_Student);
-        EditText edtCollegeSTU = findViewById(R.id.collegeStudent);
-        EditText edtYearSTU = findViewById(R.id.yearLevelStudent);
-        EditText edtCourseSTU = findViewById(R.id.courseStudent);
+        Spinner edtCollegeSTU = findViewById(R.id.collegeStudent);
+        Spinner edtYearSTU = findViewById(R.id.yearLevelStudent);
+        Spinner edtCourseSTU = findViewById(R.id.courseStudent);
         EditText edtPasswordSTU = findViewById(R.id.passwordStudent);
         EditText edtConfirmPasswordSTU = findViewById(R.id.ConfirmPassword_Student);
+
 
 
 
@@ -72,16 +128,16 @@ public class Register_Student extends AppCompatActivity {
                 String FNameSTU = edtFNameSTU.getText().toString();
                 String MNameSTU = edtMNameSTU.getText().toString();
                 String LNameSTU = edtLNameSTU.getText().toString();
-                String GenderSTU = edtGenderSTU.getText().toString();
+                String GenderSTU = edtGenderSTU.toString();
                 String BirthSTU = edtBirthSTU.getText().toString();
                 String AddressSTU = edtAddressSTU.getText().toString();
                 String ContactNumSTU = edtContactNumSTU.getText().toString();
                 String UmakEmailSTU = edtUmakEmailSTU.getText().toString();
                 String StudentIDSTU = edtStudentID.getText().toString();
                 String PersonalEmailSTU = edtPersonalEmailSTU.getText().toString();
-                String CollegeSTU = edtCollegeSTU.getText().toString();
-                String YearSTU = edtYearSTU.getText().toString();
-                String CourseSTU = edtCourseSTU.getText().toString();
+                String CollegeSTU = edtCollegeSTU.toString();
+                String YearSTU = edtYearSTU.toString();
+                String CourseSTU = edtCourseSTU.toString();
                 String PasswordSTU = edtPasswordSTU.getText().toString();
                 String ConfirmPasswordSTU = edtConfirmPasswordSTU.getText().toString();
 
@@ -108,7 +164,69 @@ public class Register_Student extends AppCompatActivity {
 
             }
         });
+
+
     }
+
+
+    private void initDatePicker(){
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                dateButton.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = android.app.AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+    }
+
+    private String makeDateString(int day, int month, int year){
+        return getMonthFormat(month) + " " + day + " " + year;
+    }
+
+    private String getMonthFormat(int month) {
+        if(month == 1)
+            return "JAN";
+        if(month == 2)
+            return "FEB";
+        if(month == 3)
+            return "MAR";
+        if(month == 4)
+            return "APRIL";
+        if(month == 5)
+            return "MAY";
+        if(month == 6)
+            return "JUN";
+        if(month == 7)
+            return "JULY";
+        if(month == 8)
+            return "AUG";
+        if(month == 9)
+            return "SEP";
+        if(month == 10)
+            return "OCT";
+        if(month == 11)
+            return "NOV";
+        if(month == 12)
+            return "DEC";
+
+        return "JAN";
+    }
+
+
+    public void openDatePicker(View view) {
+        datePickerDialog.show();
+    }
+
 
     private void openDialog() {
         View alertCustomDialog = LayoutInflater.from(Register_Student.this).inflate(R.layout.custom_dialog, null);
@@ -184,5 +302,41 @@ public class Register_Student extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+        String text = adapterView.getItemAtPosition(i).toString();
+        //Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
+
+        ((TextView) adapterView.getChildAt(0)).setTextSize(12);
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+
+        String text1 = adapterView.getItemAtPosition(i).toString();
+
+
+        ((TextView) adapterView.getChildAt(0)).setTextSize(12);
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+
+        String text2 = adapterView.getItemAtPosition(i).toString();
+
+        ((TextView) adapterView.getChildAt(0)).setTextSize(12);
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+
+        String text3 = adapterView.getItemAtPosition(i).toString();
+
+        ((TextView) adapterView.getChildAt(0)).setTextSize(12);
+        ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+
+    }
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
 
 }

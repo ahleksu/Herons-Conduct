@@ -15,4 +15,50 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+    <string-array name="genders">
+        <item>Genders</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="colleges">
+        <item>Colleges</item>
+        <item>Allied Health Studies</item>
+        <item>Arts and Letters</item>
+        <item>College of Human Kinetics</item>
+        <item>Business and Financial Science</item>
+        <item>Continuing, Advanced and Professional Studies</item>
+        <item>Computer Science</item>
+        <item>Construction Sciences and Engineering</item>
+        <item>Education</item>
+        <item>Governance and Public Policy</item>
+        <item>Education</item>
+        <item>Governance and Public Policy</item>
+        <item>Maritime Leadership Innovation</item>
+        <item>Sciences</item>
+        <item>Technology Management</item>
+        <item>Tourism and Hospitality Management</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>Year</item>
+        <item>1st year</item>
+        <item>2nd year</item>
+        <item>3rd year</item>
+        <item>4th year</item>
+    </string-array>
+
+    <string-array name="courses">
+        <item>Courses</item>
+        <item>Application Development</item>
+        <item>Social Computing</item>
+        <item>Diploma in Application Development</item>
+        <item>Diploma in Computer Network Administration</item>
+        <item>Bachelor of Science in Computational and Data Sciences</item>
+        <item>Bachelor of Science in Information Technology Major in Information and Network Security</item>
+    </string-array>
+
+
 </resources>

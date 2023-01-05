@@ -121,4 +121,8 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
         });
     }
 
+    public void back_goodMoral (View view){
+        // Back button
+    }
+
 }
