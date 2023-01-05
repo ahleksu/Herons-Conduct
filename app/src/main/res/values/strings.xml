@@ -14,5 +14,8 @@
     <string name="desc_4">Track trends\nand analyze data</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin metus ante, vitae porta ipsum lacinia in. Quisque eget nibh eget massa egestas tempor quis vitae metus. Proin gravida augue hendrerit, pretium leo sed, ullamcorper ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce faucibus magna congue fringilla congue. Nulla venenatis erat felis, a varius dolor imperdiet in. Nam at enim sed ligula congue porta sit amet eu erat.
+
+</string>
 
 </resources>
