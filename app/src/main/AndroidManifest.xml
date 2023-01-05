@@ -13,7 +13,7 @@
         android:theme="@style/Theme.HeronsConduct"
         tools:targetApi="31">
         <activity
-            android:name=".FAQs"
+            android:name=".PrivacyPolicy"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +25,28 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".FAQs"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Reporter"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Parent"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ParentSettingsFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
