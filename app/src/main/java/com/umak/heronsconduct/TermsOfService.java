@@ -1,16 +1,10 @@
 package com.umak.heronsconduct;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
-import android.content.Intent;
-import android.graphics.Matrix;
-
 import android.animation.LayoutTransition;
-import android.media.Image;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.RotateAnimation;
@@ -18,20 +12,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class FAQs extends AppCompatActivity {
+public class TermsOfService extends AppCompatActivity {
 
-    TextView faqs1_text,faqs2_text,faqs3_text, faqs4_text, faqs5_text, faqs6_text;
-    LinearLayout faqs1, faqs2, faqs3, faqs4, faqs5, faqs6;
-    ImageView faqsBackBtn, dropdownIcon1, dropdownIcon2, dropdownIcon3, dropdownIcon4, dropdownIcon5, dropdownIcon6;
-    boolean isClicked1, isClicked2, isClicked3, isClicked4, isClicked5, isClicked6;
+    TextView tos1_details,tos2_details,tos3_details, tos4_details, tos5_details, tos6_details,tos7_details,tos8_details;
+    LinearLayout tos1, tos2, tos3, tos4, tos5, tos6, tos7, tos8;
+    ImageView tosBackBtn, dropdownIcon1, dropdownIcon2, dropdownIcon3, dropdownIcon4, dropdownIcon5, dropdownIcon6, dropdownIcon7, dropdownIcon8;
+    boolean isClicked1, isClicked2, isClicked3, isClicked4, isClicked5, isClicked6, isClicked7, isClicked8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faqs);
+        setContentView(R.layout.activity_terms_of_service);
 
         //Button
-        faqsBackBtn = findViewById(R.id.faqsBackBtn);
+        tosBackBtn = findViewById(R.id.tosBackBtn);
 
         //Dropdowns
         dropdownIcon1 = findViewById(R.id.dropdownIcon1);
@@ -40,31 +34,39 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon4 = findViewById(R.id.dropdownIcon4);
         dropdownIcon5 = findViewById(R.id.dropdownIcon5);
         dropdownIcon6 = findViewById(R.id.dropdownIcon6);
+        dropdownIcon7 = findViewById(R.id.dropdownIcon7);
+        dropdownIcon8 = findViewById(R.id.dropdownIcon8);
 
         //FAQs details
-        faqs1_text = findViewById(R.id.faqs1_details);
-        faqs2_text = findViewById(R.id.faqs2_details);
-        faqs3_text = findViewById(R.id.faqs3_details);
-        faqs4_text = findViewById(R.id.faqs4_details);
-        faqs5_text = findViewById(R.id.faqs5_details);
-        faqs6_text = findViewById(R.id.faqs6_details);
+        tos1_details = findViewById(R.id.tos1_details);
+        tos2_details = findViewById(R.id.tos2_details);
+        tos3_details = findViewById(R.id.tos3_details);
+        tos4_details = findViewById(R.id.tos4_details);
+        tos5_details = findViewById(R.id.tos5_details);
+        tos6_details = findViewById(R.id.tos6_details);
+        tos7_details = findViewById(R.id.tos7_details);
+        tos8_details = findViewById(R.id.tos8_details);
 
 
         //Layouts
-        faqs1 = findViewById(R.id.faqs1);
-        faqs1.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
-        faqs2 = findViewById(R.id.faqs2);
-        faqs2.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
-        faqs3 = findViewById(R.id.faqs3);
-        faqs3.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
-        faqs4 = findViewById(R.id.faqs4);
-        faqs4.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
-        faqs5 = findViewById(R.id.faqs5);
-        faqs5.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
-        faqs6 = findViewById(R.id.faqs6);
-        faqs6.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos1 = findViewById(R.id.tos1);
+        tos1.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos2 = findViewById(R.id.tos2);
+        tos2.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos3 = findViewById(R.id.tos3);
+        tos3.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos4 = findViewById(R.id.tos4);
+        tos4.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos5 = findViewById(R.id.tos5);
+        tos5.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos6 = findViewById(R.id.tos6);
+        tos6.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos7 = findViewById(R.id.tos7);
+        tos7.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
+        tos8 = findViewById(R.id.tos8);
+        tos8.getLayoutTransition().enableTransitionType(LayoutTransition.APPEARING);
 
-        faqsBackBtn.setOnClickListener(new View.OnClickListener() {
+        tosBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -74,9 +76,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs1_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs1, new AutoTransition());
-                faqs1_text.setVisibility(v);
+                int v = (tos1_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos1, new AutoTransition());
+                tos1_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -100,9 +102,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs2_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs2, new AutoTransition());
-                faqs2_text.setVisibility(v);
+                int v = (tos2_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos2, new AutoTransition());
+                tos2_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -126,9 +128,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs3_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs3, new AutoTransition());
-                faqs3_text.setVisibility(v);
+                int v = (tos3_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos3, new AutoTransition());
+                tos3_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -152,9 +154,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs4_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs4, new AutoTransition());
-                faqs4_text.setVisibility(v);
+                int v = (tos4_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos4, new AutoTransition());
+                tos4_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -178,9 +180,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs5_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs5, new AutoTransition());
-                faqs5_text.setVisibility(v);
+                int v = (tos5_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos5, new AutoTransition());
+                tos5_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -204,9 +206,9 @@ public class FAQs extends AppCompatActivity {
         dropdownIcon6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v = (faqs6_text.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
-                TransitionManager.beginDelayedTransition(faqs6, new AutoTransition());
-                faqs6_text.setVisibility(v);
+                int v = (tos6_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos6, new AutoTransition());
+                tos6_details.setVisibility(v);
 
                 RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
                         0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -226,6 +228,60 @@ public class FAQs extends AppCompatActivity {
                 }
             }
         });
+
+        dropdownIcon7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int v = (tos7_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos7, new AutoTransition());
+                tos7_details.setVisibility(v);
+
+                RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
+                        0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+
+                if(isClicked7){
+                    RotateAnimation rotateAnimation1 = new RotateAnimation(180, 0, RotateAnimation.RELATIVE_TO_SELF,
+                            0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                    rotateAnimation.setDuration(500);
+                    dropdownIcon7.startAnimation(rotateAnimation1);
+                    isClicked7=false;
+                    rotateAnimation.setFillAfter(true);
+                }else{
+                    rotateAnimation.setDuration(500);
+                    dropdownIcon7.startAnimation(rotateAnimation);
+                    isClicked7=true;
+                    rotateAnimation.setFillAfter(true);
+                }
+            }
+        });
+
+        dropdownIcon8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int v = (tos8_details.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
+                TransitionManager.beginDelayedTransition(tos8, new AutoTransition());
+                tos8_details.setVisibility(v);
+
+                RotateAnimation rotateAnimation = new RotateAnimation(0, 180, RotateAnimation.RELATIVE_TO_SELF,
+                        0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+
+                if(isClicked6){
+                    RotateAnimation rotateAnimation1 = new RotateAnimation(180, 0, RotateAnimation.RELATIVE_TO_SELF,
+                            0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                    rotateAnimation.setDuration(500);
+                    dropdownIcon8.startAnimation(rotateAnimation1);
+                    isClicked8=false;
+                    rotateAnimation.setFillAfter(true);
+                }else{
+                    rotateAnimation.setDuration(500);
+                    dropdownIcon8.startAnimation(rotateAnimation);
+                    isClicked8=true;
+                    rotateAnimation.setFillAfter(true);
+                }
+            }
+        });
+
+
 
 
 
