@@ -4,32 +4,100 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Login extends AppCompatActivity {
+
     private Button login;
     TextView forgotPass;
+    Button loginSignUp;
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        forgotPass = (TextView)findViewById(R.id.forgotBTN);
-        TextView username = (TextView) findViewById(R.id.logIn_userName);
-        TextView password = (TextView) findViewById(R.id.logIn_password);
+        forgotPass = (TextView) findViewById(R.id.forgotBTN);
+        loginSignUp = (Button) findViewById(R.id.loginSignUp);
+        EditText username = (EditText) findViewById(R.id.logIn_userName);
+        EditText password = (EditText) findViewById(R.id.logIn_password);
         login = (Button) findViewById(R.id.signInBTN);
+
+        ProgressBar progressBar = findViewById(R.id.progressbar);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
-                }else
-                    Toast.makeText(Login.this, "Fail", Toast.LENGTH_SHORT).show();
+                //TODO error handling
+                String txtUsername = username.getText().toString();
+
+                if (txtUsername.isEmpty()) {
+                    Toast.makeText(Login.this, "Please Input Credentials", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    firebaseAuth.signInWithEmailAndPassword(username.getText().toString(), password.getText().toString())
+                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    progressBar.setVisibility(View.VISIBLE);
+
+
+                                    //Condition kung san siya mapupunta
+
+                                    firebaseFirestore.collection("ACCOUNT_TABLE")
+                                            .document(firebaseAuth.getUid())
+                                            .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                    if (documentSnapshot.getData() != null) {
+
+                                                        String typeofAccount = documentSnapshot.get("type").toString();
+
+                                                        if (typeofAccount.equals("student")) {
+                                                            Intent intent = new Intent(getApplicationContext(), Student.class);
+                                                            startActivity(intent);
+                                                        } else if (typeofAccount.equals("parent")) {
+
+                                                            Toast.makeText(getApplicationContext(), "Parent", Toast.LENGTH_SHORT).show();
+
+                                                        } else if (typeofAccount.equals("reporter")) {
+                                                            Toast.makeText(getApplicationContext(), "Reporter", Toast.LENGTH_SHORT).show();
+                                                        }
+
+                                                    }
+                                                }
+                                            });
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+
             }
+
+
         });
 
         forgotPass.setOnClickListener(new View.OnClickListener() {
@@ -41,5 +109,16 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        loginSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, Register.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
     }
+
 }

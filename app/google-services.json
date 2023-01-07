@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1066276107958",
+    "project_id": "herons-ce26d",
+    "storage_bucket": "herons-ce26d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066276107958:android:e428318a3d6fb506f7d817",
+        "android_client_info": {
+          "package_name": "com.umak.heronsconduct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066276107958-g7l1okr7r17ss0s1gl9lk6csjk9hff3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8rtaGFT_L8BiOmoGWu8kA9P4p3D7a1Jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066276107958-g7l1okr7r17ss0s1gl9lk6csjk9hff3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

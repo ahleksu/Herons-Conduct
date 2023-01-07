@@ -1,5 +1,6 @@
 package com.umak.heronsconduct;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class Register_Parent extends AppCompatActivity {
 
@@ -22,19 +32,31 @@ public class Register_Parent extends AppCompatActivity {
     ImageButton cancelButton1, cancelButtonError1;
     Button ok_btn1, ok_btnError1;
 
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_parent);
 
+//Button register for parent
+        reg_parent();
 
-        reg_stu1();
+
+
+        Button loginParent = findViewById(R.id.login_haveAcc_parent);
+        loginParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
 
-    public void reg_stu1() {
-
+    public void reg_parent() {
         EditText edtFNamePAR = findViewById(R.id.fNamePAR);
         EditText edtMNamePAR = findViewById(R.id.mNamePAR);
         EditText edtLNamePAR = findViewById(R.id.lNamePAR);
@@ -58,9 +80,7 @@ public class Register_Parent extends AppCompatActivity {
         String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
 
 
-
-
-        Button Register_PAR_btn = findViewById(R.id.Register_PAR_btn);
+        Button Register_PAR_btn = findViewById(R.id.Register_Parent);
         Register_PAR_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,20 +95,65 @@ public class Register_Parent extends AppCompatActivity {
                 String PasswordPAR = edtPasswordPAR.getText().toString();
                 String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
 
-                if(TextUtils.isEmpty(FNamePAR)|| TextUtils.isEmpty(MNamePAR) || TextUtils.isEmpty(LNamePAR) ||TextUtils.isEmpty(AddressPAR) ||TextUtils.isEmpty(ContactPAR) ||TextUtils.isEmpty(StudentIdPAR) ||TextUtils.isEmpty(ParentIdPAR) ||TextUtils.isEmpty(EmailPAR) ||TextUtils.isEmpty(PasswordPAR)) {
-                    openDialogError();
-                    return;
-                }
-                if(FNamePAR.isEmpty()) {
-                    openDialogError();
-                    return;
-                }
 
-                if(!ConfirmPasswordPAR.equals(PasswordPAR)) {
+                ProgressBar progressBar = findViewById(R.id.progressbar);
+
+
+                if(ConfirmPasswordPAR.equals(PasswordPAR)){
                     Toast.makeText(Register_Parent.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
+
                 else {
-                    openDialog();
+
+                    // get the user type
+                    Register type = new Register();
+
+                    // ACCOUNT OF PARENT
+                    firebaseAuth.createUserWithEmailAndPassword(EmailPAR, ConfirmPasswordPAR).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            progressBar.setVisibility(View.VISIBLE);
+                            HashMap<String, Object> addData = new HashMap<>();
+                            addData.put("type", type.Account);
+
+                            // ACCOUNT TABLE
+
+                            firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
+                                    .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // add data to table of parent
+
+                                            if(type.Account.equalsIgnoreCase("parent")) {
+
+                                                HashMap<String, Object> addDataParents = new HashMap<>();
+
+                                                addDataParents.put("email", EmailPAR);
+                                                addDataParents.put("parentID", ParentIdPAR);
+
+                                                //TODO ADD ANOTHER DATA
+
+
+                                                firebaseFirestore.collection("parent").document(firebaseAuth.getUid())
+                                                        .set(addDataParents)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // you can put condition or pop upEmail is already existed
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
 
@@ -97,6 +162,7 @@ public class Register_Parent extends AppCompatActivity {
 
 
     }
+
 
     private void openDialog() {
         View alertCustomDialog = LayoutInflater.from(Register_Parent.this).inflate(R.layout.custom_dialog, null);
@@ -161,16 +227,6 @@ public class Register_Parent extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -8,6 +8,11 @@ import android.view.View;
 
 public class Register extends AppCompatActivity {
 
+
+
+    static String Account = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +23,7 @@ public class Register extends AppCompatActivity {
 
 
     public void student_user(View view) {
-
+        Account = "student";
         Intent intent = new Intent(getApplicationContext(), Register_Student.class);
         startActivity(intent);
         finish();
@@ -26,6 +31,7 @@ public class Register extends AppCompatActivity {
 
 
     public void parent_user(View view) {
+        Account = "parent";
         Intent intent = new Intent(getApplicationContext(), Register_Parent.class);
         startActivity(intent);
         finish();
@@ -33,6 +39,7 @@ public class Register extends AppCompatActivity {
 
 
     public void reporter_user(View view) {
+        Account = "reporter";
         Intent intent = new Intent(getApplicationContext(), Register_Reporter.class);
         startActivity(intent);
     }
