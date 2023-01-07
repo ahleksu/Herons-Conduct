@@ -55,7 +55,7 @@ public class Onboarding extends AppCompatActivity {
                     mSLideViewPager.setCurrentItem(getitem(1),true);
                 else {
 
-                    Intent i = new Intent(Onboarding.this,MainActivity.class);
+                    Intent i = new Intent(Onboarding.this,Register.class);
                     startActivity(i);
                     finish();
 
@@ -68,8 +68,7 @@ public class Onboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                Intent i = new Intent(Onboarding.this,MainActivity.class);
+                Intent i = new Intent(Onboarding.this, Register.class);
                 startActivity(i);
                 finish();
 

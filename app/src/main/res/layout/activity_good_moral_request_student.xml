@@ -19,17 +19,13 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
-
-        <Button
+        <ImageView
             android:onClick="back_goodMoral"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginStart="6dp"
-            android:background="@drawable/leave_goodmoral_icon">
-
-        </Button>
-
+            android:background="@drawable/leave_goodmoral_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,41 +99,25 @@
                 android:textColor="#399CFF"
                 android:textSize="15sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/req_name_goodMoral"
                 android:layout_width="300dp"
                 android:layout_height="45dp"
-                android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="95dp"
-                android:layout_marginStart="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/req_name_goodMoral"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Name"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textSize="12sp"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-
+                android:layout_marginRight="12dp"
+                android:background="@drawable/reg_outline"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -149,28 +129,17 @@
                 android:textColor="#399CFF"
                 android:textSize="15sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
-                android:layout_height="45dp"
-                android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
-                android:layout_marginTop="195dp"
-                android:layout_marginStart="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/req_umakEmail_goodmoral"
                     android:layout_width="300dp"
                     android:layout_height="45dp"
-                    android:layout_gravity="center"
+                    android:background="@drawable/reg_outline"
+                    android:layout_marginTop="195dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
+                    android:padding="10dp"
                     android:drawablePadding="12dp"
                     android:hint="Email"
                     android:fontFamily="@font/metropolis_light"
@@ -180,8 +149,6 @@
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
 
 
@@ -195,29 +162,18 @@
                 android:textColor="#399CFF"
                 android:textSize="15sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
-                android:layout_height="45dp"
-                android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
-                android:layout_marginTop="295dp"
-                android:layout_marginStart="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/req_college_goodmoral"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="45dp"
-                    android:layout_gravity="center"
+                    android:background="@drawable/reg_outline"
+                    android:layout_marginTop="295dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
                     android:drawablePadding="12dp"
+                    android:padding="10dp"
                     android:hint="College"
                     android:fontFamily="@font/metropolis_light"
                     android:textSize="12sp"
@@ -226,8 +182,6 @@
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
 
 
@@ -241,29 +195,20 @@
                 android:textColor="#399CFF"
                 android:textSize="15sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="300dp"
-                android:layout_height="45dp"
-                android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
-                android:layout_marginTop="395dp"
-                android:layout_marginStart="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/req_idnumber_goodMoral"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="195dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
                     android:width="0dp"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/reg_outline"
                     android:drawablePadding="12dp"
+                    android:padding="10dp"
                     android:hint="ID Number"
                     android:fontFamily="@font/metropolis_light"
                     android:textSize="12sp"
@@ -272,8 +217,6 @@
                     android:minWidth="320dp"
                     android:minHeight="50dp"
                     android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
 
 
@@ -303,11 +246,10 @@
         style="@style/Button2"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_gravity="center"
         android:layout_marginStart="50dp"
         android:layout_marginTop="572dp"
         android:text="Cancel"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:fontFamily="@font/metropolis_semi_bold"
         app:layout_constraintEnd_toStartOf="@+id/Request_GoodMoral"
