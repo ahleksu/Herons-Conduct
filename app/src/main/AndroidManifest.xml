@@ -15,6 +15,14 @@
         android:theme="@style/Theme.HeronsConduct"
         tools:targetApi="31">
         <activity
+            android:name=".StudentDiscRecord"
+            android:exported="false">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".webview_announcements"
             android:exported="false">
             <meta-data
@@ -24,7 +32,6 @@
         <activity
             android:name=".Announcements_CSFD"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -44,6 +51,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Student"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Onboarding"
             android:exported="true">
             <intent-filter>
@@ -51,6 +65,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -84,6 +99,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Register"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Register_Student"
             android:exported="false">
             <meta-data
@@ -91,7 +113,49 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".Login"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ForgotPass"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".FAQs"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PrivacyPolicy"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TermsOfService"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Student_Handbook"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AboutHeronsConduct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

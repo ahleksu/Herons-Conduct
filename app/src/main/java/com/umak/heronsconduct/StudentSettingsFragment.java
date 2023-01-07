@@ -41,7 +41,7 @@ public class StudentSettingsFragment extends Fragment {
 
     //call in xml file
     TextView txt_name,txt_type;
-    LinearLayout logout_tab, FAQs_settings_tab, privacy_settings_tab, terms_settigns_tab;
+    LinearLayout logout_tab, about_settings_tab, FAQs_settings_tab, privacy_settings_tab, terms_settigns_tab;
     ImageView img_profile;
 
     //View
@@ -77,8 +77,9 @@ public class StudentSettingsFragment extends Fragment {
         //method for Terms of Service
         terms_settignsMethod();
 
+        //method for About Herons
+        aboutHeronsMethod();
 
-        //TODO ABOUT HERONS CONDUCT AND THE TEXT ON EVERY METHODS.
 
         return view;
     }
@@ -169,6 +170,19 @@ public class StudentSettingsFragment extends Fragment {
 
     }
 
+
+    private void aboutHeronsMethod(){
+        about_settings_tab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AboutHeronsConduct.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+
     private void FAQs_settingsMethod() {
         FAQs_settings_tab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,6 +232,7 @@ public class StudentSettingsFragment extends Fragment {
         txt_name = view.findViewById(R.id.txt_name);
         txt_type = view.findViewById(R.id.txt_type);
         logout_tab = view.findViewById(R.id.logout_tab);
+        about_settings_tab = view.findViewById(R.id.about_settings_tab);
         FAQs_settings_tab = view.findViewById(R.id.FAQs_settings_tab);
         privacy_settings_tab = view.findViewById(R.id.privacy_settings_tab);
         terms_settigns_tab = view.findViewById(R.id.terms_settigns_tab);
