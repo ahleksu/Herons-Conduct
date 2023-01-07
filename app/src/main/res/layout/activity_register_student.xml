@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Register_Student">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="784dp"
@@ -14,396 +13,350 @@
         android:scrollbarThumbHorizontal="@null"
         android:scrollbarThumbVertical="@null">
 
-    <ImageView
-        android:id="@+id/x_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="28dp"
-        android:minHeight="28dp"
-        android:onClick="x_back"
-        app:srcCompat="@drawable/x_circle">
-    </ImageView>
+        <ImageView
+            android:id="@+id/x_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:minWidth="28dp"
+            android:minHeight="28dp"
+            android:onClick="x_back"
+            app:srcCompat="@drawable/x_circle">
+        </ImageView>
 
+        <!--
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_profile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="50dp"
+            android:adjustViewBounds="true"
+            android:background="@color/white"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/student_reg"
+            app:shapeAppearance="?attr/actionButtonStyle"
+            app:shapeAppearanceOverlay="@style/imageViewRounded"
+            app:strokeColor="@android:color/white">
+        </com.google.android.material.imageview.ShapeableImageView>
+        -->
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="32dp"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/student_reg" />
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="32dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/student_reg" />
 
 
         <TextView
-            android:layout_width="185dp"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="center"
-            android:layout_marginStart="80dp"
+            android:gravity="center_horizontal"
+            android:layout_marginStart="56dp"
             android:layout_marginTop="206dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="56dp"
             android:text="Creating account as a student"
             android:textColor="@color/Text"
             android:textSize="16sp"
             android:textStyle="bold" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="240dp">
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="240dp"
+            android:layout_marginEnd="0dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fNameStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fNameStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="First Name"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textSize="12sp"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout3"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mNameStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="60dp"
+                android:layout_marginRight="12dp"
+                android:width="0dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Middle Name"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mNameStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:hint="Middle Name"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textColorHint="@color/Text"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout2"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lNameStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="120dp"
+                android:layout_marginRight="12dp"
+                android:width="0dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lNameStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:hint="Last Name"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textColorHint="@color/Text"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-                <Spinner
-                    android:id="@+id/genderStudent"
-                    android:layout_width="149dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="180dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:background="@drawable/reg_outline"
-                    android:spinnerMode="dropdown"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+            <Spinner
+                android:id="@+id/genderStudent"
+                android:layout_width="140dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/reg_outline"
+                android:maxLines="1"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.114"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/imageView16"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="145dp"
                 android:layout_marginTop="190dp"
-                android:layout_marginStart="165dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/chevron_down" />
 
-            <Button
+            <EditText
                 android:id="@+id/birthdateStudent"
                 android:layout_width="149dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="200dp"
+                android:layout_marginEnd="30dp"
                 android:layout_marginTop="180dp"
-                android:gravity="center"
                 android:background="@drawable/reg_outline"
-                android:textColor="@color/Text"
-                android:textSize="12sp"
                 android:fontFamily="@font/metropolis_light"
-               android:text="Birthdate MM/DD/YY"
                 android:inputType="date"
-                android:onClick="openDatePicker"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:padding="10dp"
+                android:maxLength="10"
+                android:hint="MM/DD/YYYY"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/genderStudent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="240dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Address"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addressStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Address"
-                    android:fontFamily="@font/metropolis_light"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textSize="12sp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contactNumberStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="300dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Contact Number"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/contactNumberStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Contact Number"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:fontFamily="@font/metropolis_light"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textSize="12sp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/umakEmailStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="360dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="UMak Email"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/umakEmailStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="UMak Email"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textColorHint="@color/Text" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/studentID"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="420dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Student ID"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/studentID"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Student ID"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textSize="12sp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/personalEmail_Student"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="480dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Personal Email"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/personalEmail_Student"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Personal Email"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <Spinner
                 android:id="@+id/collegeStudent"
                 android:layout_width="190dp"
                 android:layout_height="48dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="540dp"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
                 android:background="@drawable/reg_outline"
-                android:layout_marginStart="48dp"
+                android:maxLines="1"
+                android:gravity="center_vertical"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.114"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
+                android:id="@+id/imageView17"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/chevron_down"
                 android:layout_gravity="center"
+                android:layout_marginStart="190dp"
                 android:layout_marginTop="554dp"
-                android:layout_marginStart="210dp"
+                android:background="@drawable/chevron_down"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/yearLevelStudent"
                 android:layout_width="100dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="540dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
+                android:hint="Year Level"
+                android:padding="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/metropolis_light"
+                android:textColorHint="@color/Text"
+                android:gravity="center_vertical"
                 android:maxLines="1"
-                app:hintEnabled="false"
-                android:layout_marginStart="245dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/chevron_down"
-                android:layout_gravity="center"
-                android:layout_marginTop="555dp"
-                android:layout_marginStart="315dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/collegeStudent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <Spinner
                 android:id="@+id/courseStudent"
@@ -416,82 +369,64 @@
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/chevron_down"
                 android:layout_gravity="center"
+                android:layout_marginStart="300dp"
                 android:layout_marginTop="610dp"
-                android:layout_marginStart="320dp"
+                android:background="@drawable/chevron_down"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordStudent"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="655dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="660dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passwordStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Password"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textSize="12sp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ConfirmPassword_Student"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginTop="720dp"
+                android:layout_marginRight="12dp"
                 android:background="@drawable/reg_outline"
-                android:gravity="center"
-                android:maxLines="1"
-                app:hintEnabled="false"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Confirm Password"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ConfirmPassword_Student"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:width="0dp"
-                    android:background="@android:color/transparent"
-                    android:drawablePadding="12dp"
-                    android:hint="Confirm Password"
-                    android:inputType="textPersonName"
-                    android:lines="1"
-                    android:minWidth="320dp"
-                    android:minHeight="50dp"
-                    android:fontFamily="@font/metropolis_light"
-                    android:textSize="12sp"
-                    android:textColorHint="@color/Text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/Register_STU"
@@ -514,16 +449,30 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="830dp"
-                android:layout_marginStart="90dp"
-                android:padding="20dp"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:fontFamily="@font/metropolis_semi_bold"
-                android:text="Already have an account? Sign in"
-                android:textColor="@color/Text" />
+                android:padding="20dp"
+                android:text="Already have an account?\n Sign in"
+                android:textColor="@color/Text"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+
+        </LinearLayout>
     </RelativeLayout>
+
+
+
+
 </ScrollView>

@@ -26,20 +26,23 @@ public class Register_Reporter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_reporter);
 
-        reg_rep();
+
+
+        //register button for parent
+        reg_reporter();
     }
 
 
 
-    public void reg_rep() {
+    public void reg_reporter() {
         EditText edtFNameRep = findViewById(R.id.fNameRep);
         EditText edtMNameRep = findViewById(R.id.mNameRep);
         EditText edtLNameRep = findViewById(R.id.lNameRep);
         EditText edtUmakEmailRep = findViewById(R.id.umakEmailReporter);
         EditText edtIdNumberRep = findViewById(R.id.idNumber_Reporter);
         EditText edtEmailRep = findViewById(R.id.reporter_Email);
-        EditText edtPasswordRep = findViewById(R.id.parent_Password);
-        EditText edtConfirmPasswordRep = findViewById(R.id.parent_ConfirmPassword);
+        EditText edtPasswordRep = findViewById(R.id.reporter_Password);
+        EditText edtConfirmPasswordRep = findViewById(R.id.reporter_ConfirmPassword);
 
 
         Button Register_REPORTER = findViewById(R.id.Register_REPORTER);
@@ -56,24 +59,6 @@ public class Register_Reporter extends AppCompatActivity {
                 String ConfirmPasswordRep = edtConfirmPasswordRep.getText().toString();
 
 
-
-                if(TextUtils.isEmpty(FNameRep) || TextUtils.isEmpty(MNameRep) || TextUtils.isEmpty(LNameRep) || TextUtils.isEmpty(UmakEmailRep) || TextUtils.isEmpty(IdNumberRep) || TextUtils.isEmpty(EmailRep) || TextUtils.isEmpty(PasswordRep)) {
-                    openDialogError();
-                    return;
-                }
-
-                if(FNameRep.isEmpty()) {
-                    openDialogError();
-                    return;
-                }
-
-                if(!ConfirmPasswordRep.equals(PasswordRep)) {
-                    Toast.makeText(Register_Reporter.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
-                }
-
-                else {
-                    openDialog();
-                }
 
             }
         });

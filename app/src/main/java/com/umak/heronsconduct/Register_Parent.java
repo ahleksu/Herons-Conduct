@@ -27,14 +27,23 @@ public class Register_Parent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_parent);
 
+//Button register for parent
+        reg_parent();
 
-        reg_stu1();
+
+
+        Button loginParent = findViewById(R.id.login_haveAcc_parent);
+        loginParent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
 
-    public void reg_stu1() {
-
+    public void reg_parent() {
         EditText edtFNamePAR = findViewById(R.id.fNamePAR);
         EditText edtMNamePAR = findViewById(R.id.mNamePAR);
         EditText edtLNamePAR = findViewById(R.id.lNamePAR);
@@ -58,9 +67,7 @@ public class Register_Parent extends AppCompatActivity {
         String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
 
 
-
-
-        Button Register_PAR_btn = findViewById(R.id.Register_PAR_btn);
+        Button Register_PAR_btn = findViewById(R.id.Register_Parent);
         Register_PAR_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,21 +82,6 @@ public class Register_Parent extends AppCompatActivity {
                 String PasswordPAR = edtPasswordPAR.getText().toString();
                 String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
 
-                if(TextUtils.isEmpty(FNamePAR)|| TextUtils.isEmpty(MNamePAR) || TextUtils.isEmpty(LNamePAR) ||TextUtils.isEmpty(AddressPAR) ||TextUtils.isEmpty(ContactPAR) ||TextUtils.isEmpty(StudentIdPAR) ||TextUtils.isEmpty(ParentIdPAR) ||TextUtils.isEmpty(EmailPAR) ||TextUtils.isEmpty(PasswordPAR)) {
-                    openDialogError();
-                    return;
-                }
-                if(FNamePAR.isEmpty()) {
-                    openDialogError();
-                    return;
-                }
-
-                if(!ConfirmPasswordPAR.equals(PasswordPAR)) {
-                    Toast.makeText(Register_Parent.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    openDialog();
-                }
 
 
             }
@@ -97,6 +89,7 @@ public class Register_Parent extends AppCompatActivity {
 
 
     }
+
 
     private void openDialog() {
         View alertCustomDialog = LayoutInflater.from(Register_Parent.this).inflate(R.layout.custom_dialog, null);
@@ -161,16 +154,6 @@ public class Register_Parent extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

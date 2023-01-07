@@ -30,7 +30,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
 
     private DatePickerDialog datePickerDialog;
-    private Button dateButton;
+    private EditText dateButton;
 
     ImageButton cancelButton, cancelButtonError;
     Button ok_btn, ok_btnError;
@@ -40,13 +40,29 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_student);
 
+        //method for register button
         reg_stu();
 
+        //dropdown
+        spinner();
 
-        dateButton = findViewById(R.id.birthdateStudent);
-        //dateButton.setText(getTodaysDate());
+
+/*
+        Button have_accStudent = findViewById(R.id.login_haveAccSTU);
+        have_accStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+ */
 
 
+    }
+
+    public void spinner() {
         Spinner spinner = findViewById(R.id.genderStudent);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.genders, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -59,66 +75,32 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
-        Spinner spinner2 = findViewById(R.id.yearLevelStudent);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.year, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
 
         Spinner spinner3 = findViewById(R.id.courseStudent);
         ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.courses, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         spinner3.setOnItemSelectedListener(this);
-
-
-        initDatePicker();
-
-
-
-
-        Button have_acc = findViewById(R.id.login_haveAccSTU);
-
-        have_acc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 
-    private String getTodaysDate() {
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        month = month + 1;
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        return makeDateString(day, month, year);
-    }
+
 
     public void reg_stu() {
         EditText edtFNameSTU = findViewById(R.id.fNameStudent);
         EditText edtMNameSTU = findViewById(R.id.mNameStudent);
         EditText edtLNameSTU = findViewById(R.id.lNameStudent);
         Spinner edtGenderSTU = findViewById(R.id.genderStudent);
-        Button edtBirthSTU = findViewById(R.id.birthdateStudent);
+        EditText edtBirthSTU = findViewById(R.id.birthdateStudent);
         EditText edtAddressSTU = findViewById(R.id.addressStudent);
         EditText edtContactNumSTU = findViewById(R.id.contactNumberStudent);
         EditText edtUmakEmailSTU = findViewById(R.id.umakEmailStudent);
         EditText edtStudentID = findViewById(R.id.studentID);
         EditText edtPersonalEmailSTU = findViewById(R.id.personalEmail_Student);
         Spinner edtCollegeSTU = findViewById(R.id.collegeStudent);
-        Spinner edtYearSTU = findViewById(R.id.yearLevelStudent);
+        EditText edtYearSTU = findViewById(R.id.yearLevelStudent);
         Spinner edtCourseSTU = findViewById(R.id.courseStudent);
         EditText edtPasswordSTU = findViewById(R.id.passwordStudent);
         EditText edtConfirmPasswordSTU = findViewById(R.id.ConfirmPassword_Student);
-
-
-
-
 
 
         Button reg_stu = findViewById(R.id.Register_STU);
@@ -142,90 +124,13 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                 String ConfirmPasswordSTU = edtConfirmPasswordSTU.getText().toString();
 
 
-                if(TextUtils.isEmpty(FNameSTU) || TextUtils.isEmpty(MNameSTU) || TextUtils.isEmpty(LNameSTU) || TextUtils.isEmpty(GenderSTU) || TextUtils.isEmpty(BirthSTU) || TextUtils.isEmpty(AddressSTU) || TextUtils.isEmpty(ContactNumSTU) || TextUtils.isEmpty(UmakEmailSTU) || TextUtils.isEmpty(StudentIDSTU) ||
-                        TextUtils.isEmpty(PersonalEmailSTU) || TextUtils.isEmpty(CollegeSTU) || TextUtils.isEmpty(YearSTU) || TextUtils.isEmpty(CourseSTU) || TextUtils.isEmpty(PasswordSTU)) {
-                    openDialogError();
-                    return;
-                }
-
-                if(FNameSTU.isEmpty()) {
-                    openDialogError();
-                    return;
-                }
-
-                if(!ConfirmPasswordSTU.equals(PasswordSTU)) {
-                    Toast.makeText(Register_Student.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
-                }
-
-                else {
-                    openDialog();
-
-                }
-
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                Toast.makeText(Register_Student.this, "REGISTER", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
-
-    private void initDatePicker(){
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                String date = makeDateString(day, month, year);
-                dateButton.setText(date);
-            }
-        };
-
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        int style = android.app.AlertDialog.THEME_HOLO_LIGHT;
-
-        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
-    }
-
-    private String makeDateString(int day, int month, int year){
-        return getMonthFormat(month) + " " + day + " " + year;
-    }
-
-    private String getMonthFormat(int month) {
-        if(month == 1)
-            return "JAN";
-        if(month == 2)
-            return "FEB";
-        if(month == 3)
-            return "MAR";
-        if(month == 4)
-            return "APRIL";
-        if(month == 5)
-            return "MAY";
-        if(month == 6)
-            return "JUN";
-        if(month == 7)
-            return "JULY";
-        if(month == 8)
-            return "AUG";
-        if(month == 9)
-            return "SEP";
-        if(month == 10)
-            return "OCT";
-        if(month == 11)
-            return "NOV";
-        if(month == 12)
-            return "DEC";
-
-        return "JAN";
-    }
-
-
-    public void openDatePicker(View view) {
-        datePickerDialog.show();
-    }
 
 
     private void openDialog() {
@@ -291,9 +196,6 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
             }
         });
     }
-
-
-    
 
 
     public void x_back(View view) {
