@@ -45,4 +45,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
 
+
+
+    //library for showing the image
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }

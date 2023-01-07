@@ -1,5 +1,6 @@
 package com.umak.heronsconduct;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class Register_Parent extends AppCompatActivity {
 
@@ -21,6 +31,9 @@ public class Register_Parent extends AppCompatActivity {
 
     ImageButton cancelButton1, cancelButtonError1;
     Button ok_btn1, ok_btnError1;
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +95,66 @@ public class Register_Parent extends AppCompatActivity {
                 String PasswordPAR = edtPasswordPAR.getText().toString();
                 String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
 
+
+                ProgressBar progressBar = findViewById(R.id.progressbar);
+
+
+                if(ConfirmPasswordPAR.equals(PasswordPAR)){
+                    Toast.makeText(Register_Parent.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+
+                    // get the user type
+                    Register type = new Register();
+
+                    // ACCOUNT OF PARENT
+                    firebaseAuth.createUserWithEmailAndPassword(EmailPAR, ConfirmPasswordPAR).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            progressBar.setVisibility(View.VISIBLE);
+                            HashMap<String, Object> addData = new HashMap<>();
+                            addData.put("type", type.Account);
+
+                            // ACCOUNT TABLE
+
+                            firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
+                                    .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // add data to table of parent
+
+                                            if(type.Account.equalsIgnoreCase("parent")) {
+
+                                                HashMap<String, Object> addDataParents = new HashMap<>();
+
+                                                addDataParents.put("email", EmailPAR);
+                                                addDataParents.put("parentID", ParentIdPAR);
+
+                                                //TODO ADD ANOTHER DATA
+
+
+                                                firebaseFirestore.collection("parent").document(firebaseAuth.getUid())
+                                                        .set(addDataParents)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // you can put condition or pop upEmail is already existed
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
 
             }

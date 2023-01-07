@@ -1,9 +1,11 @@
 package com.umak.heronsconduct;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,6 +21,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,6 +49,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
     ImageButton cancelButton, cancelButtonError;
     Button ok_btn, ok_btnError;
 
+    ImageView img_profile;
+
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -66,20 +71,57 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         spinner();
 
 
-/*
+
         Button have_accStudent = findViewById(R.id.login_haveAccSTU);
         have_accStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
+                finish();
             }
         });
 
- */
-
 
     }
+
+    /*
+    private void uploadPhotoMethod() {
+        img_profile = findViewById(R.id.img_profile);
+
+        img_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadPhoto();
+            }
+
+            private void uploadPhoto() {
+                ImagePicker.with(Register_Student.this)
+                        .galleryOnly()
+                        .crop()
+                        .compress(1024)
+                        .maxResultSize(1080,1080)
+                        .start();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            uri = data.getData();
+            img_profile.setImageURI(uri);
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+     */
 
     public void spinner() {
         Spinner spinner = findViewById(R.id.genderStudent);
@@ -108,16 +150,22 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         EditText edtFNameSTU = findViewById(R.id.fNameStudent);
         EditText edtMNameSTU = findViewById(R.id.mNameStudent);
         EditText edtLNameSTU = findViewById(R.id.lNameStudent);
+
         Spinner edtGenderSTU = findViewById(R.id.genderStudent);
+
         EditText edtBirthSTU = findViewById(R.id.birthdateStudent);
         EditText edtAddressSTU = findViewById(R.id.addressStudent);
         EditText edtContactNumSTU = findViewById(R.id.contactNumberStudent);
         EditText edtUmakEmailSTU = findViewById(R.id.umakEmailStudent);
         EditText edtStudentID = findViewById(R.id.studentID);
         EditText edtPersonalEmailSTU = findViewById(R.id.personalEmail_Student);
+
         Spinner edtCollegeSTU = findViewById(R.id.collegeStudent);
+
         EditText edtYearSTU = findViewById(R.id.yearLevelStudent);
+
         Spinner edtCourseSTU = findViewById(R.id.courseStudent);
+
         EditText edtPasswordSTU = findViewById(R.id.passwordStudent);
         EditText edtConfirmPasswordSTU = findViewById(R.id.ConfirmPassword_Student);
 
@@ -137,11 +185,10 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                 String StudentIDSTU = edtStudentID.getText().toString();
                 String PersonalEmailSTU = edtPersonalEmailSTU.getText().toString();
                 String CollegeSTU = edtCollegeSTU.toString();
-                String YearSTU = edtYearSTU.toString();
+                String YearSTU = edtYearSTU.getText().toString();
                 String CourseSTU = edtCourseSTU.toString();
                 String PasswordSTU = edtPasswordSTU.getText().toString();
                 String ConfirmPasswordSTU = edtConfirmPasswordSTU.getText().toString();
-
 
                 ProgressBar progressBar = findViewById(R.id.progressbar);
 
@@ -173,22 +220,38 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
                                             // add data to table of parent, reporter, student
 
+
                                            if(type.Account.equalsIgnoreCase("student")){
 
                                                HashMap<String, Object> addDataStudents = new HashMap<>();
+
                                                addDataStudents.put("first_name", FNameSTU);
+                                               addDataStudents.put("middle_name", MNameSTU);
+                                               addDataStudents.put("last_name", LNameSTU);
+                                               addDataStudents.put("gender", GenderSTU);
+                                               addDataStudents.put("birthdate", BirthSTU);
+                                               addDataStudents.put("address", AddressSTU);
                                                addDataStudents.put("contact_num", ContactNumSTU);
                                                addDataStudents.put("umak_email", UmakEmailSTU);
+                                               addDataStudents.put("student_id", StudentIDSTU);
+                                               addDataStudents.put("personal_email", PersonalEmailSTU);
+                                               addDataStudents.put("college", CollegeSTU);
+                                               addDataStudents.put("yr_level", YearSTU);
+                                               addDataStudents.put("course", CourseSTU);
+
 
                                                //TODO ADD ANOTHER DATA
 
 
-                                               firebaseFirestore.collection("student").document(firebaseAuth.getUid())
+                                               firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
                                                        .set(addDataStudents)
                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                            @Override
                                                            public void onSuccess(Void unused) {
                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                               Intent i = new Intent(getApplicationContext(), Login.class);
+                                                               startActivity(i);
+                                                               finish();
                                                            }
                                                        });
 
@@ -197,7 +260,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                                            else if(type.Account.equalsIgnoreCase("parent")){
                                                //TODO ADD DATA IN PARENT TABLE
 
-                                            } else if(type.Account.equalsIgnoreCase("reporter")){
+
+                                           } else if(type.Account.equalsIgnoreCase("reporter")){
                                                //TODO ADD DATA IN REPORTER TABLE
                                             }
                                         }
@@ -213,7 +277,6 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
                         }
                     });
-
 
 
                 }

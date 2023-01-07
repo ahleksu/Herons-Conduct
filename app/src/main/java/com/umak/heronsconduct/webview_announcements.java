@@ -8,13 +8,15 @@ import android.webkit.WebViewClient;
 
 public class webview_announcements extends AppCompatActivity {
 
+    WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_announcements);
 
 
-        WebView webView = findViewById(R.id.webView);
+        webView = findViewById(R.id.webView);
 
         String url = getIntent().getExtras().getString("url");
 
@@ -24,5 +26,7 @@ public class webview_announcements extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(url);
 
+
     }
+
 }
