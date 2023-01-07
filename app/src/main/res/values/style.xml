@@ -25,5 +25,10 @@
         <item name="windowActionBarOverlay">true</item>
     </style>
 
+    <style name="imageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">51%</item>
+    </style>
+
 
 </resources>

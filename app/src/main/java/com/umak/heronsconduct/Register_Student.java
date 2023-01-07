@@ -27,12 +27,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.w3c.dom.Text;
 
@@ -54,8 +59,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    //FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-    //StorageReference storageReference = firebaseStorage.getReference();
+    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    StorageReference storageReference = firebaseStorage.getReference();
 
     Uri uri;
 
@@ -85,7 +90,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     }
 
-    /*
+
     private void uploadPhotoMethod() {
         img_profile = findViewById(R.id.img_profile);
 
@@ -121,7 +126,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         }
     }
 
-     */
+
 
     public void spinner() {
         Spinner spinner = findViewById(R.id.genderStudent);
@@ -203,7 +208,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                     //para malaman kung ano yung pinindot
                     Register type = new Register();
 
-                    //49:51
+
                     //1. May account na siya
                     firebaseAuth.createUserWithEmailAndPassword(UmakEmailSTU, ConfirmPasswordSTU).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
@@ -212,73 +217,88 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                             HashMap<String, Object> addData = new HashMap<>();
                             addData.put("type", type.Account);
 
-                            // ACCOUNT TABLE
+                            //account_table
                             firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
                                     .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
 
-                                            // add data to table of parent, reporter, student
+                                        }
+                                    });
+
+                            //upload piture image
+                            StorageReference uploadProfile = storageReference.child("UserDp/" + FNameSTU);
+
+                            uploadProfile.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    progressBar.setVisibility(View.GONE);
+                                    //add data to table of Parent, Student and Reporter
+
+                                    uploadProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            if(type.Account.equalsIgnoreCase("student")){
+
+                                                HashMap<String, Object> addStudents = new HashMap<>();
+                                                addStudents.put("first_name", FNameSTU);
+                                                addStudents.put("contact_num", ContactNumSTU);
+                                                addStudents.put("umak_email", UmakEmailSTU);
+                                                addStudents.put("image", uri);
+                                                addStudents.put("college", "CCIS");
 
 
-                                           if(type.Account.equalsIgnoreCase("student")){
+                                                //TODO add the other data
 
-                                               HashMap<String, Object> addDataStudents = new HashMap<>();
+                                                firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
+                                                        .set(addStudents)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
 
-                                               addDataStudents.put("first_name", FNameSTU);
-                                               addDataStudents.put("middle_name", MNameSTU);
-                                               addDataStudents.put("last_name", LNameSTU);
-                                               addDataStudents.put("gender", GenderSTU);
-                                               addDataStudents.put("birthdate", BirthSTU);
-                                               addDataStudents.put("address", AddressSTU);
-                                               addDataStudents.put("contact_num", ContactNumSTU);
-                                               addDataStudents.put("umak_email", UmakEmailSTU);
-                                               addDataStudents.put("student_id", StudentIDSTU);
-                                               addDataStudents.put("personal_email", PersonalEmailSTU);
-                                               addDataStudents.put("college", CollegeSTU);
-                                               addDataStudents.put("yr_level", YearSTU);
-                                               addDataStudents.put("course", CourseSTU);
-
-
-                                               //TODO ADD ANOTHER DATA
-
-
-                                               firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
-                                                       .set(addDataStudents)
-                                                       .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                           @Override
-                                                           public void onSuccess(Void unused) {
-                                                               Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
-                                                               Intent i = new Intent(getApplicationContext(), Login.class);
-                                                               startActivity(i);
-                                                               finish();
-                                                           }
-                                                       });
-
-
-                                           }
-                                           else if(type.Account.equalsIgnoreCase("parent")){
-                                               //TODO ADD DATA IN PARENT TABLE
-
-
-                                           } else if(type.Account.equalsIgnoreCase("reporter")){
-                                               //TODO ADD DATA IN REPORTER TABLE
+                                            }
+                                            else if(type.Account.equalsIgnoreCase("parent")){
+                                                //TODO : add data in Parent Table
+                                            }else if(type.Account.equalsIgnoreCase("reporter")){
+                                                //TODO : add data in Report
                                             }
                                         }
                                     });
 
 
+
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }
+                            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                                    progressBar.setVisibility(View.VISIBLE);
+                                }
+                            });
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            // Email is already existed
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-
+                            //halimbaa email is already existed
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
 
+
+
+                    //penDialog();
                 }
 
             }
