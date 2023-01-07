@@ -27,7 +27,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.dhaval2404.imagepicker.ImagePicker;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -59,8 +59,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-    StorageReference storageReference = firebaseStorage.getReference();
+    // FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    // StorageReference storageReference = firebaseStorage.getReference();
 
     Uri uri;
 
@@ -90,7 +90,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     }
 
-
+/*
     private void uploadPhotoMethod() {
         img_profile = findViewById(R.id.img_profile);
 
@@ -112,6 +112,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -125,6 +126,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
             Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
         }
     }
+
+ */
 
 
 
@@ -198,18 +201,17 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                 ProgressBar progressBar = findViewById(R.id.progressbar);
 
 
-                if(ConfirmPasswordSTU.equals(PasswordSTU)) {
+
+                if(ConfirmPasswordSTU.equals(PasswordSTU)){
                     Toast.makeText(Register_Student.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
 
-
-                    //para malaman kung ano yung pinindot
+                    // get the user type
                     Register type = new Register();
 
-
-                    //1. May account na siya
+                    // ACCOUNT OF STUDENT
                     firebaseAuth.createUserWithEmailAndPassword(UmakEmailSTU, ConfirmPasswordSTU).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
@@ -217,41 +219,38 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                             HashMap<String, Object> addData = new HashMap<>();
                             addData.put("type", type.Account);
 
-                            //account_table
+                            // ACCOUNT TABLE
+
                             firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
                                     .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
+                                            // add data to table of student
 
-                                        }
-                                    });
+                                            if(type.Account.equalsIgnoreCase("student")) {
 
-                            //upload piture image
-                            StorageReference uploadProfile = storageReference.child("UserDp/" + FNameSTU);
+                                                HashMap<String, Object> addDataStudents = new HashMap<>();
 
-                            uploadProfile.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    progressBar.setVisibility(View.GONE);
-                                    //add data to table of Parent, Student and Reporter
-
-                                    uploadProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            if(type.Account.equalsIgnoreCase("student")){
-
-                                                HashMap<String, Object> addStudents = new HashMap<>();
-                                                addStudents.put("first_name", FNameSTU);
-                                                addStudents.put("contact_num", ContactNumSTU);
-                                                addStudents.put("umak_email", UmakEmailSTU);
-                                                addStudents.put("image", uri);
-                                                addStudents.put("college", "CCIS");
+                                                addDataStudents.put("first_name", FNameSTU);
+                                                addDataStudents.put("middle_name", MNameSTU);
+                                                addDataStudents.put("last_name", LNameSTU);
+                                                addDataStudents.put("gender", "MALE");
+                                                addDataStudents.put("birthdate", BirthSTU);
+                                                addDataStudents.put("address", AddressSTU);
+                                                addDataStudents.put("contact_num", ContactNumSTU);
+                                                addDataStudents.put("umak_email", UmakEmailSTU);
+                                                addDataStudents.put("student_id", StudentIDSTU);
+                                                addDataStudents.put("personal_email", PersonalEmailSTU);
+                                                addDataStudents.put("college", "CCIS");
+                                                addDataStudents.put("yr_level", YearSTU);
+                                                addDataStudents.put("course", CourseSTU);
 
 
-                                                //TODO add the other data
+                                                //TODO ADD ANOTHER DATA
+
 
                                                 firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
-                                                        .set(addStudents)
+                                                        .set(addDataStudents)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void unused) {
@@ -260,56 +259,22 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                                                         });
 
                                             }
-                                            else if(type.Account.equalsIgnoreCase("parent")){
-                                                //TODO : add data in Parent Table
-                                            }else if(type.Account.equalsIgnoreCase("reporter")){
-                                                //TODO : add data in Report
-                                            }
                                         }
                                     });
-
-
-
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                }
-                            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                                    progressBar.setVisibility(View.VISIBLE);
-                                }
-                            });
-
-
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //halimbaa email is already existed
+                            // you can put condition or pop upEmail is already existed
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-
-
-                    //penDialog();
                 }
 
             }
         });
 
-
-
     }
-
-
-
 
 
 

@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
 
     //library for uploading picture
-    implementation 'com.github.dhaval2404:imagepicker:2.1'
+    //implementation 'com.github.dhaval2404:imagepicker:2.1'
 
     //library for showing the image
     implementation 'com.squareup.picasso:picasso:2.71828'
