@@ -33,7 +33,7 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
 
         EditText req_name_goodMoral = findViewById(R.id.req_name_goodMoral);
 
-
+        Cancel_GoodMoral();
 
     }
 
@@ -42,7 +42,8 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
         Cancel_GoodMoral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent (getApplicationContext(), Student.class);
+                startActivity(intent);
             }
         });
     }

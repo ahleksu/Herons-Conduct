@@ -201,8 +201,11 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                 ProgressBar progressBar = findViewById(R.id.progressbar);
 
 
+                if(FNameSTU.isEmpty() || MNameSTU.isEmpty() || LNameSTU.isEmpty()){
+                    Toast.makeText(Register_Student.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                }
 
-                if(!ConfirmPasswordSTU.equals(PasswordSTU)){
+               else if(!ConfirmPasswordSTU.equals(PasswordSTU)){
                     Toast.makeText(Register_Student.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
 
@@ -272,6 +275,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             // you can put condition or pop upEmail is already existed
+
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });

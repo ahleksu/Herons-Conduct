@@ -83,8 +83,10 @@ public class Register_Reporter extends AppCompatActivity {
 
                 ProgressBar progressBar = findViewById(R.id.progressbar);
 
-
-                if(!ConfirmPasswordRep.equals(PasswordRep)){
+                if(FNameRep.isEmpty() || MNameRep.isEmpty() || LNameRep.isEmpty()){
+                    Toast.makeText(Register_Reporter.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                }
+                else if(!ConfirmPasswordRep.equals(PasswordRep)){
                     Toast.makeText(Register_Reporter.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
                 else {

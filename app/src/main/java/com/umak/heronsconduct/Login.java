@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
                 String txtUsername = username.getText().toString();
                 String txtPassword = password.getText().toString();
 
-                if (txtUsername.isEmpty()) {
+                if (txtUsername.isEmpty() || txtPassword.isEmpty()) {
                     Toast.makeText(Login.this, "Please Input Credentials", Toast.LENGTH_SHORT).show();
                 }
 
