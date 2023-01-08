@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="32dp"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/parent_reg" />
+                app:srcCompat="@drawable/reporter_reg" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -150,7 +150,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
-                android:hint="Email"
+                android:hint="Personal Email"
                 android:inputType="textPersonName"
                 android:lines="1"
                 android:fontFamily="@font/metropolis_light"
@@ -168,26 +168,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
-                android:hint="Parent ID"
-                android:inputType="textPersonName"
-                android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
-                android:minWidth="320dp"
-                android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/parent_Email"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/reg_outline"
-                android:drawablePadding="12dp"
-                android:hint="Email"
+                android:hint="Reporter ID"
                 android:inputType="textPersonName"
                 android:lines="1"
                 android:fontFamily="@font/metropolis_light"

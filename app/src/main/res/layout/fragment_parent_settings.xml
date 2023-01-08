@@ -50,6 +50,7 @@
                     android:layout_marginRight="20dp"
                     >
                     <TextView
+                        android:id="@+id/txt_name_parent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mario Dela Cruz"
@@ -64,6 +65,7 @@
                         android:textAlignment="textStart"/>
 
                     <TextView
+                        android:id="@+id/txt_type_parent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="(Parent)"

@@ -47,6 +47,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO error handling
                 String txtUsername = username.getText().toString();
+                String txtPassword = password.getText().toString();
 
                 if (txtUsername.isEmpty()) {
                     Toast.makeText(Login.this, "Please Input Credentials", Toast.LENGTH_SHORT).show();
@@ -58,7 +59,6 @@ public class Login extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     progressBar.setVisibility(View.VISIBLE);
-
 
                                     //Condition kung san siya mapupunta
 
@@ -74,18 +74,21 @@ public class Login extends AppCompatActivity {
                                                         if (typeofAccount.equals("student")) {
                                                             Intent intent = new Intent(getApplicationContext(), Student.class);
                                                             startActivity(intent);
-                                                        } else if (typeofAccount.equals("parent")) {
-
-                                                            Toast.makeText(getApplicationContext(), "Parent", Toast.LENGTH_SHORT).show();
-
-                                                        } else if (typeofAccount.equals("reporter")) {
-                                                            Toast.makeText(getApplicationContext(), "Reporter", Toast.LENGTH_SHORT).show();
+                                                        } else if(typeofAccount.equals("parent")) {
+                                                            Intent intent = new Intent(getApplicationContext(), Parent.class);
+                                                            startActivity(intent);
+                                                        }
+                                                        else if (typeofAccount.equals("reporter")) {
+                                                            Intent intent = new Intent(getApplicationContext(), Reporter.class);
+                                                            startActivity(intent);
+                                                        } else if(typeofAccount.equals("admin")) {
+                                                            Intent intent = new Intent(getApplicationContext(), Admin.class);
+                                                            startActivity(intent);
                                                         }
 
                                                     }
                                                 }
                                             });
-
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

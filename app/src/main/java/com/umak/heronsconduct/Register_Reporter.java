@@ -1,5 +1,6 @@
 package com.umak.heronsconduct;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,13 +14,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class Register_Reporter extends AppCompatActivity {
 
     ImageButton cancelButton3, cancelButtonError3;
 
     Button ok_btn3, ok_btnError3;
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +43,17 @@ public class Register_Reporter extends AppCompatActivity {
 
         //register button for parent
         reg_reporter();
-    }
 
+        Button login_haveAcc_reporter = findViewById(R.id.login_haveAcc_reporter);
+        login_haveAcc_reporter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 
 
     public void reg_reporter() {
@@ -59,6 +81,73 @@ public class Register_Reporter extends AppCompatActivity {
                 String ConfirmPasswordRep = edtConfirmPasswordRep.getText().toString();
 
 
+                ProgressBar progressBar = findViewById(R.id.progressbar);
+
+
+                if(!ConfirmPasswordRep.equals(PasswordRep)){
+                    Toast.makeText(Register_Reporter.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    // get the user type
+                    Register type = new Register();
+
+                    // ACCOUNT OF PARENT
+                    firebaseAuth.createUserWithEmailAndPassword(UmakEmailRep, ConfirmPasswordRep).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            progressBar.setVisibility(View.VISIBLE);
+                            HashMap<String, Object> addData = new HashMap<>();
+                            addData.put("type", type.Account);
+
+                            // ACCOUNT TABLE
+
+                            firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
+                                    .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            // add data to table of reporter
+
+                                            if(type.Account.equalsIgnoreCase("reporter")) {
+
+                                                HashMap<String, Object> addDataReporter = new HashMap<>();
+
+                                                addDataReporter.put("umak_email", UmakEmailRep);
+                                                addDataReporter.put("first_name", FNameRep);
+                                                addDataReporter.put("middle_name", MNameRep);
+                                                addDataReporter.put("last_name", LNameRep);
+                                                addDataReporter.put("personal_email", EmailRep);
+                                                addDataReporter.put("reporterID", IdNumberRep);
+
+
+                                                //TODO ADD ANOTHER DATA
+
+
+                                                firebaseFirestore.collection("reporter").document(firebaseAuth.getUid())
+                                                        .set(addDataReporter)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                                                startActivity(intent);
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+
+                                            }
+                                        }
+                                    });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // you can put condition or pop upEmail is already existed
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+
 
             }
         });
@@ -66,6 +155,8 @@ public class Register_Reporter extends AppCompatActivity {
 
 
     }
+
+
 
 
 

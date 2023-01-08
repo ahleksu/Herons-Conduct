@@ -24,8 +24,7 @@
             android:onClick="x_back"
             app:srcCompat="@drawable/x_circle">
         </ImageView>
-
-
+        <!--
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_profile"
             android:layout_width="120dp"
@@ -44,12 +43,11 @@
             app:shapeAppearanceOverlay="@style/imageViewRounded"
             app:strokeColor="@android:color/white">
         </com.google.android.material.imageview.ShapeableImageView>
-
+-->
 
         <ImageView
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="32dp"

@@ -44,19 +44,19 @@ public class Student extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentHomeFragment).commit();
-                        Toast.makeText(Student.this, "Home Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Student.this, "Home Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentCSFDPortalFragment).commit();
-                        Toast.makeText(Student.this, "CSFD Portal Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Student.this, "CSFD Portal Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.notifications:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentNotifFragment).commit();
-                        Toast.makeText(Student.this, "Notifications Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Student.this, "Notifications Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentSettingsFragment).commit();
-                        Toast.makeText(Student.this, "Settings Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Student.this, "Settings Page", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:

@@ -49,7 +49,9 @@ public class Register_Parent extends AppCompatActivity {
         loginParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -68,17 +70,6 @@ public class Register_Parent extends AppCompatActivity {
         EditText edtPasswordPAR = findViewById(R.id.parent_Password);
         EditText edtConfirmPasswordPAR = findViewById(R.id.parent_ConfirmPassword);
 
-        String FNamePAR = edtFNamePAR.getText().toString();
-        String MNamePAR = edtMNamePAR.getText().toString();
-        String LNamePAR = edtLNamePAR.getText().toString();
-        String AddressPAR = edtAddressPAR.getText().toString();
-        String ContactPAR = edtContactPAR.getText().toString();
-        String StudentIdPAR = edtStudentIdPAR.getText().toString();
-        String ParentIdPAR = edtParent_ID.getText().toString();
-        String EmailPAR = edtEmailPAR.getText().toString();
-        String PasswordPAR = edtPasswordPAR.getText().toString();
-        String ConfirmPasswordPAR = edtConfirmPasswordPAR.getText().toString();
-
 
         Button Register_PAR_btn = findViewById(R.id.Register_Parent);
         Register_PAR_btn.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +78,7 @@ public class Register_Parent extends AppCompatActivity {
                 String FNamePAR = edtFNamePAR.getText().toString();
                 String MNamePAR = edtMNamePAR.getText().toString();
                 String LNamePAR = edtLNamePAR.getText().toString();
-                String AddressPAR = edtAddressPAR.getText().toString();
+                //String AddressPAR = edtAddressPAR.getText().toString();
                 String ContactPAR = edtContactPAR.getText().toString();
                 String StudentIdPAR = edtStudentIdPAR.getText().toString();
                 String ParentIdPAR = edtParent_ID.getText().toString();
@@ -99,7 +90,7 @@ public class Register_Parent extends AppCompatActivity {
                 ProgressBar progressBar = findViewById(R.id.progressbar);
 
 
-                if(ConfirmPasswordPAR.equals(PasswordPAR)){
+                if(!ConfirmPasswordPAR.equals(PasswordPAR)){
                     Toast.makeText(Register_Parent.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
 
@@ -130,6 +121,11 @@ public class Register_Parent extends AppCompatActivity {
 
                                                 addDataParents.put("email", EmailPAR);
                                                 addDataParents.put("parentID", ParentIdPAR);
+                                                addDataParents.put("student_id", StudentIdPAR);
+                                                addDataParents.put("first_name", FNamePAR);
+                                                addDataParents.put("middle_name", MNamePAR);
+                                                addDataParents.put("last_name", LNamePAR);
+                                                addDataParents.put("contact_num", ContactPAR);
 
                                                 //TODO ADD ANOTHER DATA
 
@@ -139,7 +135,9 @@ public class Register_Parent extends AppCompatActivity {
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void unused) {
-                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                                                startActivity(intent);
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
 

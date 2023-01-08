@@ -24,7 +24,7 @@ public class EnterOTP extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(EnterOTP.this, forgotPasswordNewCredentials.class);
+                Intent i = new Intent(EnterOTP.this, forgotPasswordUpdated.class);
                 startActivity(i);
                 finish();
             }

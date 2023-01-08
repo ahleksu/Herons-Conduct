@@ -43,24 +43,24 @@ public class Reporter extends AppCompatActivity {
                     case R.id.home:
                         btn.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, reporterHomeFragment).commit();
-                        Toast.makeText(Reporter.this, "Reporter Home Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Reporter.this, "Reporter Home Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.search:
                         btn.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, reporterCSFDPortalFragment).commit();
-                        Toast.makeText(Reporter.this, "Reporter CSFD Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Reporter.this, "Reporter CSFD Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.notifications:
                         btn.setVisibility(View.INVISIBLE);
                         btn.setClickable(false);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, reporterNotifFragment).commit();
-                        Toast.makeText(Reporter.this, "Reporter Notifications Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Reporter.this, "Reporter Notifications Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
                         btn.setVisibility(View.INVISIBLE);
                         btn.setClickable(false);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, reporterSettingsFragment).commit();
-                        Toast.makeText(Reporter.this, "Reporter Settings Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Reporter.this, "Reporter Settings Page", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:

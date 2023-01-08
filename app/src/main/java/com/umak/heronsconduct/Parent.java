@@ -21,6 +21,8 @@ public class Parent extends AppCompatActivity {
 
     StudentHomeFragment studentHomeFragment = new StudentHomeFragment();
     StudentCSFDPortalFragment studentCSFDPortalFragment = new StudentCSFDPortalFragment();
+
+
     ParentNotifFragment parentNotifFragment = new ParentNotifFragment();
     ParentSettingsFragment parentSettingsFragment = new ParentSettingsFragment();
 
@@ -45,19 +47,15 @@ public class Parent extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentHomeFragment).commit();
-                        Toast.makeText(Parent.this, "Home Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.search:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, studentCSFDPortalFragment).commit();
-                        Toast.makeText(Parent.this, "CSFD Portal Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.notifications:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, parentNotifFragment).commit();
-                        Toast.makeText(Parent.this, "Notifications Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, parentSettingsFragment).commit();
-                        Toast.makeText(Parent.this, "Settings Page", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:
@@ -67,4 +65,6 @@ public class Parent extends AppCompatActivity {
             }
         });
     }
+
+
 }

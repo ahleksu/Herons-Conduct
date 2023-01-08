@@ -202,7 +202,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
 
 
-                if(ConfirmPasswordSTU.equals(PasswordSTU)){
+                if(!ConfirmPasswordSTU.equals(PasswordSTU)){
                     Toast.makeText(Register_Student.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
                 }
 
@@ -246,17 +246,23 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                                                 addDataStudents.put("course", CourseSTU);
 
 
-                                                //TODO ADD ANOTHER DATA
-
-
                                                 firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
                                                         .set(addDataStudents)
                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                             @Override
                                                             public void onSuccess(Void unused) {
-                                                                Toast.makeText(getApplicationContext(), "SUCCESS UPLOAD DATA", Toast.LENGTH_SHORT).show();
+                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                                                startActivity(intent);
+                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                                                                //openDialog();
                                                             }
                                                         });
+
+                                            } else if(type.Account.equalsIgnoreCase("parent")) {
+                                                //parent
+
+                                            } else if(type.Account.equalsIgnoreCase("reporter")) {
+                                                //reporter
 
                                             }
                                         }
