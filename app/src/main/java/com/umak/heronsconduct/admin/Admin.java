@@ -1,5 +1,6 @@
 package com.umak.heronsconduct.admin;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ public class Admin extends AppCompatActivity {
     ImageView btn;
     FrameLayout frameContainer;
 
+
     AdminHomeFragment adminHomeFragment = new AdminHomeFragment();
     AdminSearchFragment adminSearchFragment = new AdminSearchFragment();
     AdminStatsFragment adminStatsFragment = new AdminStatsFragment();
@@ -31,6 +33,8 @@ public class Admin extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.nav);
         btn = findViewById(R.id.add_btn);
         frameContainer = findViewById(R.id.container);
+
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, adminHomeFragment).commit();
 
