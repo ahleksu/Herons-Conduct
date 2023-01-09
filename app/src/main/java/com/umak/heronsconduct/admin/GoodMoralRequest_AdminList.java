@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.umak.heronsconduct.R;
@@ -17,6 +19,11 @@ public class GoodMoralRequest_AdminList extends AppCompatActivity {
     private RecyclerView recyclerView;
 
 
+    LinearLayout customActionBar;
+    ImageView back_to_adminHome;
+    RecyclerView goodMoralRequestList;
+
+
 
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
@@ -24,24 +31,34 @@ public class GoodMoralRequest_AdminList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_good_moral_request_admin_list);
-        recyclerView = findViewById(R.id.goodMoralRecyclerView);
-        usersList = new ArrayList<>();
 
-        setUserInfo();
-        setAdapter();
+        customActionBar = findViewById(R.id.customActionBar);
+        back_to_adminHome = findViewById(R.id.back_to_adminHome);
+        goodMoralRequestList = findViewById(R.id.goodMoralRequestsList);
+
+
+
+
+
+
+//        recyclerView = findViewById(R.id.goodMoralRecyclerView);
+//        usersList = new ArrayList<>();
+//
+//        setUserInfo();
+//        setAdapter();
 
 
 
     }
 
-    private void setAdapter() {
-        GoodMoralRequest_AdminRecyclerAdapter adapter = new GoodMoralRequest_AdminRecyclerAdapter(usersList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-
-    }
+//    private void setAdapter() {
+//        GoodMoralRequest_AdminRecyclerAdapter adapter = new GoodMoralRequest_AdminRecyclerAdapter(usersList);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(adapter);
+//
+//    }
 
     private void setUserInfo() {
 /*
@@ -68,12 +85,12 @@ public class GoodMoralRequest_AdminList extends AppCompatActivity {
 
  */
 
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
     }
 }
