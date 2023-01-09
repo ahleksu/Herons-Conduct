@@ -8,30 +8,30 @@
     tools:context=".register.Register">
 
 
+
+
     <TextView
         android:id="@+id/select_user"
         android:layout_width="wrap_content"
-        android:layout_height="76dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:text="Select User Type"
+        android:fontFamily="@font/metropolis_black"
         android:textColor="#243A69"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
 
     <androidx.cardview.widget.CardView
+        android:layout_below="@id/select_user"
+        android:id="@+id/student_card"
         android:onClick="student_user"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="175dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -40,14 +40,14 @@
         app:cardUseCompatPadding="true">
 
         <ImageView
-            android:id="@+id/student"
-            android:layout_width="200dp"
-            android:layout_height="110dp"
+            android:id="@+id/student_card_img"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginTop="30dp"
             android:src="@drawable/student_reg"/>
 
         <TextView
+            android:id="@+id/student_card_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,6 +55,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="Student"
+            android:fontFamily="@font/metropolis_regular"
             android:textColor="@color/Text"
             android:textSize="20sp" />
 
@@ -62,13 +63,13 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/parent_card"
         android:onClick="parent_user"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="175dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/student_card"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -77,15 +78,15 @@
         app:cardUseCompatPadding="true">
 
     <ImageView
-        android:id="@+id/parent"
-        android:layout_width="200dp"
-        android:layout_height="110dp"
+        android:id="@+id/parent_card_img"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginTop="30dp"
         android:src="@drawable/parent_reg"
         tools:ignore="RtlHardcoded" />
 
         <TextView
+            android:id="@+id/parent_card_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -93,18 +94,19 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="Parent"
+            android:fontFamily="@font/metropolis_regular"
             android:textColor="@color/Text"
             android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/reporter_card"
         android:onClick="reporter_user"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="175dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/parent_card"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -113,15 +115,16 @@
         app:cardUseCompatPadding="true">
 
     <ImageView
-        android:id="@+id/reporter"
-        android:layout_width="200dp"
-        android:layout_height="110dp"
+        android:id="@+id/reporter_card_img"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_marginTop="30dp"
+
         android:src="@drawable/reporter_reg"
         tools:ignore="RtlHardcoded" />
 
         <TextView
+            android:id="@+id/reporter_card_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -129,10 +132,23 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="Reporter"
+            android:fontFamily="@font/metropolis_regular"
             android:textColor="@color/Text"
             android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/login_haveAcc_parent"
+        android:layout_below="@id/reporter_card"
+        style="@style/TextyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/metropolis_semi_bold"
+        android:textSize="15sp"
+        android:text="Already have an account?\n Sign in"
+        android:textColor="#243A69" />
 
-    
+
+
 </RelativeLayout>
