@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.Login">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="233dp"
+        android:layout_height="193dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="89dp"
+        app:srcCompat="@drawable/herons_conduct_logo_2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="262dp"
+        android:layout_height="122dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        app:srcCompat="@drawable/herons_conduct" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:srcCompat="@drawable/umak_disciplinary_management_system" />
+
+    <EditText
+        android:id="@+id/logIn_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:inputType="textPersonName"
+        android:lines="1"
+        android:hint="Username"
+        android:fontFamily="@font/metropolis_regular"
+        android:minWidth="320dp"
+        android:minHeight="50dp"
+        android:textColorHint="@color/Text"
+        android:elevation="10dp"
+        android:background="@drawable/login_edit_text"
+        android:drawableLeft="@drawable/ic_baseline_perm_identity_24"
+        android:padding="10dp"
+        android:drawablePadding="5dp"/>
+
+    <EditText
+        android:id="@+id/logIn_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="36dp"
+        android:drawableLeft="@drawable/ic_baseline_visibility_off_24"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/metropolis_regular"
+        android:minWidth="320dp"
+        android:minHeight="50dp"
+        android:hint="Password"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColorHint="@color/Text"
+        android:elevation="10dp"
+        android:background="@drawable/login_edit_text"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/signInBTN"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logIn_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="69dp"
+        android:text="Sign in"
+        android:fontFamily="@font/metropolis_bold"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:background="@drawable/blue_btn" />
+
+    <TextView
+        android:id="@+id/forgotBTN"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signInBTN"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:text="Forgot password?"
+        android:fontFamily="@font/metropolis_bold"
+        android:textColor="@color/Text"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/loginSignUp"
+        style="@style/TextyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgotBTN"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/metropolis_bold"
+        android:text="Don't have an account?\n Sign up"
+        android:textColor="@color/Text"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_marginTop="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+</RelativeLayout>

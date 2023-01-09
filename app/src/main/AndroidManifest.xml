@@ -15,84 +15,98 @@
         android:theme="@style/Theme.HeronsConduct"
         tools:targetApi="31">
         <activity
-            android:name=".AdminFindStudents"
+            android:name=".CreateIncidentReferral"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminIncidentReferrals2"
+            android:name=".admin.AdminFindStudents"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminIncidentReferrals"
+            android:name=".admin.AdminIncidentReferrals2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminStudentList"
+            android:name=".admin.AdminIncidentReferrals"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".StudentWithRecord"
+            android:name=".admin.AdminStudentList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".StudentDiscRecord"
+            android:name=".student_parent.StudentWithRecord"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".webview_announcements"
+            android:name=".student_parent.StudentDiscRecord"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Announcements_CSFD"
+            android:name=".general.webview_announcements"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GoodMoralRequest_Student"
+            android:name=".general.Announcements_CSFD"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin"
+            android:name=".student_parent.GoodMoralRequest_Student"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Student"
+            android:name=".admin.Admin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Onboarding"
+            android:name=".student_parent.Student"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".onboarding.Onboarding"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".onboarding.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -105,13 +119,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashScreen"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="false">
             <meta-data
@@ -119,119 +126,119 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register_Parent"
+            android:name=".register.Register_Parent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register_Reporter"
+            android:name=".register.Register_Reporter"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register"
+            android:name=".register.Register"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Register_Student"
+            android:name=".register.Register_Student"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".login.Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ForgotPass"
+            android:name=".login.ForgotPass"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FAQs"
+            android:name=".general.FAQs"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PrivacyPolicy"
+            android:name=".general.PrivacyPolicy"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".TermsOfService"
+            android:name=".general.TermsOfService"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Student_Handbook"
+            android:name=".general.Student_Handbook"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AboutHeronsConduct"
+            android:name=".general.AboutHeronsConduct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Parent"
+            android:name=".student_parent.Parent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Reporter"
+            android:name=".reporter.Reporter"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EnterOTP"
+            android:name=".login.EnterOTP"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".forgotPasswordNewCredentials"
+            android:name=".login.forgotPasswordNewCredentials"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".forgotPasswordUpdated"
+            android:name=".login.forgotPasswordUpdated"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GoodMoralRequest_AdminList"
+            android:name=".admin.GoodMoralRequest_AdminList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

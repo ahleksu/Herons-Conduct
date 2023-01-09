@@ -16,7 +16,7 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
+    
     buildTypes {
         release {
             minifyEnabled false
@@ -26,6 +26,13 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res\\layout', 'src\\main\\res\\layouts\\admin', 'src\\main\\res\\layouts\\student_parent', 'src\\main\\res\\layouts\\reporter', 'src\\main\\res\\layouts\\onboarding', 'src\\main\\res\\layouts\\register', 'src\\main\\res\\layouts\\login', 'src\\main\\res\\layouts\\statistics', 'src\\main\\res\\layouts\\general'
+            }
+        }
     }
 }
 
