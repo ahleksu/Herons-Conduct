@@ -1,8 +1,15 @@
 package com.umak.heronsconduct.reporter;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.inputmethodservice.KeyboardView;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,15 +18,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.umak.heronsconduct.R;
+import com.umak.heronsconduct.register.Register_Parent;
 
 import org.w3c.dom.Text;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CreateIncidentReferral extends AppCompatActivity {
@@ -31,11 +54,26 @@ public class CreateIncidentReferral extends AppCompatActivity {
     TextInputLayout fname, sname,id_num,date,time,floor,specific_area,description, fname_offender, sname_offender, id_num_offender, fname_witness, sname_witness, id_num_witness;
 
 
+    EditText txt_firstname_reporter,txt_lastname_reporter,txt_date,txt_idnumber_reporter,txt_time,txt_floor,txt_specific_area,txt_description,txt_firstname_parties,txt_lastname_parties,txt_idnumber_parties, witness_firstname, witnerss_id,last_name_witness;;
+    ImageView img_upload;
+
     AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2, autoCompleteTextView3;
     ArrayAdapter<String> adapterItems, adapterItems2, adapterItems3;
 
     Button cancelRefBtn, submitRefBtn;
     ImageView backReporterHome;
+
+    Uri uri;
+
+
+    //reference type output
+    String reftypeOutput = "";
+    String locationOutput = "";
+    String icidentTypeOutput = "";
+
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +105,21 @@ public class CreateIncidentReferral extends AppCompatActivity {
         backReporterHome = findViewById(R.id.back_to_reporterHome);
 
 
+        //inititialize xml value
+        initXml();
+
+        //getting the first, ID Number and lastnane of reporter
+        getPrimaryDataMethod();
+
+        //upload Image method for ui
+        uploadImageMethod();
+
+        //upload in Firebase
+        uploadDataMethod();
+
+
+
+
         //String Array
         incident_type = getResources().getStringArray(R.array.incident);
         location = getResources().getStringArray(R.array.location);
@@ -86,29 +139,193 @@ public class CreateIncidentReferral extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
+                reftypeOutput = adapterView.getItemAtPosition(i).toString();
+                //Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
             }
         });
 
         autoCompleteTextView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
+                icidentTypeOutput = adapterView.getItemAtPosition(i).toString();
+                //Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
             }
         });
 
         autoCompleteTextView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
+                locationOutput = adapterView.getItemAtPosition(i).toString();
+                //Toast.makeText(getApplicationContext(), "Item: "+item, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
+    private void uploadDataMethod() {
+        submitRefBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ProgressBar progressBar = findViewById(R.id.progressbar);
+                progressBar.setVisibility(View.VISIBLE);
+                FirebaseStorage uploadStorage = FirebaseStorage.getInstance();
+                StorageReference uploadRefeecne = FirebaseStorage.getInstance().getReference();
+
+
+                if(uri == null){
+                    Toast.makeText(getApplicationContext(), "Evidence is required" , Toast.LENGTH_SHORT).show();
+                } else if(!txt_firstname_reporter.getText().toString().equals("") || txt_lastname_reporter.getText().toString().equals("") || txt_date.getText().toString().equals("") || txt_time.getText().toString().equals("") || txt_floor.getText().toString().equals("") || txt_specific_area.getText().toString().equals("") || txt_description.getText().toString().equals("") || txt_firstname_parties.getText().toString().equals("") || txt_lastname_parties.equals("")|| txt_idnumber_parties.getText().toString().equals("")){
+
+                    //get reference to firebase storage
+                    StorageReference uploadIncedental = uploadRefeecne.child("incedent/" + "");
+
+                    uploadIncedental.putFile(uri).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            uploadIncedental.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    HashMap<String, Object> addIncident = new HashMap<>();
+
+                                    addIncident.put("img_url", uri);
+                                    addIncident.put("firstname_reporter", txt_firstname_reporter.getText().toString());
+                                    addIncident.put("lastname_reporter", txt_lastname_reporter.getText().toString());
+                                    addIncident.put("IDNumber_reporter", txt_idnumber_reporter.getText().toString());
+                                    addIncident.put("typeOfReferal", reftypeOutput);
+
+                                    addIncident.put("incidenttype", icidentTypeOutput);
+                                    addIncident.put("loc_of_incendent", icidentTypeOutput);
+                                    addIncident.put("lcoation", locationOutput);
+
+                                    addIncident.put("date", txt_date.getText().toString());
+                                    addIncident.put("time", txt_time.getText().toString());
+                                    addIncident.put("floor", txt_floor.getText().toString());
+
+                                    //descriptiom
+                                    addIncident.put("description", txt_description.getText().toString());
+
+                                    //parties
+                                    addIncident.put("firstname_parties", txt_firstname_parties.getText().toString());
+                                    addIncident.put("lastname_parties", txt_lastname_parties.getText().toString());
+                                    addIncident.put("IDNumber_parties", txt_idnumber_parties.getText().toString());
+
+                                    //witness
+                                    addIncident.put("witnerss_id", witnerss_id.getText().toString());
+                                    addIncident.put("witness_firstname", witness_firstname.getText().toString());
+                                    addIncident.put("witness_lastname", last_name_witness.getText().toString());
+
+
+                                    firebaseFirestore.collection("Incident_referrals").add(addIncident).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+
+                        }
+                    });
+
+                }
+
+            }
+        });
+    }
+
+    private void uploadImageMethod() {
+        img_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img_upload.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImagePicker.with(CreateIncidentReferral.this)
+                                .galleryOnly()
+                                .crop()
+                                .compress(1024)
+                                .maxResultSize(1080, 1080)
+                                .start();
+                    }
+                });
+            }
+        });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            uri = data.getData();
+            img_upload.setImageURI(uri);
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void getPrimaryDataMethod() {
+        firebaseFirestore.collection("reporter").document(firebaseAuth.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        txt_firstname_reporter.setText(documentSnapshot.get("first_name").toString());
+                        txt_lastname_reporter.setText(documentSnapshot.get("last_name").toString());
+                        txt_idnumber_reporter.setText(documentSnapshot.get("reporterID").toString());
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("firebase", e.getMessage());
+                    }
+                });
+    }
+
+    private void initXml() {
+
+
+        txt_idnumber_reporter = findViewById(R.id.txt_idnumber_reporter);
+        img_upload = findViewById(R.id.img_upload);
+        txt_firstname_reporter  = findViewById(R.id.txt_firstname_reporter);
+        txt_lastname_reporter  = findViewById(R.id.txt_lastname_reporter);
+        txt_date  = findViewById(R.id.txt_date);
+        txt_time  = findViewById(R.id.txt_time);
+        txt_floor  = findViewById(R.id.txt_floor);
+        txt_specific_area  = findViewById(R.id.txt_specific_area);
+        txt_description  = findViewById(R.id.txt_description);
+        txt_firstname_parties  = findViewById(R.id.txt_firstname_parties);
+        txt_lastname_parties  = findViewById(R.id.txt_lastname_parties);
+        txt_idnumber_parties  = findViewById(R.id.txt_idnumber_parties);
+        witness_firstname = findViewById(R.id.witness_firstname);
+        witnerss_id = findViewById(R.id.witnerss_id);
+        last_name_witness = findViewById(R.id.last_name_witness);
+
+
+    }
 
 
 }

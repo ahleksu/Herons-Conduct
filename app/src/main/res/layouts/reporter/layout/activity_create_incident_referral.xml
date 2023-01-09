@@ -6,12 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".reporter.CreateIncidentReferral">
 
+
+
     <LinearLayout
         android:id="@+id/customActionBar"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/Primary"
         android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            ></ProgressBar>
+
 
         <ImageView
             android:id="@+id/back_to_reporterHome"
@@ -35,6 +47,8 @@
         </TextView>
     </LinearLayout>
 
+
+
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -49,73 +63,71 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="20dp"
-            >
+            android:padding="20dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/metropolis_black"
                     android:text="Input Parameters:"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/metropolis_black"
-                    android:textSize="20sp"
-                    android:layout_marginBottom="15dp"/>
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/Outline"/>
+                    android:background="@color/Outline" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Photo Evidence:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/metropolis_semi_bold"
-                    android:textColor="@color/Primary"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Photo Evidence:"
+                    android:textColor="@color/Primary"
+                    android:textSize="20sp" />
 
                 <ImageView
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:src="@drawable/image_placeholder"
-                    android:background="@color/white"
+                    android:id="@+id/img_upload"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
                     android:elevation="10dp"
-                    />
-                
+                    android:src="@drawable/image_placeholder" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reported By:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/metropolis_semi_bold"
-                    android:textColor="@color/Primary"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Reported By:"
+                    android:textColor="@color/Primary"
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/parties_first_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_firstname_reporter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/metropolis_regular"
@@ -130,21 +142,20 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_lastname_reporter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Last Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        />
+                        android:hint="Last Name"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,41 +164,38 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_idnumber_reporter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="ID Number"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        />
+                        android:hint="ID Number"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Incident Information:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/metropolis_semi_bold"
-                    android:textColor="@color/Primary"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Incident Information:"
+                    android:textColor="@color/Primary"
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:id="@+id/auto_complete_menu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    >
+                    android:layout_marginBottom="10dp">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
@@ -197,22 +205,20 @@
                         android:id="@+id/auto_complete_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="Type of Referral"
-                        android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        android:inputType="none"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:hint="Type of Referral"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:id="@+id/auto_complete_menu2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
@@ -222,13 +228,12 @@
                         android:id="@+id/auto_complete_txt2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="Type of Incident"
-                        android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        android:inputType="none"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:hint="Type of Incident"
+                        android:inputType="none"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -238,22 +243,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:endIconMode="clear_text"
-                    app:helperText="MM/DD/YYYY"
-                    >
+                    app:helperText="MM/DD/YYYY">
                     <!--
 
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Date"
-                        android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        android:inputType="date"
                         android:layout_marginBottom="10dp"
-                        />
+                        android:fontFamily="@font/metropolis_regular"
+                        android:hint="Date"
+                        android:inputType="date"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -262,43 +266,40 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
-                    app:helperText="Military time*"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text"
+                    app:helperText="Military time*">
                     <!--
 
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Time"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Time"
                         android:inputType="time"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location of Incident:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/metropolis_semi_bold"
-                    android:textColor="@color/Primary"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Location of Incident:"
+                    android:textColor="@color/Primary"
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:id="@+id/auto_complete_menu3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    >
+                    android:layout_marginBottom="10dp">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
@@ -321,23 +322,23 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
-                    android:maxLength="12"
-                    app:helperText="Input floor number*"
                     android:layout_marginBottom="10dp"
-                    >
+                    android:maxLength="12"
+                    app:endIconMode="clear_text"
+                    app:helperText="Input floor number*">
                     <!--
 
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_floor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Floor"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Floor"
                         android:inputType="number"
+                        android:textColor="@color/black"
 
                         />
 
@@ -348,101 +349,97 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
-                    app:helperText="If applicable*"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text"
+                    app:helperText="If applicable*">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_specific_area"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Specific Area"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Specific Area"
                         android:inputType="textLongMessage"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Incident Description:"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/metropolis_semi_bold"
-                    android:textColor="@color/Primary"
                     android:layout_marginBottom="10dp"
-                    />
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Incident Description:"
+                    android:textColor="@color/Primary"
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ref_description"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
-                    app:helperText="If applicable*"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text"
+                    app:helperText="If applicable*">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Description"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Description"
                         android:inputType="textLongMessage"
                         android:maxLines="10"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parties Involved:"
-                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/metropolis_semi_bold"
+                    android:text="Parties Involved:"
                     android:textColor="@color/Primary"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name of Offender"
-                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/metropolis_regularitalic"
+                    android:text="Name of Offender"
                     android:textColor="@color/Primary"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="15sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/fname_of_offender"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_firstname_parties"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="First Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="First Name"
                         android:inputType="text"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -451,22 +448,21 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_lastname_parties"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Last Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Last Name"
                         android:inputType="text"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -475,54 +471,52 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_idnumber_parties"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="ID Number"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        />
+                        android:hint="ID Number"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name of Witness"
-                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/metropolis_regularitalic"
+                    android:text="Name of Witness"
                     android:textColor="@color/Primary"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="15sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/fname_of_witness"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/witness_firstname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="First Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="First Name"
                         android:inputType="text"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -531,22 +525,21 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name_witness"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Last Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Last Name"
                         android:inputType="text"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -555,78 +548,65 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:endIconMode="clear_text"
                     android:layout_marginBottom="10dp"
-                    >
+                    app:endIconMode="clear_text">
                     <!--
                     app:helperText="Required*"
                     app:helperTextTextColor="@color/Error"
 
                     -->
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/witnerss_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="ID Number"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        />
+                        android:hint="ID Number"
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/cancel_ref_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cancel"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/metropolis_semi_bold"
-                        android:elevation="10dp"
-                        android:backgroundTint="@color/white"
-                        android:textAllCaps="false"
                         android:layout_marginRight="15dp"
+                        android:backgroundTint="@color/white"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/metropolis_semi_bold"
+                        android:text="Cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
 
                         />
+
                     <Button
                         android:id="@+id/submit_ref_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/metropolis_semi_bold"
                         android:text="Submit"
                         android:textAllCaps="false"
-                        android:textSize="20sp"
                         android:textColor="@color/white"
-                        android:fontFamily="@font/metropolis_semi_bold"
-                        android:elevation="10dp"
-                        />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 
             </LinearLayout>
 
 
-
         </ScrollView>
 
 
-
     </LinearLayout>
-
 
 
 
