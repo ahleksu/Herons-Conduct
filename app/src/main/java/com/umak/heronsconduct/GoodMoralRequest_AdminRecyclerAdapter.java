@@ -1,5 +1,6 @@
 package com.umak.heronsconduct;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.jar.Attributes;
 
 public class GoodMoralRequest_AdminRecyclerAdapter extends RecyclerView.Adapter<GoodMoralRequest_AdminRecyclerAdapter.MyViewHolder> {
 
@@ -31,6 +33,7 @@ public class GoodMoralRequest_AdminRecyclerAdapter extends RecyclerView.Adapter<
             Email = view.findViewById(R.id.goodMoralEntriesEmail);
             Date = view.findViewById(R.id.goodMoralEntriesDate);
             Time = view.findViewById(R.id.goodMoralEntriesTime);
+
         }
     }
 
@@ -38,6 +41,7 @@ public class GoodMoralRequest_AdminRecyclerAdapter extends RecyclerView.Adapter<
     @Override
     public GoodMoralRequest_AdminRecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemview = LayoutInflater.from(parent.getContext()).inflate(R.layout.good_moral_entries, parent, false);
+
 
         return new MyViewHolder(itemview);
     }

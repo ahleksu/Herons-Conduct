@@ -27,6 +27,8 @@ public class webview_announcements extends AppCompatActivity {
         webView.loadUrl(url);
 
 
+
+
     }
 
 }
