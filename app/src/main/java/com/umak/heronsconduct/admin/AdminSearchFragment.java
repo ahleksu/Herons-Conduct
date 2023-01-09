@@ -32,11 +32,20 @@ public class AdminSearchFragment extends Fragment {
 
 
 
-       CardView findStudentCard = view.findViewById(R.id.findStudentCard);
+        CardView findStudentCard = view.findViewById(R.id.findStudentCard);
         findStudentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AdminFindStudents.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView searchReferralsCard = view.findViewById(R.id.searchReferralsCard);
+        searchReferralsCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AdminSearchReferrals.class);
                 startActivity(intent);
             }
         });
