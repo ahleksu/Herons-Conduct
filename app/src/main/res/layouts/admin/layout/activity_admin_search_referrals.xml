@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#F0F8F8"
-tools:context=".admin.AdminFindStudents">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AdminSearchReferrals">
 
     <LinearLayout
         android:id="@+id/customActionBar"
@@ -32,7 +31,7 @@ tools:context=".admin.AdminFindStudents">
             android:textColor="#F0F8F8"
             android:textStyle="bold"
             android:fontFamily="@font/metropolis_black"
-            android:text="Find Student">
+            android:text="Search Referrals">
         </TextView>
     </LinearLayout>
 
@@ -75,12 +74,12 @@ tools:context=".admin.AdminFindStudents">
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/metropolis_semi_bold"
-                android:text="Name of Student:"
+                android:text="Name of Referral:"
                 android:textColor="@color/Primary"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/parties_first_name"
+                android:id="@+id/referral_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +94,7 @@ tools:context=".admin.AdminFindStudents">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/metropolis_regular"
-                    android:hint="Full Name"
+                    android:hint="Violation"
                     android:textColor="@color/black" />
 
 
@@ -112,7 +111,7 @@ tools:context=".admin.AdminFindStudents">
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/parties_last_name"
+                android:id="@+id/referral_id"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,7 +125,7 @@ tools:context=".admin.AdminFindStudents">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/metropolis_regular"
-                    android:hint="ID"
+                    android:hint="Referral ID"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -135,7 +134,7 @@ tools:context=".admin.AdminFindStudents">
         </LinearLayout>
     </LinearLayout>
     <Button
-        android:id="@+id/searchbtn_find_student_list_admin"
+        android:id="@+id/searchbtn_find_referral_list_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/container"
@@ -153,12 +152,12 @@ tools:context=".admin.AdminFindStudents">
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/Outline"
-        android:layout_below="@id/searchbtn_find_student_list_admin"
+        android:layout_below="@id/searchbtn_find_referral_list_admin"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/studentListRecyclerView"
-        android:layout_below="@id/searchbtn_find_student_list_admin"
+        android:id="@+id/referralListRecyclerView"
+        android:layout_below="@id/searchbtn_find_referral_list_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
