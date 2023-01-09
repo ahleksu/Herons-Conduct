@@ -1,8 +1,11 @@
 package com.umak.heronsconduct.login;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -30,6 +33,7 @@ public class Login extends AppCompatActivity {
     private Button login;
     TextView forgotPass;
     Button loginSignUp;
+    Dialog dialog;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -43,6 +47,38 @@ public class Login extends AppCompatActivity {
         EditText username = (EditText) findViewById(R.id.logIn_userName);
         EditText password = (EditText) findViewById(R.id.logIn_password);
         login = (Button) findViewById(R.id.signInBTN);
+
+        //Exit Dialog
+        dialog = new Dialog(Login.this);
+        dialog.setContentView(R.layout.custom_dialog_exit);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
+        }
+
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+        //Custom Exit Dialog
+        Button ok = dialog.findViewById(R.id.ok_btn_id);
+        Button cancel = dialog.findViewById(R.id.cancel_button);
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                System.exit(0);
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
 
         ProgressBar progressBar = findViewById(R.id.progressbar);
 
@@ -125,7 +161,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
     }
 
+    @Override
+    public void onBackPressed() {
+        //Disabled back button on Login
+        dialog.show();
+    }
 }
