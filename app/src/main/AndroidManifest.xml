@@ -106,7 +106,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".onboarding.SplashScreen"
+            android:name=".register.Register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -126,7 +126,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".register.Register_Parent"
+            android:name=".onboarding.SplashScreen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -140,7 +140,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".register.Register"
+            android:name=".register.Register_Parent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
