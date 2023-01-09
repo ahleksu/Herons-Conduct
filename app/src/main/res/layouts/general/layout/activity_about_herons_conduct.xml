@@ -14,8 +14,33 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:background="@color/Primary"
+        >
 
-        />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/leave_goodmoral_icon"
+            android:id="@+id/backBtnAboutHeronsConduct"
+            android:onClick="back_goodMoral" />
+
+        <ImageView
+            android:id="@+id/imageView48"
+            android:layout_width="258dp"
+            android:layout_height="34dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="93dp"
+            android:layout_toEndOf="@+id/backBtnAboutHeronsConduct"
+            app:srcCompat="@drawable/about_herons_conduct" />
+
+    </RelativeLayout>
 
 
     <ScrollView
