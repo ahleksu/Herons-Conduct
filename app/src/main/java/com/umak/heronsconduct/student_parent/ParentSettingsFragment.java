@@ -88,8 +88,10 @@ public class ParentSettingsFragment extends Fragment {
         logout_tab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                firebaseAuth.signOut();
                 Intent intent = new Intent(getActivity(), Login.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -125,8 +127,8 @@ public class ParentSettingsFragment extends Fragment {
                         if(task.isSuccessful()){
                             DocumentSnapshot documentSnapshot = task.getResult();
 
-                            if(documentSnapshot.get("image") != null){
-                                Picasso.get().load(documentSnapshot.get("image").toString()).error(R.drawable.placeholder).into(img_profile);
+                            if(documentSnapshot.get("image_url") != null){
+                                Picasso.get().load(documentSnapshot.get("image_url").toString()).error(R.drawable.placeholder).into(img_profile);
                             }
 
                             txt_name.setText(documentSnapshot.get("first_name").toString());

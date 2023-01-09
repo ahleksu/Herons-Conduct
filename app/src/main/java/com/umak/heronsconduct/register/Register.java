@@ -31,10 +31,7 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
-
 
     public void student_user(View view) {
         Account = "student";
@@ -42,7 +39,6 @@ public class Register extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
     public void parent_user(View view) {
         Account = "parent";

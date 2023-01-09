@@ -36,12 +36,21 @@
                 android:layout_marginLeft="25dp"
                 android:layout_gravity="center_vertical|center_horizontal|left">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_profile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/avatar_0"/>
-
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:maxWidth="50dp"
+                    android:maxHeight="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_0"
+                    app:shapeAppearance="?attr/actionButtonStyle"
+                    app:shapeAppearanceOverlay="@style/imageViewRounded"
+                    app:strokeColor="@android:color/white"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

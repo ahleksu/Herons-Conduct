@@ -162,9 +162,8 @@ public class Register_Parent extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
 
-                                            //TODO Uploading Picture
                                             //get reference to firebase storage
-                                            StorageReference parentProfile = storageReference.child("parentDp/" + FNamePAR);
+                                            StorageReference parentProfile = storageReference.child("parentDp/" + FNamePAR + LNamePAR);
 
                                             //Uploading file to firebase Storage
                                             parentProfile.putFile(uri).addOnProgressListener(new OnProgressListener < UploadTask.TaskSnapshot > () {
@@ -218,6 +217,8 @@ public class Register_Parent extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             // you can put condition or pop upEmail is already existed
                             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+
                         }
                     });
                 }

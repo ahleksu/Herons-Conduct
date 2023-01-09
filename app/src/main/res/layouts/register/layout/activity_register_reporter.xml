@@ -31,6 +31,7 @@
 
 
             <ImageView
+                android:id="@+id/img_profile"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
@@ -52,180 +53,190 @@
                 android:id="@+id/fNameRep"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
-                android:hint="First Name"
                 android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
+                android:hint="First Name"
                 android:inputType="textPersonName"
                 android:lines="1"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mNameRep"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="Middle Name"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reporter_Email"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
+                android:hint="Personal Email"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:minWidth="320dp"
+                android:minHeight="50dp"
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lNameRep"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="Last Name"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/umakEmailReporter"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
-                android:background="@drawable/reg_outline"                    android:drawablePadding="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/reg_outline"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="UMak Email"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/idNumber_Reporter"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="ID Number"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reporter_Email"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
                 android:padding="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/reg_outline"
-                android:drawablePadding="12dp"
-                android:hint="Personal Email"
-                android:inputType="textPersonName"
-                android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
-                android:minWidth="320dp"
-                android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
+
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/parent_ID"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="Reporter ID"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/reporter_Password"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="Password"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
-
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/reporter_ConfirmPassword"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:padding="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/reg_outline"
                 android:drawablePadding="12dp"
+                android:fontFamily="@font/metropolis_light"
                 android:hint="Confirm Password"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:fontFamily="@font/metropolis_light"
-                android:textSize="12sp"
                 android:minWidth="320dp"
                 android:minHeight="50dp"
-                android:textColorHint="@color/Text" />
+                android:padding="10dp"
+                android:textColorHint="@color/Text"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Register_REPORTER"
                 style="@style/Button1"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="Register"
-                android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:textStyle="normal" />
+
+            <ProgressBar
+
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:layout_centerInParent="true" />
 
             <Button
                 android:id="@+id/login_haveAcc_reporter"
@@ -234,20 +245,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:gravity="center"
                 android:fontFamily="@font/metropolis_semi_bold"
+                android:gravity="center"
                 android:padding="20dp"
-                android:textSize="12sp"
                 android:text="Already have an account?\n Sign in"
-                android:textColor="#243A69" />
+                android:textColor="#243A69"
+                android:textSize="12sp" />
 
 
-            <ProgressBar
-                android:id="@+id/progressbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:visibility="gone" />
 
 
 

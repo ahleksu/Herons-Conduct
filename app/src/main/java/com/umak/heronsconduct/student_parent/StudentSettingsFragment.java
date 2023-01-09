@@ -124,10 +124,6 @@ public class StudentSettingsFragment extends Fragment {
     }
 
 
-
-
-
-
     private void methodRetrieveNameAndType() {
 
         //getting type
@@ -158,8 +154,8 @@ public class StudentSettingsFragment extends Fragment {
                         if(task.isSuccessful()){
                             DocumentSnapshot documentSnapshot = task.getResult();
 
-                            if(documentSnapshot.get("image") != null){
-                                Picasso.get().load(documentSnapshot.get("image").toString()).error(R.drawable.placeholder).into(img_profile);
+                            if(documentSnapshot.get("image_url") != null){
+                                Picasso.get().load(documentSnapshot.get("image_url").toString()).error(R.drawable.placeholder).into(img_profile);
                             }
 
                             txt_name.setText(documentSnapshot.get("first_name").toString());
@@ -228,6 +224,7 @@ public class StudentSettingsFragment extends Fragment {
 
                 Intent intent = new Intent(getContext(), Login.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
     }

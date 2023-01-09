@@ -1,26 +1,35 @@
 package com.umak.heronsconduct.register;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.umak.heronsconduct.R;
 import com.umak.heronsconduct.login.Login;
 
@@ -29,21 +38,26 @@ import java.util.HashMap;
 public class Register_Reporter extends AppCompatActivity {
 
     ImageButton cancelButton3, cancelButtonError3;
-
+    ImageView img_profile;
     Button ok_btn3, ok_btnError3;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    StorageReference storageReference = firebaseStorage.getReference();
+
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_reporter);
 
-
-
         //register button for parent
         reg_reporter();
+
+        //upload photo method
+        uploadReporterProfileMethod();
 
         Button login_haveAcc_reporter = findViewById(R.id.login_haveAcc_reporter);
         login_haveAcc_reporter.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +70,41 @@ public class Register_Reporter extends AppCompatActivity {
 
     }
 
+    private void uploadReporterProfileMethod() {
+        img_profile = findViewById(R.id.img_profile);
+
+        img_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadPhoto();
+            }
+
+            private void uploadPhoto() {
+                ImagePicker.with(Register_Reporter.this)
+                        .galleryOnly()
+                        .crop()
+                        .compress(1024)
+                        .maxResultSize(1080,1080)
+                        .start();
+            }
+        });
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            uri = data.getData();
+            img_profile.setImageURI(uri);
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void reg_reporter() {
         EditText edtFNameRep = findViewById(R.id.fNameRep);
@@ -83,12 +132,15 @@ public class Register_Reporter extends AppCompatActivity {
 
 
                 ProgressBar progressBar = findViewById(R.id.progressbar);
+                progressBar.setVisibility(View.VISIBLE);
 
                 if(FNameRep.isEmpty() || MNameRep.isEmpty() || LNameRep.isEmpty()){
                     Toast.makeText(Register_Reporter.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
                 else if(!ConfirmPasswordRep.equals(PasswordRep)){
                     Toast.makeText(Register_Reporter.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
+                }else if (uri == null) {
+                    Toast.makeText(Register_Reporter.this, "Photo is required", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
@@ -113,29 +165,50 @@ public class Register_Reporter extends AppCompatActivity {
 
                                             if(type.Account.equalsIgnoreCase("reporter")) {
 
-                                                HashMap<String, Object> addDataReporter = new HashMap<>();
+                                                //get reference to firebase storage
+                                                StorageReference reporterProfile = storageReference.child("reporterDp/" + edtFNameRep + edtLNameRep);
 
-                                                addDataReporter.put("umak_email", UmakEmailRep);
-                                                addDataReporter.put("first_name", FNameRep);
-                                                addDataReporter.put("middle_name", MNameRep);
-                                                addDataReporter.put("last_name", LNameRep);
-                                                addDataReporter.put("personal_email", EmailRep);
-                                                addDataReporter.put("reporterID", IdNumberRep);
-
-
-                                                //TODO ADD ANOTHER DATA
-
-
-                                                firebaseFirestore.collection("reporter").document(firebaseAuth.getUid())
-                                                        .set(addDataReporter)
-                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                //Uploading file to firebase Storage
+                                                reporterProfile.putFile(uri).addOnProgressListener(new OnProgressListener< UploadTask.TaskSnapshot >() {
+                                                    @Override
+                                                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                                                        progressBar.setVisibility(View.VISIBLE);
+                                                    }
+                                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                    @Override
+                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                        reporterProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                             @Override
-                                                            public void onSuccess(Void unused) {
-                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
-                                                                startActivity(intent);
-                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                                                            public void onSuccess(Uri uri) {
+                                                                HashMap<String, Object> addDataReporter = new HashMap<>();
+
+                                                                addDataReporter.put("umak_email", UmakEmailRep);
+                                                                addDataReporter.put("first_name", FNameRep);
+                                                                addDataReporter.put("middle_name", MNameRep);
+                                                                addDataReporter.put("last_name", LNameRep);
+                                                                addDataReporter.put("personal_email", EmailRep);
+                                                                addDataReporter.put("reporterID", IdNumberRep);
+                                                                addDataReporter.put("image_url", uri);
+
+
+                                                                //TODO ADD ANOTHER DATA
+
+                                                                firebaseFirestore.collection("reporter").document(firebaseAuth.getUid())
+                                                                        .set(addDataReporter)
+                                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                            @Override
+                                                                            public void onSuccess(Void unused) {
+                                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                                                                startActivity(intent);
+                                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                                                                            }
+                                                                        });
                                                             }
                                                         });
+                                                    }
+                                                });
+
+
 
                                             }
                                         }
@@ -155,12 +228,7 @@ public class Register_Reporter extends AppCompatActivity {
             }
         });
 
-
-
     }
-
-
-
 
 
     private void openDialog() {

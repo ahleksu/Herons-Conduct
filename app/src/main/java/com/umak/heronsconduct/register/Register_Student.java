@@ -1,9 +1,11 @@
 package com.umak.heronsconduct.register;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,11 +26,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.umak.heronsconduct.R;
 import com.umak.heronsconduct.login.Login;
 
@@ -48,8 +55,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    // FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-    // StorageReference storageReference = firebaseStorage.getReference();
+    FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    StorageReference storageReference = firebaseStorage.getReference();
 
     Uri uri;
 
@@ -64,7 +71,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
         //dropdown
         spinner();
 
-
+        //method for upload photo
+        uploadPhotoMethod();
 
         Button have_accStudent = findViewById(R.id.login_haveAccSTU);
         have_accStudent.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +87,7 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
     }
 
-/*
+
     private void uploadPhotoMethod() {
         img_profile = findViewById(R.id.img_profile);
 
@@ -115,9 +123,6 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
             Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
         }
     }
-
- */
-
 
 
     public void spinner() {
@@ -181,14 +186,14 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                 String UmakEmailSTU = edtUmakEmailSTU.getText().toString();
                 String StudentIDSTU = edtStudentID.getText().toString();
                 String PersonalEmailSTU = edtPersonalEmailSTU.getText().toString();
-                String CollegeSTU = edtCollegeSTU.toString();
+                String CollegeSTU = edtCollegeSTU.getSelectedItem().toString();
                 String YearSTU = edtYearSTU.getText().toString();
-                String CourseSTU = edtCourseSTU.toString();
+                String CourseSTU = edtCourseSTU.getSelectedItem().toString();
                 String PasswordSTU = edtPasswordSTU.getText().toString();
                 String ConfirmPasswordSTU = edtConfirmPasswordSTU.getText().toString();
 
                 ProgressBar progressBar = findViewById(R.id.progressbar);
-
+                progressBar.setVisibility(View.VISIBLE);
 
                 if(FNameSTU.isEmpty() || MNameSTU.isEmpty() || LNameSTU.isEmpty()){
                     Toast.makeText(Register_Student.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
@@ -196,6 +201,8 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
 
                else if(!ConfirmPasswordSTU.equals(PasswordSTU)){
                     Toast.makeText(Register_Student.this, "Mismatch Password", Toast.LENGTH_SHORT).show();
+                }else if (uri == null) {
+                    Toast.makeText(Register_Student.this, "Photo is required", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
@@ -212,51 +219,59 @@ public class Register_Student extends AppCompatActivity implements AdapterView.O
                             addData.put("type", type.Account);
 
                             // ACCOUNT TABLE
-
                             firebaseFirestore.collection("ACCOUNT_TABLE").document(firebaseAuth.getUid())
                                     .set(addData).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            // add data to table of student
 
-                                            if(type.Account.equalsIgnoreCase("student")) {
+                                            //get reference to firebase storage
+                                            StorageReference studentProfile = storageReference.child("studentDp/" + FNameSTU + LNameSTU);
+                                            //Uploading file to firebase Storage
+                                            studentProfile.putFile(uri).addOnProgressListener(new OnProgressListener< UploadTask.TaskSnapshot >() {
+                                                @Override
+                                                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                                                    progressBar.setVisibility(View.VISIBLE);
+                                                }}).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                @Override
+                                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                                                HashMap<String, Object> addDataStudents = new HashMap<>();
+                                                    studentProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                        @Override
+                                                        public void onSuccess(Uri uri) {
 
-                                                addDataStudents.put("first_name", FNameSTU);
-                                                addDataStudents.put("middle_name", MNameSTU);
-                                                addDataStudents.put("last_name", LNameSTU);
-                                                addDataStudents.put("gender", "MALE");
-                                                addDataStudents.put("birthdate", BirthSTU);
-                                                addDataStudents.put("address", AddressSTU);
-                                                addDataStudents.put("contact_num", ContactNumSTU);
-                                                addDataStudents.put("umak_email", UmakEmailSTU);
-                                                addDataStudents.put("student_id", StudentIDSTU);
-                                                addDataStudents.put("personal_email", PersonalEmailSTU);
-                                                addDataStudents.put("college", "CCIS");
-                                                addDataStudents.put("yr_level", YearSTU);
-                                                addDataStudents.put("course", CourseSTU);
+                                                            HashMap<String, Object> addDataStudents = new HashMap<>();
 
+                                                            addDataStudents.put("first_name", FNameSTU);
+                                                            addDataStudents.put("middle_name", MNameSTU);
+                                                            addDataStudents.put("last_name", LNameSTU);
+                                                            addDataStudents.put("gender", "MALE");
+                                                            addDataStudents.put("birthdate", BirthSTU);
+                                                            addDataStudents.put("address", AddressSTU);
+                                                            addDataStudents.put("contact_num", ContactNumSTU);
+                                                            addDataStudents.put("umak_email", UmakEmailSTU);
+                                                            addDataStudents.put("student_id", StudentIDSTU);
+                                                            addDataStudents.put("personal_email", PersonalEmailSTU);
+                                                            addDataStudents.put("college", CollegeSTU);
+                                                            addDataStudents.put("yr_level", YearSTU);
+                                                            addDataStudents.put("course", CourseSTU);
+                                                            addDataStudents.put("image_url", uri);
 
-                                                firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
-                                                        .set(addDataStudents)
-                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                            @Override
-                                                            public void onSuccess(Void unused) {
-                                                                Intent intent = new Intent(getApplicationContext(), Login.class);
-                                                                startActivity(intent);
-                                                                Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
-                                                                //openDialog();
-                                                            }
-                                                        });
+                                                            firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
+                                                                    .set(addDataStudents)
+                                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                        @Override
+                                                                        public void onSuccess(Void unused) {
+                                                                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                                                                            startActivity(intent);
+                                                                            Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_SHORT).show();
+                                                                            //openDialog();
+                                                                        }
+                                                                    });
+                                                        }
+                                                    });
+                                                }
+                                            });
 
-                                            } else if(type.Account.equalsIgnoreCase("parent")) {
-                                                //parent
-
-                                            } else if(type.Account.equalsIgnoreCase("reporter")) {
-                                                //reporter
-
-                                            }
                                         }
                                     });
                         }
