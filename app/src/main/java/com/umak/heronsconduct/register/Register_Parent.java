@@ -39,7 +39,7 @@ public class Register_Parent extends AppCompatActivity {
 
     ImageButton cancelButton1, cancelButtonError1;
     Button ok_btn1, ok_btnError1;
-    ImageView btn_image;
+    ImageView img_profile;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -75,7 +75,7 @@ public class Register_Parent extends AppCompatActivity {
     }
 
     private void uploadImageButtonMetho() {
-        btn_image.setOnClickListener(new View.OnClickListener() {
+        img_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ImagePicker.with(Register_Parent.this)
@@ -94,7 +94,7 @@ public class Register_Parent extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK) {
             //Image Uri will not be null for RESULT_OK
             uri = data.getData();
-            btn_image.setImageURI(uri);
+            img_profile.setImageURI(uri);
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
         } else {
@@ -103,7 +103,7 @@ public class Register_Parent extends AppCompatActivity {
     }
 
     private void initXml() {
-        btn_image = findViewById(R.id.btn_image);
+        img_profile = findViewById(R.id.img_profile);
     }
 
     public void reg_parent() {

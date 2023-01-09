@@ -45,15 +45,35 @@
         </com.google.android.material.imageview.ShapeableImageView>
 -->
 
+
+<!--        gone ko muna to ha-->
         <ImageView
-            android:id="@+id/img_profile"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             android:layout_marginBottom="32dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/student_reg" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_profile"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/avatar_2"
+            app:shapeAppearance="?attr/actionButtonStyle"
+            app:shapeAppearanceOverlay="@style/imageViewRounded"
+            app:strokeColor="@android:color/white"/>
 
 
         <TextView
@@ -158,8 +178,8 @@
                     android:id="@+id/genderStudent"
                     android:layout_width="140dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="180dp"
                     android:layout_marginStart="6dp"
+                    android:layout_marginTop="180dp"
                     android:background="@drawable/reg_outline"
                     android:maxLines="1"
                     android:spinnerMode="dropdown"
@@ -183,14 +203,14 @@
                     android:id="@+id/birthdateStudent"
                     android:layout_width="149dp"
                     android:layout_height="48dp"
-                    android:layout_marginEnd="30dp"
                     android:layout_marginTop="180dp"
+                    android:layout_marginEnd="30dp"
                     android:background="@drawable/reg_outline"
                     android:fontFamily="@font/metropolis_light"
-                    android:inputType="date"
-                    android:padding="10dp"
-                    android:maxLength="10"
                     android:hint="MM/DD/YYYY"
+                    android:inputType="date"
+                    android:maxLength="10"
+                    android:padding="10dp"
                     android:textColorHint="@color/Text"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -320,13 +340,13 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="540dp"
                     android:background="@drawable/reg_outline"
-                    android:maxLines="1"
                     android:gravity="center_vertical"
+                    android:maxLines="1"
                     app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.114"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/imageView17"
@@ -346,13 +366,13 @@
                     android:layout_marginTop="540dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/reg_outline"
-                    android:hint="Year Level"
-                    android:padding="10dp"
-                    android:textSize="12sp"
                     android:fontFamily="@font/metropolis_light"
-                    android:textColorHint="@color/Text"
                     android:gravity="center_vertical"
+                    android:hint="Year Level"
                     android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColorHint="@color/Text"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/collegeStudent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -448,11 +468,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="500dp"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="gone"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
                 <Button
@@ -472,10 +491,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
         </LinearLayout>
