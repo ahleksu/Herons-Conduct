@@ -3,6 +3,7 @@ package com.umak.heronsconduct.reporter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.umak.heronsconduct.R;
+import com.umak.heronsconduct.register.Register_Student;
 
 public class Reporter extends AppCompatActivity {
 
@@ -31,6 +33,15 @@ public class Reporter extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.nav);
         btn = findViewById(R.id.add_btn);
         frameContainer = findViewById(R.id.container);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CreateIncidentReferral.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, reporterHomeFragment).commit();
 

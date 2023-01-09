@@ -28,6 +28,35 @@
         <item>Female</item>
     </string-array>
 
+    <!--ARRAY LIST FOR TYPE OF INCIDENT -->
+    <string-array name="incident">
+        <item>4.1.1 - Not wearing ID</item>
+        <item>4.1.2 - Not wearing prescribed school uniform</item>
+        <item>4.1.3 - Wearing of incomplete uniform</item>
+        <item>4.1.4 - Cross Dressing (for gays/lesbians)</item>
+        <item>4.1.5 - Wearing non-prescribed shoes</item>
+        <item>4.1.6 - Wearing of slippers</item>
+        <item>4.1.7 - Wearing of mini skirts and shorts</item>
+        <item>4.1.8 - Wearing of shirts/blouses with indecent pictures and prints</item>
+        <item>4.1.9 - Wearing of earrings (for males)</item>
+        <item>4.1.10 - Wearing of multiple earrings (for females)</item>
+        <item>4.1.11 - Make-Up (for males)</item>
+        <item>4.1.12 - Exhibiting rough behavior</item>
+        <item>4.1.13 - Using of vulgar, abusive or obscene language</item>
+        <item>4.1.14 - Loitering</item>
+        <item>4.1.15 - Littering</item>
+        <item>4.1.16 - Careless or unauthorized use of school property</item>
+        <item>4.1.17 Unauthorized posting of announcements, posters and notices in bulletin boards and the like</item>
+        <item>4.1.18 Violation of traffic rules along J.P. Rizal and inside the campus (Jaywalking)</item>
+    </string-array>
+
+    <!--ARRAY LIST FOR PARTIES INVOLVED-->
+    <string-array name="parties_involved">
+        <item>Offender</item>
+        <item>Witness</item>
+    </string-array>
+
+
     <string-array name="colleges">
         <item>Colleges</item>
         <item>Allied Health Studies</item>

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp"
+        cardElevation="10dp"
         >
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,10 +17,10 @@
 
 
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/not_wearingid"/>
+                android:src="@drawable/avatar_9"/>
 
 
             <LinearLayout
@@ -31,15 +30,38 @@
                 android:layout_marginLeft="10dp">
 
                 <TextView
-                    android:id="@+id/titleOfAcc"
+                    android:id="@+id/studList_item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Accountability"
+                    android:text="Student Name"
                     android:fontFamily="@font/metropolis_black"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_marginBottom="10dp"/>
 
+                <TextView
+                    android:id="@+id/studList_item_college"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="College"
+                    android:fontFamily="@font/metropolis_regular"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/studList_item_umak_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UMak Email"
+                    android:fontFamily="@font/metropolis_regular"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"/>
+
+
+
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -47,15 +69,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ID:"
+                        android:text="Accountabilities:"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/metropolis_regular"/>
+                        android:fontFamily="@font/metropolis_regularitalic"/>
                     <TextView
-                        android:id="@+id/accID"
+                        android:id="@+id/studList_num_acc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="ACC ID NUMBER"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:fontFamily="@font/metropolis_regular"/>
                 </LinearLayout>
@@ -67,35 +89,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="College:"
+                        android:text="Violations:"
                         android:textColor="@color/black"
-                        android:fontFamily="@font/metropolis_regular"/>
+                        android:fontFamily="@font/metropolis_regularitalic"/>
                     <TextView
-                        android:id="@+id/accCollege"
+                        android:id="@+id/studList_num_vio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="College"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/metropolis_regular"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Status:"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/metropolis_regular"/>
-                    <TextView
-                        android:id="@+id/accStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="Status"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:fontFamily="@font/metropolis_regular"/>
                 </LinearLayout>
@@ -123,14 +125,10 @@
 
 
 
-
-
             </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-
-
-</LinearLayout>
+</RelativeLayout>
