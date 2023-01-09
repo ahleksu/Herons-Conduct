@@ -1,6 +1,8 @@
 package com.umak.heronsconduct.admin;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,7 +12,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.umak.heronsconduct.general.FAQs;
 import com.umak.heronsconduct.login.Login;
@@ -19,10 +23,12 @@ import com.umak.heronsconduct.R;
 import com.umak.heronsconduct.general.TermsOfService;
 import com.umak.heronsconduct.general.AboutHeronsConduct;
 
+import org.w3c.dom.Text;
+
 
 public class AdminSettingsFragment extends Fragment {
 
-
+    Dialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +42,7 @@ public class AdminSettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         // About herons conduct
         LinearLayout about_settings_tab = view.findViewById(R.id.about_settings_tab);
