@@ -38,7 +38,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/discRecordStudent"
         android:layout_width="345dp"
-        android:layout_height="290dp"
+        android:layout_height="wrap_content"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_alignParentStart="true"
@@ -60,7 +60,7 @@
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/disc2"/>
+            android:background="@drawable/avatar_0"/>
 
 
             <TextView
@@ -175,6 +175,7 @@
                 android:text="Phone: "
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="160dp"
+                android:layout_marginBottom="20dp"
                 android:textSize="14sp"
                 android:fontFamily="@font/metropolis_light"
                 android:textColor="@color/black"
@@ -190,7 +191,7 @@
             android:layout_height="wrap_content"
             android:text="Middle"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="200dp"
+            android:layout_marginStart="210dp"
             android:textSize="16sp"
             android:fontFamily="@font/metropolis_black"
             android:textColor="@color/black"
@@ -284,14 +285,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="430dp"
         android:background="#D7D9E4" />
 
     <ImageView
-        android:layout_width="267dp"
-        android:layout_height="246dp"
+        android:layout_width="260dp"
+        android:layout_height="240dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="440dp"
         android:background="@drawable/disc1" />
 
     <TextView

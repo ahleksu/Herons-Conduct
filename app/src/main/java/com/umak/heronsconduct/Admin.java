@@ -43,23 +43,23 @@ public class Admin extends AppCompatActivity {
                     case R.id.home:
                         btn.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, adminHomeFragment).commit();
-                        Toast.makeText(Admin.this, "Home Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Admin.this, "Home Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.search:
                         btn.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, adminSearchFragment).commit();
-                        Toast.makeText(Admin.this, "Search Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Admin.this, "Search Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.stats:
                         btn.setVisibility(View.VISIBLE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, adminStatsFragment).commit();
-                        Toast.makeText(Admin.this, "Stats Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Admin.this, "Stats Page", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.settings:
                         btn.setVisibility(View.INVISIBLE);
                         btn.setClickable(false);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, adminSettingsFragment).commit();
-                        Toast.makeText(Admin.this, "Settings Page", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Admin.this, "Settings Page", Toast.LENGTH_SHORT).show();
                         break;
 
                     default:
