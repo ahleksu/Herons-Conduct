@@ -56,6 +56,15 @@
         <item>Witness</item>
     </string-array>
 
+    <!--ARRAY LIST FOR LOCATION OF INCIDENT-->
+    <string-array name="location">
+        <item>Building 1</item>
+        <item>Building 2</item>
+        <item>Building 3</item>
+        <item>HPSB</item>
+        <item>Admin Building</item>
+    </string-array>
+
 
     <string-array name="colleges">
         <item>Colleges</item>

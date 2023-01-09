@@ -83,6 +83,7 @@
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/parties_first_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -97,15 +98,15 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="First Name"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
-                        />
+                        android:hint="First Name"
+                        android:textColor="@color/black" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/parties_last_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -128,6 +129,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/parties_id_number"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -211,11 +213,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ref_date"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:endIconMode="clear_text"
-                    app:helperText="mm/dd/yyyy"
+                    app:helperText="MM/DD/YYYY"
                     >
                     <!--
 
@@ -235,6 +238,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ref_time"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -285,15 +289,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Location of Incident"
                         android:fontFamily="@font/metropolis_regular"
-                        android:textColor="@color/black"
+                        android:hint="Building"
                         android:inputType="none"
-                        />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ref_floor"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -320,6 +324,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ref_specific_area"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -338,7 +343,7 @@
                         android:hint="Specific Area"
                         android:fontFamily="@font/metropolis_regular"
                         android:textColor="@color/black"
-                        android:inputType="number"
+                        android:inputType="textLongMessage"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -354,6 +359,7 @@
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ref_description"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -373,6 +379,7 @@
                         android:fontFamily="@font/metropolis_regular"
                         android:textColor="@color/black"
                         android:inputType="textLongMessage"
+                        android:maxLines="10"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -380,11 +387,214 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parties Involved"
+                    android:text="Parties Involved:"
                     android:textSize="20sp"
                     android:fontFamily="@font/metropolis_semi_bold"
                     android:textColor="@color/Primary"
                     android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name of Offender"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/metropolis_regularitalic"
+                    android:textColor="@color/Primary"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fname_of_offender"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lname_of_offender"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idnum_offender"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ID Number"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name of Witness"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/metropolis_regularitalic"
+                    android:textColor="@color/Primary"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fname_of_witness"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lname_of_witness"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        android:inputType="text"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idnum_witness"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:endIconMode="clear_text"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <!--
+                    app:helperText="Required*"
+                    app:helperTextTextColor="@color/Error"
+
+                    -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ID Number"
+                        android:fontFamily="@font/metropolis_regular"
+                        android:textColor="@color/black"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/cancel_ref_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cancel"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/metropolis_semi_bold"
+                        android:elevation="10dp"
+                        android:backgroundTint="@color/white"
+                        android:textAllCaps="false"
+                        android:layout_marginRight="15dp"
+
+                        />
+                    <Button
+                        android:id="@+id/submit_ref_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Submit"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/metropolis_semi_bold"
+                        android:elevation="10dp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
 
 
             </LinearLayout>
