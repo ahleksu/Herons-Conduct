@@ -70,6 +70,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/Outline"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photo Evidence:"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/metropolis_semi_bold"
+                    android:textColor="@color/Primary"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/image_placeholder"
+                    android:background="@color/white"
+                    android:layout_gravity="center_horizontal"
+                    android:elevation="10dp"
+                    />
                 
                 <TextView
                     android:layout_width="wrap_content"
