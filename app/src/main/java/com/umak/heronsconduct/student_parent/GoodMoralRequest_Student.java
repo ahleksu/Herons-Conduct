@@ -2,6 +2,7 @@ package com.umak.heronsconduct.student_parent;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,20 +11,32 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.umak.heronsconduct.R;
 
 public class GoodMoralRequest_Student extends AppCompatActivity {
 
 
     ImageButton cancelButtonGD, cancelButtonGD1;
+    EditText edtReq_name_goodMoral;
 
-
+    //inititate FIrebase
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+     static final String TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +49,42 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
 
         Cancel_GoodMoral();
 
+        //getting the data from firestore method
+        getCredential();
+
+    }
+
+    private void getCredential() {
+
+        //TODO for student
+        firebaseFirestore.collection("Student").document(firebaseAuth.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        DocumentSnapshot documentSnapshot = task.getResult();
+
+                        //testing for getting all the data
+                        //Log.d(TAG, "Ang data is " + documentSnapshot.getData().toString());
+
+                        //testing for getting only the name column
+                        //Log.d("FIREBASE", "Name: " + documentSnapshot.get("first_name").toString() + " " + documentSnapshot.get("last_name").toString());
+                        edtReq_name_goodMoral.setText( documentSnapshot.get("first_name").toString() + " " + documentSnapshot.get("last_name").toString());
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+        //TODO for parent
     }
 
     public void Cancel_GoodMoral() {
@@ -53,7 +102,7 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
 
     public void req_goodMoral() {
 
-        EditText edtReq_name_goodMoral = findViewById(R.id.req_name_goodMoral);
+        edtReq_name_goodMoral = findViewById(R.id.req_name_goodMoral);
         EditText edtReq_umakEmail_goodmoral = findViewById(R.id.req_umakEmail_goodmoral);
         EditText edtReq_college_goodmoral = findViewById(R.id.req_college_goodmoral);
         EditText edtReq_idnumber_goodMoral = findViewById(R.id.req_idnumber_goodMoral);
