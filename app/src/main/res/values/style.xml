@@ -23,11 +23,17 @@
     <style name="TransparentToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowAnimationStyle">@style/animation</item>
     </style>
 
     <style name="imageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">51%</item>
+    </style>
+
+    <style name="animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
 
