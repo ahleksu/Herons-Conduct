@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<Accountability>"
+                    android:text="Accountability"
                     android:fontFamily="@font/metropolis_black"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="<ACC ID NUMBER>"
+                        android:text="ACC ID NUMBER"
                         android:textColor="@color/black"
                         android:fontFamily="@font/metropolis_regular"/>
                 </LinearLayout>
@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="<College>"
+                        android:text="College"
                         android:textColor="@color/black"
                         android:fontFamily="@font/metropolis_regular"/>
                 </LinearLayout>
@@ -94,7 +94,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="<Status>"
+                        android:text="Status"
                         android:textColor="@color/black"
                         android:fontFamily="@font/metropolis_regular"/>
                 </LinearLayout>
@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/metropolis_thin_italic"
-                    android:text="<Location>"
+                    android:text="Location"
                     android:textColor="@color/black"
                     android:layout_gravity="end|bottom"
                     android:layout_marginTop="20dp"
@@ -114,7 +114,7 @@
                     android:id="@+id/accTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="<Time>"
+                    android:text="Time"
                     android:textColor="@color/black"
                     android:fontFamily="@font/metropolis_thin_italic"
                     android:layout_gravity="end|bottom"
