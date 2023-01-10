@@ -39,6 +39,17 @@ public class StudentHomeFragment extends Fragment {
             }
         });
 
+        CardView studentAccountabilities = view.findViewById(R.id.studentAccountabilities);
+        studentAccountabilities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Accountabilities.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
     }
 }
