@@ -224,7 +224,7 @@ public class CreateIncidentReferral extends AppCompatActivity {
                                     addIncident.put("witnerss_id", witnerss_id.getText().toString());
                                     addIncident.put("witness_firstname", witness_firstname.getText().toString());
                                     addIncident.put("witness_lastname", last_name_witness.getText().toString());
-
+                                    addIncident.put("reported_by", firebaseAuth.getUid());
 
                                     firebaseFirestore.collection("Incident_referrals").add(addIncident).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
