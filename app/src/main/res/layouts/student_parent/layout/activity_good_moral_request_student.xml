@@ -8,8 +8,8 @@
     tools:context=".student_parent.GoodMoralRequest_Student">
 
 
-
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:background="@drawable/rectangle_goodmoral"
@@ -20,12 +20,12 @@
         tools:layout_editor_absoluteX="0dp">
 
         <ImageView
-            android:onClick="back_goodMoral"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginStart="6dp"
-            android:background="@drawable/leave_goodmoral_icon"/>
+            android:background="@drawable/leave_goodmoral_icon"
+            android:onClick="back_goodMoral" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -258,6 +258,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

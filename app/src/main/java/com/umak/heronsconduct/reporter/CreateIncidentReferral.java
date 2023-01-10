@@ -34,6 +34,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -182,8 +183,10 @@ public class CreateIncidentReferral extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Evidence is required" , Toast.LENGTH_SHORT).show();
                 } else if(!txt_firstname_reporter.getText().toString().equals("") || txt_lastname_reporter.getText().toString().equals("") || txt_date.getText().toString().equals("") || txt_time.getText().toString().equals("") || txt_floor.getText().toString().equals("") || txt_specific_area.getText().toString().equals("") || txt_description.getText().toString().equals("") || txt_firstname_parties.getText().toString().equals("") || txt_lastname_parties.equals("")|| txt_idnumber_parties.getText().toString().equals("")){
 
+
+
                     //get reference to firebase storage
-                    StorageReference uploadIncedental = uploadRefeecne.child("incedent/" + "");
+                    StorageReference uploadIncedental = uploadRefeecne.child("incedent/" + firebaseAuth.getCurrentUser().getEmail() + FieldValue.serverTimestamp() );
 
                     uploadIncedental.putFile(uri).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
