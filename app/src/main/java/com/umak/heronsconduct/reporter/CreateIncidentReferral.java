@@ -5,12 +5,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.inputmethodservice.KeyboardView;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -36,6 +40,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.umak.heronsconduct.R;
+import com.umak.heronsconduct.admin.AdminIncidentReferrals;
 import com.umak.heronsconduct.register.Register_Parent;
 
 import org.w3c.dom.Text;
@@ -70,7 +75,7 @@ public class CreateIncidentReferral extends AppCompatActivity {
     String reftypeOutput = "";
     String locationOutput = "";
     String icidentTypeOutput = "";
-
+    Dialog dialog;
 
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -224,7 +229,37 @@ public class CreateIncidentReferral extends AppCompatActivity {
                                     firebaseFirestore.collection("Incident_referrals").add(addIncident).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
-                                            Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
+                                            //Exit Dialog
+                                            dialog = new Dialog(CreateIncidentReferral.this);
+                                            dialog.setContentView(R.layout.custom_dialog);
+
+                                            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                                                dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
+                                            }
+
+                                            dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                            dialog.setCancelable(false);
+                                            dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+                                            //Custom Exit Dialog
+                                            Button ok = dialog.findViewById(R.id.ok_btn_id);
+
+                                            TextView text = dialog.findViewById(R.id.accCollege);
+
+                                            text.setText("Your report has been recorded");
+
+                                            ok.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View view) {
+                                                    Intent intent = new Intent(getApplicationContext(), Reporter.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            });
+
+                                            dialog.show();
+
+                                            //Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_SHORT).show();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override

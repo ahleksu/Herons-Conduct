@@ -1,5 +1,6 @@
 package com.umak.heronsconduct.admin.Adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class AdminReferalAdapter extends RecyclerView.Adapter<AdminReferalAdapter.MyViewHolder> {
 
     public final MyInterface myInterfaces;
+
 
 
     Context context;
@@ -54,7 +56,6 @@ public class AdminReferalAdapter extends RecyclerView.Adapter<AdminReferalAdapte
         holder.refTime.setText(adminReferalModels.get(position).getTime());
 
         Picasso.get().load(adminReferalModels.get(position).getImage()).error(R.drawable.placeholder).into(holder.image);
-
     }
 
 
