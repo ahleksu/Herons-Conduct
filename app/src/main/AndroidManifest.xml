@@ -19,6 +19,27 @@
         android:theme="@style/Theme.HeronsConduct"
         tools:targetApi="31">
         <activity
+            android:name=".admin.AdminStatisticsStudentReports"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.AdminStatisticsCollegeReports"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.AdminStatisticsIncidentReports"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".admin.AdminSearchReferrals"
             android:exported="false">
             <meta-data
@@ -123,7 +144,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".onboarding.SplashScreen"
             android:exported="true">
