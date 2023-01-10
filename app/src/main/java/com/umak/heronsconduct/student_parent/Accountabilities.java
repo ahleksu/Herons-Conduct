@@ -1,6 +1,7 @@
 package com.umak.heronsconduct.student_parent;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import com.umak.heronsconduct.R;
 public class Accountabilities extends AppCompatActivity {
 
     LinearLayout customActionBar;
-    RelativeLayout accContainer;
+    CardView accContainer;
     TextView collegeAcc, umakEmailAcc, studentIDAcc, addressAcc, bdayAcc, contactNumAcc, num_acc_id, num_vio_id;
     RecyclerView listofAcc;
     ImageView back_to_student_parent_home;
