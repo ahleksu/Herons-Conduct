@@ -6,12 +6,17 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +32,8 @@ import com.umak.heronsconduct.R;
 import com.umak.heronsconduct.admin.Adapter.AdminReferalAdapter;
 import com.umak.heronsconduct.admin.Adapter.MyInterface;
 import com.umak.heronsconduct.admin.Model.AdminReferalModel;
+import com.umak.heronsconduct.login.Login;
+import com.umak.heronsconduct.reporter.Reporter;
 
 import java.util.ArrayList;
 
@@ -36,6 +43,7 @@ public class AdminIncidentReferrals extends AppCompatActivity implements MyInter
     LinearLayout customActionBar;
     ImageView back_to_adminHome;
     RecyclerView incRefListAdmin;
+
 
 
     ArrayList<AdminReferalModel> adminReferalModels = new ArrayList<>();
@@ -95,6 +103,13 @@ public class AdminIncidentReferrals extends AppCompatActivity implements MyInter
                                 adminReferalModels.add(new AdminReferalModel(documentSnapshot.get("img_url").toString(), documentSnapshot.get("incidenttype").toString(),  documentSnapshot.getId(), "", documentSnapshot.get("firstname_reporter").toString() + " " +  documentSnapshot.get("lastname_reporter").toString(),  documentSnapshot.get("firstname_parties").toString() + " " + documentSnapshot.get("lastname_parties").toString(), documentSnapshot.get("time").toString(), documentSnapshot.get("lcoation").toString() ));
                                 x++;
                                 adminReferalAdapter.notifyItemChanged(adminReferalModels.size());
+
+
+
+
+
+
+
                             }
                         }
                     }
