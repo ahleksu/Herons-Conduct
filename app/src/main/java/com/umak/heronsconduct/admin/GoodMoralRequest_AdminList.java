@@ -1,5 +1,6 @@
 package com.umak.heronsconduct.admin;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,22 +10,30 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.umak.heronsconduct.R;
+import com.umak.heronsconduct.admin.Adapter.AdminGoodMoralRequestAdapter;
+import com.umak.heronsconduct.admin.Adapter.MyInterface;
+import com.umak.heronsconduct.admin.Model.GoodMoralRequestModel;
 
 import java.util.ArrayList;
 
-public class GoodMoralRequest_AdminList extends AppCompatActivity {
-    private ArrayList<GoodMoralRequest_AdminUser> usersList;
-    private RecyclerView recyclerView;
-
+public class GoodMoralRequest_AdminList extends AppCompatActivity implements MyInterface {
 
     LinearLayout customActionBar;
     ImageView back_to_adminHome;
     RecyclerView goodMoralRequestList;
 
+    //call and inititate Arrauylist Method
+    ArrayList<GoodMoralRequestModel> goodMoralRequestModels = new ArrayList<>();
 
-
+    //call adapter
+    AdminGoodMoralRequestAdapter adminGoodMoralRequestAdapter;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
     @Override
@@ -37,60 +46,45 @@ public class GoodMoralRequest_AdminList extends AppCompatActivity {
         goodMoralRequestList = findViewById(R.id.goodMoralRequestsList);
 
 
+        //inititiate Adapter
+        adminGoodMoralRequestAdapter = new AdminGoodMoralRequestAdapter(this, goodMoralRequestModels, this, "goodmoralrequest");
 
 
-
-
-//        recyclerView = findViewById(R.id.goodMoralRecyclerView);
-//        usersList = new ArrayList<>();
-//
-//        setUserInfo();
-//        setAdapter();
-
+        //setUpData
+        setUpData();
 
 
     }
 
-//    private void setAdapter() {
-//        GoodMoralRequest_AdminRecyclerAdapter adapter = new GoodMoralRequest_AdminRecyclerAdapter(usersList);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(adapter);
-//
-//    }
-
-    private void setUserInfo() {
-/*
-        firestore.collection("Student")
-                        .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                        if(task.isSuccessful()) {
-                            for(QuerySnapshot.getData() != null){
-                                usersList.add(new GoodMoralRequest_AdminUser(documentSnapshot.getId)),
-                                documentSnapshot.get("first_name").toString();
+    private void setUpData() {
+            firestore.collection("Good_Moral_Requests").get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                for(QueryDocumentSnapshot queryDocumentSnapshot: task.getResult()){
+                                       // public GoodMoralRequestModel(String id, String name_of_requestor, String requestor_college, String email_of_requestor, String date_of_request) {
+                                        goodMoralRequestModels.add(new GoodMoralRequestModel(queryDocumentSnapshot.getId(), queryDocumentSnapshot.get("requestor").toString(), queryDocumentSnapshot.get("college").toString(), queryDocumentSnapshot.get("umak_email").toString(), ""  ));
+                                        adminGoodMoralRequestAdapter.notifyItemChanged(goodMoralRequestModels.size());
+                                }
                             }
                         }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+        goodMoralRequestList.setAdapter(adminGoodMoralRequestAdapter);
+        goodMoralRequestList.setLayoutManager(new LinearLayoutManager(this));
+    }
 
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(GoodMoralRequest_AdminList.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
 
- */
 
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
-//        usersList.add(new GoodMoralRequest_AdminUser("Howard","hbayquen.UmakEmail","CCIS","1-7-2023", "2am"));
+    @Override
+    public void onItemClick(int pos, String onclick) {
+
     }
 }

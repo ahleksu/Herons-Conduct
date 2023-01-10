@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -175,11 +176,12 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
                     openDialogError();
                 } else {
 
-                    HashMap<String, String> requestCertificate = new HashMap<>();
+                    HashMap<String, Object> requestCertificate = new HashMap<>();
                     requestCertificate.put("student_id", req_idNumberGoodMoral);
                     requestCertificate.put("requestor", req_nameGoodMoral);
                     requestCertificate.put("umak_email", req_EmailGoodMoral);
                     requestCertificate.put("college", req_collegeGoodMoral);
+                    requestCertificate.put("requested_on", FieldValue.serverTimestamp());
 
                     firebaseFirestore.collection("Good_Moral_Requests")
                             .add(requestCertificate).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
