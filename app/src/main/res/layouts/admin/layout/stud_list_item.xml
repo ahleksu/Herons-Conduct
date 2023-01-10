@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         cardElevation="10dp"
+
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:orientation="horizontal"
-            android:padding="15dp">
+            >
 
 
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/avatar_9"/>
+                android:id="@+id/img_profile"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/avatar_0"
+                app:shapeAppearance="?attr/actionButtonStyle"
+                app:shapeAppearanceOverlay="@style/imageViewRounded"
+                app:strokeColor="@android:color/white"/>
 
 
             <LinearLayout
@@ -109,7 +122,6 @@
                     android:fontFamily="@font/metropolis_thin_italic"
                     android:text="Location"
                     android:textColor="@color/black"
-                    android:layout_gravity="end|bottom"
                     android:layout_marginTop="20dp"
                     />
 

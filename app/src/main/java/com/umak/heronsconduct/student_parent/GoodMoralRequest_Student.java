@@ -194,7 +194,6 @@ public class GoodMoralRequest_Student extends AppCompatActivity {
                                 }
                             });
                 }
-
             }
         });
     }
